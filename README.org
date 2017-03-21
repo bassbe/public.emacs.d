@@ -1,3 +1,5 @@
+-*- mode:org -*-
+
 * public.emacs.d
 
 ** Portable (Hopefully) EMACS Configuration
@@ -5,6 +7,23 @@
   A rebuild of my emacs config to tidy things up and make it portable to other
   machines.
 
-  As it turns out, GitHub reads .org files as markdown. This is fantastic!
+  As it turns out, GitHub reads .org files as markdown.
+  
+  Org mode also displays:
+  - bullet
+  - points
+    + with indentation
+      * ...lots of it
+  - and
+  - ~think this is supposed to be code, with ~'s on each side~
+  - =this as well, made with ='s on either end of the text=
+  - *bolded*
+  - _underlined_
+  - /italicized/
+  - _/*ALL THREE AT ONCE*/_
+
+#+BEGIN_SRC emacs-lisp 
+(format t "God Save GitHub & %s" emacs-lisp)
+#+END_SRC
 
 ** [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
