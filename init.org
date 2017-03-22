@@ -11,7 +11,7 @@
 :header-args:emacs-lisp: :tangle ../.emacs
 :END:
 
-** Packages
+** Cask & Packages
 
 #+BEGIN_SRC emacs-lisp
   ;; packages
@@ -1005,6 +1005,8 @@ Do not ask before evaluating code blocks.
    encrypt and push or not.
 
 * Emacs Stuff
+** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/1]
+*** TODO Pomidor Timer
 ** Blogs
 *** [[http://www.lunaryorn.com/index.html][Lunaryorn]]
 *** [[http://irreal.org/blog/][Irreal]]
@@ -1026,3 +1028,8 @@ Do not ask before evaluating code blocks.
 ** Scripting
 *** [[http://www.lunaryorn.com/posts/emacs-script-pitfalls.html][Scripting Pitfalls in Emacs]]
 *** [[http://tldp.org/LDP/abs/html/abs-guide.html][Advanced Bash Scripting Guide]]
+** Mastering Git
+
+- [[https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#6089415][Setting Upsreams]]
+
+** [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
