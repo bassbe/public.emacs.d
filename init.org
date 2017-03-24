@@ -10,7 +10,10 @@
 :PROPERTIES:
 :header-args:emacs-lisp: :tangle ../.emacs
 :END:
-
+** Neotree
+#+BEGIN_SRC emacs-lisp
+(setq neo-window-width 32)
+#+END_SRC
 ** Cask & Packages
 
 #+BEGIN_SRC emacs-lisp
@@ -32,6 +35,13 @@
 ** Appearance [User Interface]
 *** Color Themes
 
+  This is my directory where I store themes I find on the internet.
+  Still not sure how comfortable I am executingother people's unchecked lisp code.
+
+#+BEGIN_SRC emacs-lisp 
+  ;; (setq custom-theme-directory "~/.emacs.d/themes/")
+#+END_SRC
+
   Notice the important difference between /color themes/ and /customize themes/.
   I'm using color themes here because they can be reversed easily.
 
@@ -45,6 +55,13 @@
   ;;    '(progn
   ;;       (color-theme-initialize)
   ;;       (color-theme-calm-forest)))
+#+END_SRC
+
+
+  Set theme to Wombat
+
+#+BEGIN_SRC emacs-lisp 
+(setq custom-enabled-themes '(wombat))
 #+END_SRC
 
 ** General Default Modes & Preferences
