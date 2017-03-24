@@ -26,8 +26,6 @@
 (format t "God Save GitHub & %s" emacs-lisp)
 #+END_SRC
 
-** [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
 
-** Mastering Git
 
-- [[https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#6089415][Setting Upsreams]]
+

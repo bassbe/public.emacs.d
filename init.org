@@ -11,7 +11,7 @@
 :header-args:emacs-lisp: :tangle ../.emacs
 :END:
 
-** Packages
+** Cask & Packages
 
 #+BEGIN_SRC emacs-lisp
   ;; packages
@@ -50,6 +50,13 @@
 ** General Default Modes & Preferences
 
 #+BEGIN_SRC emacs-lisp 
+  (scroll-bar-mode -1)                   ; delete scroll bar
+  (global-linum-mode t)                  ; Always show line numbers
+  (tool-bar-mode -1)                     ; Delete Toolbar
+  (put 'narrow-to-page 'disabled nil)     ; enable narrowing page
+  (put 'upcase-region 'disabled nil)      ; enable 'upcase-region
+  (fset 'yes-or-no-p 'y-or-n-p)           ; y-or-n instead of "yes/no" on prompts.
+
   (column-number-mode 1)                  ; Display column numbers
   (show-paren-mode t)                     ; Show matching parentheses
   (blink-cursor-mode t)                   ; Blink cursor (easier to find)
@@ -66,11 +73,7 @@
   (setq undo-limit 3600)                  ; increase number of undo enteries
   (put 'narrow-to-page 'disabled nil)     ; enable narrowing page
   (put 'upcase-region 'disabled nil)      ; enable 'upcase-region
-  (fset 'yes-or-no-p 'y-or-n-p)           ; y-or-n instead of "yes/no" on prompts.
-
-
-  ;;(tool-bar-mode -1)                   ; Delete toolbar
-  ;;(global-linum-mode t)                ; Always show line numbers
+  (fset 'yes-or-no-p 'y-or-n-p)           ; y-or-n instead of "yes/no" on prompts.b
 #+END_SRC
 
 ** Key Bindings
@@ -1005,6 +1008,8 @@ Do not ask before evaluating code blocks.
    encrypt and push or not.
 
 * Emacs Stuff
+** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/1]
+*** TODO Pomidor Timer
 ** Blogs
 *** [[http://www.lunaryorn.com/index.html][Lunaryorn]]
 *** [[http://irreal.org/blog/][Irreal]]
@@ -1026,3 +1031,8 @@ Do not ask before evaluating code blocks.
 ** Scripting
 *** [[http://www.lunaryorn.com/posts/emacs-script-pitfalls.html][Scripting Pitfalls in Emacs]]
 *** [[http://tldp.org/LDP/abs/html/abs-guide.html][Advanced Bash Scripting Guide]]
+** Mastering Git
+
+- [[https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#6089415][Setting Upsreams]]
+
+** [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
