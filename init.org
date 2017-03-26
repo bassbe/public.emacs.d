@@ -37,7 +37,6 @@
 
   Here, I load the Calm Forest color theme after (?) color theme is somehow loaded.
 
-#+NAME: Color Theme Loading
 #+BEGIN_SRC emacs-lisp 
   ;; (load-library "color-theme")
 
@@ -706,6 +705,7 @@ Do not ask before evaluating code blocks.
 #+BEGIN_SRC emacs-lisp 
   ;; (global-set-key (kbd "M-/") 'hippie-expand)
 #+END_SRC
+*** Spelling
 ** Native Emacs Packages
 *** PlantUml						  :unused:perMachine:
 
@@ -801,6 +801,7 @@ Do not ask before evaluating code blocks.
    (global-set-key (kbd "C-c s") #'tea-time)
 
 #+END_SRC
+*** EMMS
 *** AucTeX
 
 #+BEGIN_SRC emacs-lisp 
@@ -1010,6 +1011,19 @@ Do not ask before evaluating code blocks.
 * Emacs Stuff
 ** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/1]
 *** TODO Pomidor Timer
+** Packages to Look Into
+FixTeme-theme.el		mouse3.el
+facemenu+.el			org-clock-save.el
+fill-column-indicator.el	projectile-bookmarks.eld
+flyspell-1.7q.el		saveplace.el
+FixTeme-theme.el		projectile-bookmarks.eld
+facemenu+.el			rainbow-blocks.el
+facemenu+.el~			rainbow-blocks.elc
+fill-column-indicator.el	rainbow-delimiters.el
+flyspell-1.7q.el		rainbow-delimiters.elc
+highlight.el			saveplace.el
+mouse3.el			tea-time.el
+org-clock-save.el		verilog-mode.el
 ** Blogs
 *** [[http://www.lunaryorn.com/index.html][Lunaryorn]]
 *** [[http://irreal.org/blog/][Irreal]]
