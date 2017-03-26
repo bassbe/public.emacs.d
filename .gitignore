@@ -1,2 +1,6 @@
 .emacs.desktop
 .DS_Store
+.cask/
+.cask
+auto-save-list/
+auto-save-list
