@@ -26,6 +26,11 @@
 (format t "God Save GitHub & %s" emacs-lisp)
 #+END_SRC
 
+** Instructions
 
-
-
+  - comment out the require cask, and cask-initialize line
+  - Download and install Cask
+    + while emacs is closed, run cask install
+  - run the 'cask' command, which will download and install all the packages
+  - upadte packges with: 'cask update'
+  - 
