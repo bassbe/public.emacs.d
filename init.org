@@ -10,6 +10,7 @@
 :PROPERTIES:
 :header-args:emacs-lisp: :tangle ../.emacs
 :END:
+
 ** Cask & Packages
 
 #+BEGIN_SRC emacs-lisp
@@ -36,24 +37,35 @@
 ** Appearance [User Interface]
 *** Color Themes
 
+  This is my directory where I store themes I find on the internet.
+  Still not sure how comfortable I am executingother people's unchecked lisp code.
+
+#+BEGIN_SRC emacs-lisp 
+  ;; (setq custom-theme-directory "~/.emacs.d/themes/")
+#+END_SRC
+
   Notice the important difference between /color themes/ and /customize themes/.
   I'm using color themes here because they can be reversed easily.
 
   Here, I load the Calm Forest color theme after (?) color theme is somehow loaded.
 
 #+BEGIN_SRC emacs-lisp 
-  ;; (load-library "color-theme")
+      (add-to-list 'load-path "~/.emacs.d/themes/color-theme-6.6.0")
+      (require 'color-theme)
+      (eval-after-load "color-theme"
+        '(progn
+           (color-theme-initialize)
+           ;; (color-theme-hober)
 
-  ;;  (eval-after-load "color-theme"
-  ;;    '(progn
-  ;;       (color-theme-initialize)
-  ;;       (color-theme-calm-forest)))
+           ;; This is the current theme in emacs
+           (color-theme-calm-forest)))
 #+END_SRC
 
 *** Set Color Theme
 #+BEGIN_SRC emacs-lisp
   ;; (setq custom-enabled-themes 'wombat)
 #+END_SRC
+
 ** General Default Modes & Preferences
 
 #+BEGIN_SRC emacs-lisp 
