@@ -767,8 +767,11 @@ Do not ask before evaluating code blocks.
 #+END_SRC
 
 *** Ido
+  
+  - [[http://stackoverflow.com/questions/21918151/change-location-of-ido-last-history-file-in-emacs-on-windows][SO: Change Location of IDO History File (ido.last)]]
+  
 #+BEGIN_SRC emacs-lisp 
-;; ido.last file should be in .emacs.d/machine-specific/
+  (setq ido-save-directory-list-file "~/.emacs.d/machine-specific/")
 #+END_SRC
 *** FCI								     :unused:
 #+BEGIN_SRC emacs-lisp 
