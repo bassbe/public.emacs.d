@@ -1,6 +1,10 @@
+*~
 .emacs.desktop
+.emacs.desktop.lock
 .DS_Store
 .cask/
 .cask
 auto-save-list/
 auto-save-list
+smex-items/
+smex-items
