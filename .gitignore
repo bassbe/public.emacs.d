@@ -6,8 +6,6 @@
 .cask
 auto-save-list/
 auto-save-list
-smex-items/
-smex-items
 ido.last/
 ido.last
 custom.el
