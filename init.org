@@ -747,6 +747,10 @@ Do not ask before evaluating code blocks.
   ;;       (expand-file-name "~/.emacs.d/plantuml.jar"))
 #+END_SRC
 
+*** Ido
+#+BEGIN_SRC emacs-lisp 
+;; ido.last file should be in .emacs.d/machine-specific/
+#+END_SRC
 *** FCI								     :unused:
 #+BEGIN_SRC emacs-lisp 
   (setq fci-rule-color "#424242")         ; set line color
@@ -810,6 +814,7 @@ Do not ask before evaluating code blocks.
 *** Smex
 
 #+BEGIN_SRC emacs-lisp
+  (setq smex-save-file "~/.emacs.d/machine-specific/smex-items")
   (global-set-key (kbd "M-x") 'smex)
 #+END_SRC
 
