@@ -110,15 +110,6 @@
   (global-set-key (kbd "s-{") #'previous-multiframe-window)
 #+END_SRC
 
-*** Programming
-
-  For ease of use, set shortcut for compile.
-
-#+BEGIN_SRC emacs-lisp 
-  ;; (global-set-key (kbd "C-;") 'compile)
-  ;; (global-set-key (kbd "C-j") ‘ido-select-text)
-#+END_SRC
-
 ** Customizations File
 
 #+BEGIN_SRC emacs-lisp 
@@ -689,7 +680,18 @@ Do not ask before evaluating code blocks.
   ;;             ;;(dired-omit-mode 1)
   ;;             ))
 #+END_SRC
-** Programming Modes
+** Programming
+*** Keybindings
+
+  For ease of use, set shortcut for compile.
+
+#+BEGIN_SRC emacs-lisp 
+  ;; (global-set-key (kbd "C-;") 'compile)
+  ;; (global-set-key (kbd "C-j") ‘ido-select-text)
+#+END_SRC
+
+
+
 *** Java
 **** JDEE
 
@@ -892,9 +894,12 @@ Do not ask before evaluating code blocks.
 #+END_SRC
 
 *** Magit
+  
+  - [[https://magit.vc/manual/magit/Status-buffer.html][Magit Key Binging Suggestion]]
 
 #+BEGIN_SRC emacs-lisp 
   ;; (setq magit-merge-arguments (quote ("--ff-only")))
+  (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
 
 *** Minimap
@@ -1041,18 +1046,22 @@ Do not ask before evaluating code blocks.
 ** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/1]
 *** TODO Pomidor Timer
 ** Packages to Look Into
-FixTeme-theme.el		mouse3.el
-facemenu+.el			org-clock-save.el
-fill-column-indicator.el	projectile-bookmarks.eld
-flyspell-1.7q.el		saveplace.el
-FixTeme-theme.el		projectile-bookmarks.eld
-facemenu+.el			rainbow-blocks.el
-facemenu+.el~			rainbow-blocks.elc
-fill-column-indicator.el	rainbow-delimiters.el
-flyspell-1.7q.el		rainbow-delimiters.elc
-highlight.el			saveplace.el
-mouse3.el			tea-time.el
-org-clock-save.el		verilog-mode.el
+  - [ ] FixTeme-theme.el
+  - [ ] mouse3.el
+  - [ ] facemenu+.el
+  - [ ] org-clock-save.el
+  - [ ] fill-column-indicator.el
+  - [ ] projectile-bookmarks.eld
+  - [ ] flyspell-1.7q.el
+  - [ ] saveplace.el
+  - [ ] rainbow-blocks.el
+  - [ ] facemenu+.el~
+  - [ ] rainbow-blocks.elc
+  - [ ] rainbow-delimiters.el
+  - [ ] rainbow-delimiters.elc
+  - [ ] highlight.el
+  - [ ] tea-time.el
+  - [ ] verilog-mode.el
 ** Blogs
 *** [[http://www.lunaryorn.com/index.html][Lunaryorn]]
 *** [[http://irreal.org/blog/][Irreal]]
