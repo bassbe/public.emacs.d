@@ -50,12 +50,15 @@
   Here, I load the Calm Forest color theme after (?) color theme is somehow loaded.
 
 #+BEGIN_SRC emacs-lisp 
-  ;; (load-library "color-theme")
+      (add-to-list 'load-path "~/.emacs.d/themes/color-theme-6.6.0")
+      (require 'color-theme)
+      (eval-after-load "color-theme"
+        '(progn
+           (color-theme-initialize)
+           ;; (color-theme-hober)
 
-  ;;  (eval-after-load "color-theme"
-  ;;    '(progn
-  ;;       (color-theme-initialize)
-  ;;       (color-theme-calm-forest)))
+           ;; This is the current theme in emacs
+           (color-theme-calm-forest)))
 #+END_SRC
 
 *** Set Color Theme
