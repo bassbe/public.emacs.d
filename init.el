@@ -2,6 +2,13 @@
 
 ;;;; From: https://github.com/wasamasa/dotemacs/blob/master/init.el
 ;; from wasamasa
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (defmacro with-timer (&rest forms)
   "Run the given FORMS, counting and displaying the elapsed time."
   (declare (indent 0))

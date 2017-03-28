@@ -10,8 +10,12 @@
 :PROPERTIES:
 :header-args:emacs-lisp: :tangle ../.emacs
 :END:
-
 ** Cask & Packages
+
+#+BEGIN_SRC emacs-lisp
+  (require 'cask "~/.cask/cask.el")
+  (cask-initialize)
+#+END_SRC
 
 #+BEGIN_SRC emacs-lisp
   ;; packages
@@ -24,7 +28,7 @@
 ** Startup
   
 #+BEGIN_SRC emacs-lisp
-  (desktop-save-mode 1)                   ; ?
+  ;; (desktop-save-mode 1)                   ; ?
   (setq inhibit-startup-message t)        ; no startup message
   (setq initial-scratch-message "")       ; Scratch Message
 #+END_SRC
@@ -46,6 +50,10 @@
   ;;       (color-theme-calm-forest)))
 #+END_SRC
 
+*** Set Color Theme
+#+BEGIN_SRC emacs-lisp
+  ;; (setq custom-enabled-themes 'wombat)
+#+END_SRC
 ** General Default Modes & Preferences
 
 #+BEGIN_SRC emacs-lisp 
@@ -97,6 +105,12 @@
 #+BEGIN_SRC emacs-lisp 
   ;; (global-set-key (kbd "C-;") 'compile)
   ;; (global-set-key (kbd "C-j") ‘ido-select-text)
+#+END_SRC
+
+** Customizations File
+
+#+BEGIN_SRC emacs-lisp 
+  (setq custom-file "~/.emacs.d/lisp/init-customizations.el")
 #+END_SRC
 
 ** Not Sure If These Work
@@ -416,18 +430,23 @@
    Org already supports some templates: [[http://orgmode.org/manual/Easy-Templates.html][Easy Templates]]
    But you can also write your own: [[https://emacs.stackexchange.com/questions/12841/quickly-insert-source-blocks-in-org-mode][Quickly Insert Source Blocks in Org Mode]]
 
-   This is the autocomplete <el thing for org mode 
+   This is the autocomplete <el thing for org mode.
 
 #+BEGIN_SRC emacs-lisp 
-  (add-to-list 'org-structure-template-alist
-               '("el" "?\n#+BEGIN_SRC emacs-lisp \n\n#+END_SRC"))
+  ;; there's an error somewhere here
+  ;; (add-to-list 'org-structure-template-alist
+  ;;               '("el" "?\n#+BEGIN_SRC emacs-lisp \n\n#+END_SRC"))
 #+END_SRC
-
 *** Org Bullets & Lists 					     :unused: 
 #+BEGIN_SRC emacs-lisp 
   ;; ------------------------------------------------------------------------------
   ;; Unused
   ;; ------------------------------------------------------------------------------
+
+
+  ;; Uncomment when I know how to fit it in with my workflow. Right now I'm not sure
+  ;; I want it. Look into the emacs for writers talk and how he uses bullet-points
+  ;; in org .
 
   ;; (require 'org-bullets)
   ;; (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -435,8 +454,6 @@
   ;; (setq org-bullets-bullet-list '("☭" "⚛" "☩" "☣" "▶" "◉" "○" "✸" "✿" "▣"))
 
 
-
-  ;; Look into the emacs for writers talk and how he uses bullet-points in org 
 #+END_SRC
 
 *** Org Babel							     :unused:
@@ -445,11 +462,11 @@
 
 #+BEGIN_SRC emacs-lisp 
   ;; active Org-babel languages
-  ;; (org-babel-do-load-languages
-  ;;    'org-babel-load-languages
-  ;;    '(;; other languages
-  ;;      (latex . t)
-  ;;      (plantuml . t)))
+  (org-babel-do-load-languages
+     'org-babel-load-languages
+     '(;; other languages
+       (latex . t)
+       (plantuml . t)))
 #+END_SRC
 
 After source block, add ~#+results: filename.png~
@@ -764,22 +781,22 @@ Do not ask before evaluating code blocks.
 *** Web Mode
 
 #+BEGIN_SRC emacs-lisp
-  (require 'web-mode)
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+   (require 'web-mode)
+   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+   (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+   (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 #+END_SRC
 
 *** Smex
 
 #+BEGIN_SRC emacs-lisp
-    (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-x") 'smex)
 #+END_SRC
 
 *** Tea Time
@@ -790,15 +807,15 @@ Do not ask before evaluating code blocks.
   ;; /Library/Sounds/
   ;; /Users/< username >/Library/Sounds/
 
-   (require 'tea-time)
-   (setq tea-time-sound "/System/Library/Sounds/Blow.aiff")
+;;   (require 'tea-time)
+;;   (setq tea-time-sound "/System/Library/Sounds/Blow.aiff")
 
   ;; Required for Mac OS X
   ;; You can customize the sound command variable to any player you want
   ;; where %s will be the sound file configured at tea-time-sound setting
   (setq tea-time-sound-command "afplay %s")
 
-   (global-set-key (kbd "C-c s") #'tea-time)
+;;   (global-set-key (kbd "C-c s") #'tea-time)
 
 #+END_SRC
 *** EMMS
@@ -839,27 +856,27 @@ Do not ask before evaluating code blocks.
   Load Crux if it hasn't already been.
 
 #+BEGIN_SRC emacs-lisp 
-  ;; -----------------------------------------------------------------------------
-  ;; Somehow Install it
-  ;; -----------------------------------------------------------------------------
+    ;; -----------------------------------------------------------------------------
+    ;; Somehow Install it
+    ;; -----------------------------------------------------------------------------
 
-  ;; (unless (package-installed-p 'crux)
-  ;;   (package-refresh-contents)
-  ;;   (package-install 'crux))
+    ;; (unless (package-installed-p 'crux)
+    ;;   (package-refresh-contents)
+    ;;   (package-install 'crux))
 
-  (require 'crux)
+  ;;  (require 'crux)
 
-  ;; -----------------------------------------------------------------------------
-  ;; Crux Key Bindings    
-  ;; https://github.com/bbatsov/crux#keybindings
-  ;; -----------------------------------------------------------------------------
+    ;; -----------------------------------------------------------------------------
+    ;; Crux Key Bindings    
+    ;; https://github.com/bbatsov/crux#keybindings
+    ;; -----------------------------------------------------------------------------
 
-  (global-set-key (kbd "C-c o") #'reveal-in-osx-finder)
-  (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
-  (global-set-key (kbd "C-c u") #'crux-view-url)
-  (global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
-  (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
-  (global-set-key (kbd "C-c D") #'crux-delete-file-and-buffer)
+    ;; (global-set-key (kbd "C-c o") #'reveal-in-osx-finder)
+    ;; (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
+    ;; (global-set-key (kbd "C-c u") #'crux-view-url)
+    ;; (global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
+    ;; (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+    ;; (global-set-key (kbd "C-c D") #'crux-delete-file-and-buffer)
 #+END_SRC
 
 *** Magit
@@ -961,11 +978,11 @@ Do not ask before evaluating code blocks.
   Specify customization file name.
 
 #+BEGIN_SRC emacs-lisp 
-  (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  ;; (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+  ;; (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-  (require 'init-security)
-  (require 'init-per-machine)
+  ;; (require 'init-security)
+  ;; (require 'init-per-machine)
 #+END_SRC
 
 ** Not Yet Organized
