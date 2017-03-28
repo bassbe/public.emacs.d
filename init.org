@@ -235,6 +235,25 @@
   
 *** Notmuchmail
 *** 
+** Backup Files (~)
+
+  [[http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files][SO: Control Backup Files]]
+
+#+BEGIN_SRC emacs-lisp 
+
+  (setq backup-directory-alist `(("." . "~/.emacs.d/machine-specific/backup-files")))
+  (setq backup-by-copying t)
+
+
+  ;; Haven't decided if I want these...
+  ;; (setq delete-old-versions t
+  ;;   kept-new-versions 6
+  ;;   kept-old-versions 2
+  ;;   version-control t)
+
+  ;; (setq make-backup-files nil)
+#+END_SRC
+
 ** Mode Line
 *** Smart Mode Line						     :unused:
 
