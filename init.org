@@ -814,8 +814,8 @@ Do not ask before evaluating code blocks.
 *** Smex
 
 #+BEGIN_SRC emacs-lisp
-  (setq smex-save-file "~/.emacs.d/machine-specific/smex-items")
   (global-set-key (kbd "M-x") 'smex)
+  (setq smex-save-file "~/.emacs.d/")
 #+END_SRC
 
 *** Tea Time
