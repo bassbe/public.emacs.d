@@ -9,6 +9,8 @@
 .DS_Store
 old.emacs.d/
 old.emacs.d
+old.public.emacs.d/
+old.public.emacs.d
 *~
 
 # Shouldn't Be Made-------------------------------------------------------------
