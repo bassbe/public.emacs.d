@@ -235,6 +235,25 @@
   
 *** Notmuchmail
 *** 
+** Backup Files (~)
+
+  [[http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files][SO: Control Backup Files]]
+
+#+BEGIN_SRC emacs-lisp 
+
+  (setq backup-directory-alist `(("." . "~/.emacs.d/machine-specific/backup-files")))
+  (setq backup-by-copying t)
+
+
+  ;; Haven't decided if I want these...
+  ;; (setq delete-old-versions t
+  ;;   kept-new-versions 6
+  ;;   kept-old-versions 2
+  ;;   version-control t)
+
+  ;; (setq make-backup-files nil)
+#+END_SRC
+
 ** Mode Line
 *** Smart Mode Line						     :unused:
 
@@ -747,6 +766,13 @@ Do not ask before evaluating code blocks.
   ;;       (expand-file-name "~/.emacs.d/plantuml.jar"))
 #+END_SRC
 
+*** Ido
+  
+  - [[http://stackoverflow.com/questions/21918151/change-location-of-ido-last-history-file-in-emacs-on-windows][SO: Change Location of IDO History File (ido.last)]]
+  
+#+BEGIN_SRC emacs-lisp 
+  (setq ido-save-directory-list-file "~/.emacs.d/machine-specific/")
+#+END_SRC
 *** FCI								     :unused:
 #+BEGIN_SRC emacs-lisp 
   (setq fci-rule-color "#424242")         ; set line color
@@ -811,6 +837,7 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-x") 'smex)
+  (setq smex-save-file "~/.emacs.d/")
 #+END_SRC
 
 *** Tea Time

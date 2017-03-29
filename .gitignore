@@ -1,12 +1,23 @@
-*~
+
+# Too big to push to git--------------------------------------------------------
+.cask/
+.cask
+
+# Machine Specific--------------------------------------------------------------
 .emacs.desktop
 .emacs.desktop.lock
 .DS_Store
-.cask/
-.cask
-auto-save-list/
-auto-save-list
-smex-items/
-smex-items
+old.emacs.d/
+old.emacs.d
+*~
+
+# Shouldn't Be Made-------------------------------------------------------------
+custom.el
+
+# ???---------------------------------------------------------------------------
 ido.last/
 ido.last
+auto-save-list/
+auto-save-list
+diary
+journal/

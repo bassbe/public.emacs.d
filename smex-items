@@ -1,0 +1,21 @@
+
+;; ----- smex-history -----
+(
+ desktop-save
+ desktop-change-dir
+ customize
+ magit-status
+ color-theme-select
+ color-theme-ld-dark
+ cd
+)
+
+;; ----- smex-data -----
+(
+ (magit-status . 4)
+ (color-theme-ld-dark . 1)
+ (color-theme-select . 3)
+ (desktop-save . 4)
+ (customize . 1)
+ (desktop-change-dir . 1)
+)
