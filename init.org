@@ -88,7 +88,7 @@
   (delete-selection-mode t)               ; Delete highlighted section if followed by typing
   (setq ido-enable-flex-matching t)       ; ?
   (setq ido-everywhere t)                 ; ? (how is it different)
-  (setq visible-bell nil)                 ; ? (not working)
+  (setq visible-bell t)                   ; ? (not working)
   (setq undo-limit 3600)                  ; increase number of undo enteries
   (put 'narrow-to-page 'disabled nil)     ; enable narrowing page
   (put 'upcase-region 'disabled nil)      ; enable 'upcase-region
