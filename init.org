@@ -11,7 +11,7 @@
 :header-args:emacs-lisp: :tangle ../.emacs
 :END:
 
-** Cask & Packages
+** Cask & Packages						 :understand:
 
 #+BEGIN_SRC emacs-lisp
   (require 'cask "~/.cask/cask.el")
@@ -26,7 +26,8 @@
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
     )
 #+END_SRC
-** Startup
+
+** Startup							       :done:
   
 #+BEGIN_SRC emacs-lisp
   ;; (desktop-save-mode 1)                   ; ?
@@ -35,13 +36,13 @@
 #+END_SRC
 
 ** Appearance [User Interface]
-*** Color Themes
+*** Color Themes						 :understand:
 
   This is my directory where I store themes I find on the internet.
   Still not sure how comfortable I am executingother people's unchecked lisp code.
 
 #+BEGIN_SRC emacs-lisp 
-  ;; (setq custom-theme-directory "~/.emacs.d/themes/")
+  (setq custom-theme-directory "~/.emacs.d/themes/")
 #+END_SRC
 
   Notice the important difference between /color themes/ and /customize themes/.
@@ -55,13 +56,15 @@
       (eval-after-load "color-theme"
         '(progn
            (color-theme-initialize)
-           ;; (color-theme-hober)
 
            ;; This is the current theme in emacs
            (color-theme-calm-forest)))
 #+END_SRC
 
 *** Set Color Theme
+  
+  This is what I used to have. Not easily reversable. Would not recommend.
+
 #+BEGIN_SRC emacs-lisp
   ;; (setq custom-enabled-themes 'wombat)
 #+END_SRC
@@ -72,7 +75,8 @@
   (scroll-bar-mode -1)                   ; delete scroll bar
   (global-linum-mode t)                  ; Always show line numbers
   (tool-bar-mode -1)                     ; Delete Toolbar
-  (put 'narrow-to-page 'disabled nil)     ; enable narrowing page
+  (put 'narrow-to-page 'disabled nil)    ; enable narrowing page
+  (put 'narrow-to-region 'disabled nil)  ; enable narrowing page
   (put 'upcase-region 'disabled nil)      ; enable 'upcase-region
   (fset 'yes-or-no-p 'y-or-n-p)           ; y-or-n instead of "yes/no" on prompts.
 
@@ -80,19 +84,17 @@
   (show-paren-mode t)                     ; Show matching parentheses
   (blink-cursor-mode t)                   ; Blink cursor (easier to find)
   (mouse-avoidance-mode 'banish)          ; Hide mouse once typing starts
-
   (electric-pair-mode t)                  ; Pair parens, quotes, brackes
   (global-visual-line-mode t)             ; wraps lines so they don't go off screen
   (transient-mark-mode 1)                 ; Highlight region
   (ido-mode 1)                            ; enable IDO mode
   (delete-selection-mode t)               ; Delete highlighted section if followed by typing
+
+  (setq undo-limit 3600)                  ; increase number of undo enteries
   (setq ido-enable-flex-matching t)       ; ?
   (setq ido-everywhere t)                 ; ? (how is it different)
   (setq visible-bell t)                   ; ? (not working)
-  (setq undo-limit 3600)                  ; increase number of undo enteries
-  (put 'narrow-to-page 'disabled nil)     ; enable narrowing page
-  (put 'upcase-region 'disabled nil)      ; enable 'upcase-region
-  (fset 'yes-or-no-p 'y-or-n-p)           ; y-or-n instead of "yes/no" on prompts.b
+
 #+END_SRC
 
 ** Key Bindings
@@ -117,17 +119,18 @@
 #+END_SRC
 
 ** Not Sure If These Work
-*** Delete By Moving to Trash
+*** Delete By Moving to Trash					      :fixme:
 
   This deletes by moving to trash.
   I've had a lot of trouble getting this to work.
 
-  #+begin_src emacs-lisp
-  ;;(setq delete-by-moving-to-trash t)
-  #+end_src
+#+begin_src emacs-lisp
+  ;; Not Working
+  ;; (setq delete-by-moving-to-trash t)
+#+end_src
 
 ** IRC
-*** ERC
+*** ERC								      :fixme:
 #+BEGIN_SRC emacs-lisp 
 
   ;; ------------------------------------------------------------------------------
@@ -212,7 +215,7 @@
   ;; ------------------------------------------------------------------------------
   ;; (add-hook 'erc-join-hook 'bitlbee-identify)
 #+END_SRC
-*** rcirc
+*** rcirc							      :fixme:
 #+BEGIN_SRC emacs-lisp
   ;; (rcirc-track-minor-mode 1)           ; This is awesome
 #+END_SRC
@@ -234,10 +237,10 @@
   Check ~/.gnus
   
 *** Notmuchmail
-*** 
-** Backup Files (~)
+*** Mu4e
+** Backup Files (~)						 :understand:
 
-  [[http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files][SO: Control Backup Files]]
+  - [[http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files][SO: Control Backup Files]]
 
 #+BEGIN_SRC emacs-lisp 
 
@@ -262,7 +265,7 @@
 #+BEGIN_SRC emacs-lisp 
   ;; (sml/setup)
 #+END_SRC
-
+*** Powerline
 *** Out of Box Mode Line Settings
 
 #+BEGIN_SRC emacs-lisp
@@ -290,7 +293,7 @@
     (setq org-log-into-drawer t)
 #+END_SRC
 
-*** FIXME Org Agenda
+*** WAITING Org Agenda
 
 #+BEGIN_SRC emacs-lisp 
   ;; ------------------------------------------------------------------------------
@@ -379,7 +382,7 @@
 #+END_SRC
 
 **** Schedule/Deadline Leaders
-*** Capture						  :perMachine:unused:
+*** WAITING Capture					  :perMachine:unused:
 
   Set the default target and file for notes.
 
@@ -408,9 +411,15 @@
   ;; (setq org-capture-templates-contexts nil)
 
 #+END_SRC
+*** Journal
+
+#+BEGIN_SRC emacs-lisp 
+  (setq org-journal-dir "~/.emacs.d/machine-specific/org-journal/")
+#+END_SRC
+
 *** Archive							 :perMachine:
 
-  The location of org archive files
+  The location of org archive files.
 
 #+BEGIN_SRC emacs-lisp 
   (setq org-archive-location "~/Documents/orgarchives")
@@ -457,9 +466,9 @@
 #+BEGIN_SRC emacs-lisp 
   ;; there's an error somewhere here
   ;; (add-to-list 'org-structure-template-alist
-  ;;               '("el" "?\n#+BEGIN_SRC emacs-lisp \n\n#+END_SRC"))
+  ;;               '(("el" "?\n#+BEGIN_SRC emacs-lisp \n\n#+END_SRC")))
 #+END_SRC
-*** Org Bullets & Lists 					     :unused: 
+*** Org Bullets & Lists						     :unused:
 #+BEGIN_SRC emacs-lisp 
   ;; ------------------------------------------------------------------------------
   ;; Unused
@@ -478,7 +487,7 @@
 
 #+END_SRC
 
-*** Org Babel							     :unused:
+*** WAITING Org Babel						     :unused:
 
   Add latex code blocks
 
@@ -522,7 +531,7 @@ Do not ask before evaluating code blocks.
   ;;         ("Ask Reddit" "https://www.reddit.com/r/AskReddit/.rss" nil nil nil)))
 #+END_SRC
 
-** FIXME Defuns
+** Defuns
     :PROPERTIES:
     :ORDERED:  t
     :END:
@@ -608,9 +617,11 @@ Do not ask before evaluating code blocks.
 ** Diary
 
 #+BEGIN_SRC emacs-lisp 
-    (setq diary-comment-end "-->")
-    (setq diary-comment-start "<--")
-    (setq diary-number-of-entries 10)
+  (setq diary-file "~/.emacs.d/machine-specific/")
+
+  (setq diary-comment-end "-->")
+  (setq diary-comment-start "<--")
+  (setq diary-number-of-entries 10)
 
 
   ;; ------------------------------------------------------------------------------
@@ -634,6 +645,8 @@ Do not ask before evaluating code blocks.
   ;; (setq diary-displayg-function (quote diary-fancy-display))
 
 #+END_SRC
+** Journal
+   
 ** Dired							     :unused:
 #+BEGIN_SRC emacs-lisp 
   (setq dired-dwim-target t)
@@ -700,7 +713,7 @@ Do not ask before evaluating code blocks.
   ;;             ))
 #+END_SRC
 ** Programming
-*** Keybindings
+*** WAITING Keybindings
 
   For ease of use, set shortcut for compile.
 
@@ -708,9 +721,8 @@ Do not ask before evaluating code blocks.
   ;; (global-set-key (kbd "C-;") 'compile)
   ;; (global-set-key (kbd "C-j") ‘ido-select-text)
 #+END_SRC
-
-
-
+*** WAITING Python
+*** WAITING JavaScript
 *** Java
 **** JDEE
 
@@ -728,12 +740,12 @@ Do not ask before evaluating code blocks.
 *** Elisp
 
   Autocomplete for Elisp: [[https://stackoverflow.com/questions/7022898/emacs-autocompletion-in-emacs-lisp-mode][Emacs Autocompletion in Emacs Lisp Mode]]
+  Use Flycheck, M-x checkdoc
 
 #+BEGIN_SRC emacs-lisp 
   (setq tab-always-indent 'complete)
   (add-to-list 'completion-styles 'initials t)
 #+END_SRC
-*** Python
 *** Elm								     :unused:
 
 #+BEGIN_SRC emacs-lisp 
@@ -846,7 +858,7 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-x") 'smex)
-  (setq smex-save-file "~/.emacs.d/")
+  (setq smex-save-file "~/.emacs.d/smex-items")
 #+END_SRC
 
 *** Tea Time
@@ -903,30 +915,31 @@ Do not ask before evaluating code blocks.
 
 *** Crux
 
-  Load Crux if it hasn't already been.
+  Map some keys to useful Crux key bindings.
 
 #+BEGIN_SRC emacs-lisp 
     ;; -----------------------------------------------------------------------------
-    ;; Somehow Install it
+    ;; +Somehow Install it+ No Need, Use Cask
     ;; -----------------------------------------------------------------------------
+
+    ;; No need, use Cask:)
 
     ;; (unless (package-installed-p 'crux)
     ;;   (package-refresh-contents)
     ;;   (package-install 'crux))
-
-  ;;  (require 'crux)
+    ;;  (require 'crux)
 
     ;; -----------------------------------------------------------------------------
     ;; Crux Key Bindings    
     ;; https://github.com/bbatsov/crux#keybindings
     ;; -----------------------------------------------------------------------------
 
-    ;; (global-set-key (kbd "C-c o") #'reveal-in-osx-finder)
-    ;; (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
-    ;; (global-set-key (kbd "C-c u") #'crux-view-url)
-    ;; (global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
-    ;; (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
-    ;; (global-set-key (kbd "C-c D") #'crux-delete-file-and-buffer)
+    (global-set-key (kbd "C-c o") #'reveal-in-osx-finder)
+    (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
+    (global-set-key (kbd "C-c u") #'crux-view-url)
+    (global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
+    (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+    (global-set-key (kbd "C-c D") #'crux-delete-file-and-buffer)
 #+END_SRC
 
 *** Magit
@@ -966,16 +979,16 @@ Do not ask before evaluating code blocks.
   To make my window navegation easier.
   Shortcut from [[https://emacs.stackexchange.com/questions/3458/how-to-switch-between-windows-quickly][Emacs Stackexchange]]
 
-  #+BEGIN_SRC emacs-lisp 
-  (require 'ace-window)
-  (global-set-key (kbd "M-p") 'ace-window)
+#+BEGIN_SRC emacs-lisp 
+    ;; (require 'ace-window)
+    (global-set-key (kbd "M-p") 'ace-window)
 
-  ;; usage keys instead of hard-to-reach numbers
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    ;; usage keys instead of hard-to-reach numbers
+    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
-  ;; use (ace-window-display-mode) to know what the letters are beforehand
-  (ace-window-display-mode)
-  #+END_SRC
+    ;; use (ace-window-display-mode) to know what the letters are beforehand
+    (ace-window-display-mode)
+#+END_SRC
 
 *** Calfw							     :unused:
 
@@ -1019,7 +1032,8 @@ Do not ask before evaluating code blocks.
           ))
 
 
-  ;; ;; fix some org-mode + yasnippet conflicts:
+  ;; fix some org-mode + yasnippet conflicts
+  ;; Disclosure: I've had no conflict's or issues, but just to be (very) safe...
   (defun yas/org-very-safe-expand ()
     (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
   (add-hook 'org-mode-hook
@@ -1087,10 +1101,11 @@ Do not ask before evaluating code blocks.
 *** TODO How do they manage their VC emacs download?
 ** Tasks
 *** TODO Add security.el with auth information
+*** TODO Update Cask Packages without restarting Emacs
 *** TODO Encrypt security.el
 *** TODO Push to Git
    
-   Make sure to remove secure information. Consult Jon whether it's better to
+   Make sure to remove secure information. Consult whether it's better to
    encrypt and push or not.
 
 * Emacs Stuff
