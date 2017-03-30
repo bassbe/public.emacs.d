@@ -1,7 +1,6 @@
 (source gnu)
 (source melpa)
 
-
 (depends-on "ace-jump-mode")
 (depends-on "ace-window")
 (depends-on "ahungry-theme")
@@ -94,3 +93,6 @@
 (depends-on "with-editor")
 (depends-on "yasnippet")
 (depends-on "znc")
+
+(depends-on "jade")
+(depends-on "js2-mode")
