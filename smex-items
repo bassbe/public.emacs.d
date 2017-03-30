@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ yas-reload-all
+ yas-new-snippet
  hl-line-mode
  yas-global-mode
  yas-minor-mode
  desktop-save
  package-list-packages
- delete-duplicate-lines
- set-fill-column
 )
 
 ;; ----- smex-data -----
@@ -34,6 +34,7 @@
  (minimap-mode . 3)
  (set-fill-column . 2)
  (yas-minor-mode . 3)
- (yas-reload-all . 1)
+ (yas-reload-all . 5)
  (yas-global-mode . 1)
+ (yas-new-snippet . 2)
 )
