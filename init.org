@@ -762,9 +762,18 @@ Do not ask before evaluating code blocks.
   Set the plantuml-jar-path to .emacs.d
 
 #+BEGIN_SRC emacs-lisp 
-  ;; (setq org-plantuml-jar-path
-  ;;       (expand-file-name "~/.emacs.d/plantuml.jar"))
+  (setq org-plantuml-jar-path
+        (expand-file-name "~/.emacs.d/plantuml.jar"))
 #+END_SRC
+
+  # Example:
+      # #+begin_src plantuml :file tryout.png
+      #   Alice -> Bob: synchronous call
+      #   Alice ->> Bob: asynchronous call
+      # #+end_src
+
+      # #+results:
+      # [[file:tryout.png]]
 
 *** Ido
   
