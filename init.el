@@ -61,3 +61,4 @@
       (goto-char (point-min))
       (special-mode))
     (setq initial-buffer-choice (lambda () (get-buffer "*init errors*")))))
+(put 'narrow-to-region 'disabled nil)
