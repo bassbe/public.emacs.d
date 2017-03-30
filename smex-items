@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ hl-line-mode
+ yas-global-mode
+ yas-minor-mode
  desktop-save
- desktop-change-dir
- customize
- magit-status
- color-theme-select
- color-theme-ld-dark
- cd
+ package-list-packages
+ delete-duplicate-lines
+ set-fill-column
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,25 @@
  (magit-status . 4)
  (color-theme-ld-dark . 1)
  (color-theme-select . 3)
- (desktop-save . 4)
- (customize . 1)
- (desktop-change-dir . 1)
+ (desktop-save . 11)
+ (customize . 6)
+ (desktop-change-dir . 5)
+ (calendar . 11)
+ (neotree . 2)
+ (transparency . 4)
+ (hs-minor-mode . 2)
+ (shell . 1)
+ (term . 1)
+ (html-line . 2)
+ (hl-line-mode . 3)
+ (delete-duplicate-lines . 4)
+ (package-list-packages . 4)
+ (make-frame . 1)
+ (ace-window . 1)
+ (replace-string . 1)
+ (minimap-mode . 3)
+ (set-fill-column . 2)
+ (yas-minor-mode . 3)
+ (yas-reload-all . 1)
+ (yas-global-mode . 1)
 )
