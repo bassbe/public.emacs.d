@@ -999,24 +999,39 @@ Do not ask before evaluating code blocks.
   ;; (setq rainbow-delimiters-depth-6-face ((t (:foreground "Purple"))))
   ;; (setq rainbow-delimiters-depth-7-face ((t (:foreground "selectedTextBackgroundColor"))))
 #+END_SRC
-*** Yasnippet							     :unused:
+*** Yasnippet
 
   Set directory to hold snippets.
 
 #+BEGIN_SRC emacs-lisp 
-  ;;   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+
+  ;; Turn on yas-minor-mode
+  (yas-global-mode 1)
+
+  ;; Set Snippet Directories
+  ;; Make new snippet with 'M-x yas-new-snippet'
+  ;; 'M-x yas-reload-all' to reload all 
+  (setq yas-snippet-dirs
+        '("~/.emacs.d/snippets/"                 ;; personal snippets
+          "~/.emacs.d/.cask/25.1/elpa/yasnippet-20170326.1030/snippets/" ;; the default collection
+          ;; "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
+          ;; "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
+          ))
+
 
   ;; ;; fix some org-mode + yasnippet conflicts:
-  ;; (defun yas/org-very-safe-expand ()
-  ;;   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
-  ;; (add-hook 'org-mode-hook
-  ;;           (lambda ()
-  ;;             (make-variable-buffer-local 'yas/trigger-key)
-  ;;             (setq yas/trigger-key [tab])
-  ;;             (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-  ;;             (define-key yas/keymap [tab] 'yas/next-field)))
-#+END_SRC
+  (defun yas/org-very-safe-expand ()
+    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (make-variable-buffer-local 'yas/trigger-key)
+              (setq yas/trigger-key [tab])
+              (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+              (define-key yas/keymap [tab] 'yas/next-field)))
 
+
+#+END_SRC
+  
 *** SLIME							     :unused:
 ** Hooks
 
