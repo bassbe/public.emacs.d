@@ -96,3 +96,4 @@
 
 (depends-on "jade")
 (depends-on "js2-mode")
+(depends-on "powerline")
