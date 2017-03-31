@@ -11,6 +11,8 @@
 # Machine Specific
 # ------------------------------------------------------------------------------
 
+.DS_Store
+.local
 *~
 .emacs.desktop
 .emacs.desktop.lock
@@ -31,6 +33,7 @@ custom.el
 # ------------------------------------------------------------------------------
 
 *ido session*
+ *ido session*
 ido.last/
 ido.last
 auto-save-list/

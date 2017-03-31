@@ -29,7 +29,7 @@
 (depends-on "dired-sort")
 (depends-on "drag-stuff")
 (depends-on "elm-mode")
-(depends-on "emacs-eclim")
+(depends-on "eclim")
 (depends-on "emms")
 (depends-on "epl")
 (depends-on "exec-path-from-shell")
@@ -96,3 +96,4 @@
 
 (depends-on "jade")
 (depends-on "js2-mode")
+(depends-on "powerline")
