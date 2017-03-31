@@ -260,12 +260,22 @@
 ** Mode Line
 *** Smart Mode Line						     :unused:
 
-  Trying out Smart-Mode-Line
+  Trying out [[https://github.com/Malabarba/smart-mode-line][Smart Mode Line]]
 
 #+BEGIN_SRC emacs-lisp 
-  ;; (sml/setup)
+  ;; Don't ask if ok with running lisp code
+  (setq sml/no-confirm-load-theme t)
+
+  ;; Set the theme to load
+  (setq sml/theme 'smart-mode-line-powerline)
+
+  ;; Activate!
+  (sml/setup)
 #+END_SRC
 *** Powerline
+#+begin_src emacs-lisp :tangle yes
+  (setq powerline-arrow-shape 'arrow)   ;; the default
+#+end_src
 *** Out of Box Mode Line Settings
 
 #+BEGIN_SRC emacs-lisp
