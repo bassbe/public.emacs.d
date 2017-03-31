@@ -11,10 +11,14 @@
 # Machine Specific
 # ------------------------------------------------------------------------------
 
+.DS_Store
+.local
 .emacs.desktop
 .emacs.desktop.lock
 .DS_Store
 previous.emacs.d/
+ *ido session*
+*ido session* 
 *~
 
 
