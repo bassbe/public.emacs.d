@@ -954,10 +954,19 @@ Do not ask before evaluating code blocks.
 *** Minimap
 
 #+BEGIN_SRC emacs-lisp 
-  ;; (setq minimap-dedicated-window nil)
-  ;; (setq minimap-major-modes nil)
-  ;; (setq minimap-mode nil)
-  ;; (setq minimap-active-region-background ((t (:background "Blue"))))
+    ;; (setq minimap-dedicated-window nil)
+    ;; (setq minimap-major-modes nil)
+    ;; (setq minimap-mode nil)
+    ;; (setq minimap-active-region-background ((t (:background "Blue"))))
+
+
+  ;; Should I be using setq here?
+  ;; Set Variables
+  (setq minimap-mode nil)
+  (setq minimap-window-location (quote right))
+
+  ;; Set Faces
+  ;; (setq minimap-active-region-background ((t (:background "dark cyan"))))
 #+END_SRC
 *** BBdB							     :unused:
 
