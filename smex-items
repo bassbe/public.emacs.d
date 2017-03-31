@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- yas-reload-all
- yas-new-snippet
- hl-line-mode
- yas-global-mode
- yas-minor-mode
- desktop-save
  package-list-packages
+ customize
+ desktop-save
+ hs-minor-mode
+ calendar
+ js2-mode
+ jade-interaction-mode
 )
 
 ;; ----- smex-data -----
@@ -15,26 +15,29 @@
  (magit-status . 4)
  (color-theme-ld-dark . 1)
  (color-theme-select . 3)
- (desktop-save . 11)
- (customize . 6)
- (desktop-change-dir . 5)
- (calendar . 11)
- (neotree . 2)
+ (desktop-save . 12)
+ (customize . 10)
+ (desktop-change-dir . 8)
+ (calendar . 12)
+ (neotree . 4)
  (transparency . 4)
- (hs-minor-mode . 2)
+ (hs-minor-mode . 3)
  (shell . 1)
  (term . 1)
  (html-line . 2)
  (hl-line-mode . 3)
- (delete-duplicate-lines . 4)
- (package-list-packages . 4)
+ (delete-duplicate-lines . 5)
+ (package-list-packages . 8)
  (make-frame . 1)
  (ace-window . 1)
- (replace-string . 1)
+ (replace-string . 2)
  (minimap-mode . 3)
  (set-fill-column . 2)
  (yas-minor-mode . 3)
  (yas-reload-all . 5)
  (yas-global-mode . 1)
  (yas-new-snippet . 2)
+ (fci-mode . 2)
+ (js2-mode . 2)
+ (jade-interaction-mode . 1)
 )
