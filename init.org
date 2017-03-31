@@ -1134,6 +1134,12 @@ Do not ask before evaluating code blocks.
 ** Emacs Lisp
 *** [[http://www.lunaryorn.com/posts/read-and-write-files-in-emacs-lisp.html][Read and Write Files in Emacs Lisp]]
 ** Email
+*** [2017-02-16 Thu 15:23] Notes
+1. All emails delivered to Gmail
+   - they have excellent spam filtering
+2. Use FetchMail to pull mail down to local macine
+3. Mail then gets queue'd into a DoveCot Server running locally
+4. Gnus talks to the dovecot server over IMAP, which is very fast.
 *** [[https://www.emacswiki.org/emacs/CategoryMail][Emacs Wiki: Category Mail]]
 *** [[http://superuser.com/questions/637111/how-to-email-with-emacs-with-ms-exchange-server][StackExchange: SuperUserHow: to email with emacs with MS Exchange Server]]d
 *** [[http://emacs.stackexchange.com/questions/12927/reading-and-writing-email-with-emacs][emacs.stackexchange: Reading Email with Emacs]]
