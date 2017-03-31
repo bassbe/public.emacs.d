@@ -244,7 +244,7 @@
 
 #+BEGIN_SRC emacs-lisp 
 
-  (setq backup-directory-alist `(("." . "~/.emacs.d/machine-specific/backup-files")))
+  (setq backup-directory-alist `(("." . "~/.emacs.d/machine-specific/backup-files/")))
   (setq backup-by-copying t)
 
 
