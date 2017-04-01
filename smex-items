@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ desktop-save
+ neotree
+ desktop-change-dir
  package-list-packages
  customize
- desktop-save
  hs-minor-mode
  calendar
- js2-mode
- jade-interaction-mode
 )
 
 ;; ----- smex-data -----
@@ -15,11 +15,11 @@
  (magit-status . 4)
  (color-theme-ld-dark . 1)
  (color-theme-select . 3)
- (desktop-save . 12)
+ (desktop-save . 14)
  (customize . 10)
- (desktop-change-dir . 8)
+ (desktop-change-dir . 9)
  (calendar . 12)
- (neotree . 4)
+ (neotree . 5)
  (transparency . 4)
  (hs-minor-mode . 3)
  (shell . 1)
