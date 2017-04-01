@@ -1,27 +1,41 @@
 
 ;; ----- smex-history -----
 (
- calendar
- package-list-packages
- desktop-change-dir
+ browse-kill-ring
  desktop-save
- reveal-in-osx-finder
- customize
- customize-themes
+ package-list-packages
+ calendar
+ transparency
+ desktop-change-dir
+ magit-status
 )
 
 ;; ----- smex-data -----
 (
  (magit-status . 4)
  (customize-themes . 3)
- (desktop-save . 4)
+ (desktop-save . 6)
  (delete-trailing-whitespace . 2)
  (delete-duplicate-lines . 1)
- (package-list-packages . 2)
+ <<<<<<<
+ Updated
+ upstream
+ (package-list-packages . 4)
  (sort-lines . 1)
- (transparency . 2)
- (calendar . 2)
+ (transparency . 4)
+ (calendar . 3)
  (customize . 2)
  (reveal-in-osx-finder . 1)
- (desktop-change-dir . 1)
+ (desktop-change-dir . 2)
+ =======
+ (package-list-packages . 1)
+ (sort-lines . 1)
+ (transparency . 2)
+ (calendar . 1)
+ (customize . 2)
+ (reveal-in-osx-finder . 1)
+ >>>>>>>
+ Stashed
+ changes
+ (browse-kill-ring . 3)
 )
