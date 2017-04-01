@@ -1,6 +1,6 @@
 These Items Reside in machine-specific/
 
-* Nextiva [7/7]
+* Nextiva [8/8]
 ** DONE .emacs.desktop
 ** DONE .emacs.desktop.lock
 ** DONE diary
@@ -8,4 +8,9 @@ These Items Reside in machine-specific/
 ** DONE inventory.txt
 ** DONE backup-files/
 ** DONE journal/
-* Conway
+** DONE inventory
+* Conway [4/4]
+** DONE .emacs.destop
+** DONE .emacs.desktop.lock
+** DONE backup-files
+** DONE inventory

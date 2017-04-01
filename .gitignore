@@ -13,17 +13,16 @@
 
 .DS_Store
 .local
+*~
 .emacs.desktop
 .emacs.desktop.lock
 .DS_Store
 previous.emacs.d/
- *ido session*
-*ido session* 
-*~
+
 
 
 # ------------------------------------------------------------------------------
-# Shouldn't Be Made
+# If Generated, Ignore.
 # ------------------------------------------------------------------------------
 
 custom.el
@@ -34,6 +33,7 @@ custom.el
 # ------------------------------------------------------------------------------
 
 *ido session*
+ *ido session*
 ido.last/
 ido.last
 auto-save-list/
