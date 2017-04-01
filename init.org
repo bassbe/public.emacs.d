@@ -98,11 +98,12 @@
 #+END_SRC
 
 ** Key Bindings
-*** Display and Navigation
+*** Window/Frame Navigation
 
   I can't remember where I've copied these bindings from, but they're easier than C-x number.
 
 #+BEGIN_SRC emacs-lisp 
+  ;; Window Management (should I include Ace-window)
   (global-set-key (kbd "M-2") ' delete-window)            ; close current pane
   (global-set-key (kbd "M-3") 'delete-other-windows)      ; delete all other panes
   (global-set-key (kbd "M-4") 'split-window-vertically)   ; split window top/bottom
@@ -111,6 +112,16 @@
   (global-set-key (kbd "s-}") #'other-window)
   (global-set-key (kbd "s-{") #'previous-multiframe-window)
 #+END_SRC
+
+*** Navigating & Selecting Text
+#+begin_src emacs-lisp :tangle yes
+  ;; Movement/Highlighting
+  ;; press ';' again to expand, '-' to subtract, 0 to return
+  (global-set-key (kbd "C-;") 'er/expand-region)
+
+  ;; Maybe not a good idea, but use browse-kill-ring, its useful
+  ;; (global-set-key (kbd "C-y") 'browse-kill-ring)
+#+end_src
 
 ** Customizations File
 
@@ -728,7 +739,7 @@ Do not ask before evaluating code blocks.
   For ease of use, set shortcut for compile.
 
 #+BEGIN_SRC emacs-lisp 
-  ;; (global-set-key (kbd "C-;") 'compile)
+  ;; (global-set-key (kbd "C-;") 'compile) ; C-; is taken already
   ;; (global-set-key (kbd "C-j") ‘ido-select-text)
 #+END_SRC
 *** WAITING Python
@@ -1128,6 +1139,15 @@ Do not ask before evaluating code blocks.
    encrypt and push or not.
 
 * Emacs Stuff
+** Moving Efficently
+  - C-n,p,f,b
+  - M-n,p,f,b
+  - C-<SPC> C-<SPC> create mark at this point
+  - C-x C-x (move mark to other side of highlighted region
+  - C-u C-<SPC> (go back to last mark that  you created)
+  - C-x h (highlight the whole buffer)
+  - M-@ (highlight forward from word, by word)
+  - 
 ** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/1]
 *** TODO Pomidor Timer
 ** Packages to Look Into

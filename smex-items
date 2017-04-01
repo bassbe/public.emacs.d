@@ -1,43 +1,41 @@
 
 ;; ----- smex-history -----
 (
- package-list-packages
- customize
+ browse-kill-ring
  desktop-save
- hs-minor-mode
+ package-list-packages
  calendar
- js2-mode
- jade-interaction-mode
+ transparency
+ desktop-change-dir
+ magit-status
 )
 
 ;; ----- smex-data -----
 (
  (magit-status . 4)
- (color-theme-ld-dark . 1)
- (color-theme-select . 3)
- (desktop-save . 12)
- (customize . 10)
- (desktop-change-dir . 8)
- (calendar . 12)
- (neotree . 4)
+ (customize-themes . 3)
+ (desktop-save . 6)
+ (delete-trailing-whitespace . 2)
+ (delete-duplicate-lines . 1)
+ <<<<<<<
+ Updated
+ upstream
+ (package-list-packages . 4)
+ (sort-lines . 1)
  (transparency . 4)
- (hs-minor-mode . 3)
- (shell . 1)
- (term . 1)
- (html-line . 2)
- (hl-line-mode . 3)
- (delete-duplicate-lines . 5)
- (package-list-packages . 8)
- (make-frame . 1)
- (ace-window . 1)
- (replace-string . 2)
- (minimap-mode . 3)
- (set-fill-column . 2)
- (yas-minor-mode . 3)
- (yas-reload-all . 5)
- (yas-global-mode . 1)
- (yas-new-snippet . 2)
- (fci-mode . 2)
- (js2-mode . 2)
- (jade-interaction-mode . 1)
+ (calendar . 3)
+ (customize . 2)
+ (reveal-in-osx-finder . 1)
+ (desktop-change-dir . 2)
+ =======
+ (package-list-packages . 1)
+ (sort-lines . 1)
+ (transparency . 2)
+ (calendar . 1)
+ (customize . 2)
+ (reveal-in-osx-finder . 1)
+ >>>>>>>
+ Stashed
+ changes
+ (browse-kill-ring . 3)
 )
