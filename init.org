@@ -29,10 +29,17 @@
 
 ** Startup							       :done:
   
+  - [[http://freedom.ascii.uk/][Freedom]]
+  - [[http://chris.com/ascii/index.php?art%3Dobjects/flags][Flag]]
+  - [[https://stackoverflow.com/questions/36244529/emacs-how-to-load-file-content-in-scratch-screen#36272179][SO: Loading File Contenets into Scratch Buffer]]
 #+BEGIN_SRC emacs-lisp
   ;; (desktop-save-mode 1)                   ; ?
   (setq inhibit-startup-message t)        ; no startup message
-  (setq initial-scratch-message "")       ; Scratch Message
+  ;; (setq initial-scratch-message "")       ; Scratch Message
+
+    (when (get-buffer "*scratch*")
+      (with-current-buffer "*scratch*"
+        (insert-file-contents "~/.emacs.d/scratch-message.txt")))
 #+END_SRC
 
 ** Appearance [User Interface]
