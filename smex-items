@@ -1,48 +1,45 @@
 
 ;; ----- smex-history -----
 (
-
  desktop-save
- neotree
  desktop-change-dir
- replace-string
- lisp-mode
- desktop-save
- browse-kill-ring
- package-list-packages
- customize
- hs-minor-mode
- calendar
- browse-kill-ring
+ transient-mark-mode
+ delete-duplicate-lines
  transparency
- magit-status
+ term
+ hl-line-mode
 )
+
 ;; ----- smex-data -----
+(
  (magit-status . 4)
  (color-theme-ld-dark . 1)
  (color-theme-select . 3)
- (desktop-save . 14)
+ (desktop-save . 17)
  (customize . 10)
- (desktop-change-dir . 9)
+ (desktop-change-dir . 11)
  (calendar . 12)
- (neotree . 5)
- (customize-themes . 3)
- (desktop-save . 10)
- (delete-trailing-whitespace . 2)
- (delete-duplicate-lines . 1)
- (package-list-packages . 4)
- (sort-lines . 1)
- (transparency . 4)
- (calendar . 3)
- (reveal-in-osx-finder . 1)
- (desktop-change-dir . 5)
- (package-list-packages . 1)
- (sort-lines . 1)
- (transparency . 2)
- (calendar . 1)
- (customize . 2)
- (reveal-in-osx-finder . 1)
- (browse-kill-ring . 3)
- (lisp-mode . 2)
- (replace-string . 6)
+ (neotree . 6)
+ (transparency . 5)
+ (hs-minor-mode . 3)
+ (shell . 1)
+ (term . 2)
+ (html-line . 2)
+ (hl-line-mode . 5)
+ (delete-duplicate-lines . 7)
+ (package-list-packages . 8)
+ (make-frame . 2)
+ (ace-window . 1)
+ (replace-string . 2)
+ (minimap-mode . 3)
+ (set-fill-column . 2)
+ (yas-minor-mode . 3)
+ (yas-reload-all . 5)
+ (yas-global-mode . 1)
+ (yas-new-snippet . 2)
+ (fci-mode . 2)
+ (js2-mode . 2)
+ (jade-interaction-mode . 1)
+ (global-hl-line-mode . 2)
+ (transient-mark-mode . 2)
 )
