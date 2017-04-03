@@ -1,20 +1,20 @@
 
 ;; ----- smex-history -----
 (
- browse-kill-ring
+ desktop-change-dir
+ replace-string
+ lisp-mode
  desktop-save
+ browse-kill-ring
  package-list-packages
  calendar
- transparency
- desktop-change-dir
- magit-status
 )
 
 ;; ----- smex-data -----
 (
  (magit-status . 4)
  (customize-themes . 3)
- (desktop-save . 6)
+ (desktop-save . 10)
  (delete-trailing-whitespace . 2)
  (delete-duplicate-lines . 1)
  <<<<<<<
@@ -26,7 +26,7 @@
  (calendar . 3)
  (customize . 2)
  (reveal-in-osx-finder . 1)
- (desktop-change-dir . 2)
+ (desktop-change-dir . 5)
  =======
  (package-list-packages . 1)
  (sort-lines . 1)
@@ -38,4 +38,6 @@
  Stashed
  changes
  (browse-kill-ring . 3)
+ (lisp-mode . 2)
+ (replace-string . 6)
 )
