@@ -1,9 +1,14 @@
 
 ;; ----- smex-history -----
 (
+
  desktop-save
  neotree
  desktop-change-dir
+ replace-string
+ lisp-mode
+ desktop-save
+ browse-kill-ring
  package-list-packages
  customize
  hs-minor-mode
@@ -22,6 +27,7 @@
  (calendar . 12)
  (neotree . 5)
  (customize-themes . 3)
+ (desktop-save . 10)
  (delete-trailing-whitespace . 2)
  (delete-duplicate-lines . 1)
  (package-list-packages . 4)
@@ -29,7 +35,14 @@
  (transparency . 4)
  (calendar . 3)
  (reveal-in-osx-finder . 1)
- (desktop-change-dir . 2)
-
+ (desktop-change-dir . 5)
+ (package-list-packages . 1)
+ (sort-lines . 1)
+ (transparency . 2)
+ (calendar . 1)
+ (customize . 2)
+ (reveal-in-osx-finder . 1)
  (browse-kill-ring . 3)
+ (lisp-mode . 2)
+ (replace-string . 6)
 )
