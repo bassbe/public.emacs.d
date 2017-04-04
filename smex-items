@@ -2,12 +2,12 @@
 ;; ----- smex-history -----
 (
  desktop-save
+ neotree
+ customize
  desktop-change-dir
- transient-mark-mode
- delete-duplicate-lines
+ fci-mode
+ package-list-packages
  transparency
- term
- hl-line-mode
 )
 
 ;; ----- smex-data -----
@@ -15,19 +15,19 @@
  (magit-status . 4)
  (color-theme-ld-dark . 1)
  (color-theme-select . 3)
- (desktop-save . 17)
- (customize . 10)
- (desktop-change-dir . 11)
+ (desktop-save . 20)
+ (customize . 14)
+ (desktop-change-dir . 14)
  (calendar . 12)
- (neotree . 6)
- (transparency . 5)
+ (neotree . 7)
+ (transparency . 9)
  (hs-minor-mode . 3)
  (shell . 1)
  (term . 2)
  (html-line . 2)
  (hl-line-mode . 5)
  (delete-duplicate-lines . 7)
- (package-list-packages . 8)
+ (package-list-packages . 9)
  (make-frame . 2)
  (ace-window . 1)
  (replace-string . 2)
@@ -37,7 +37,7 @@
  (yas-reload-all . 5)
  (yas-global-mode . 1)
  (yas-new-snippet . 2)
- (fci-mode . 2)
+ (fci-mode . 4)
  (js2-mode . 2)
  (jade-interaction-mode . 1)
  (global-hl-line-mode . 2)
