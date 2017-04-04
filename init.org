@@ -676,53 +676,62 @@ Do not ask before evaluating code blocks.
 ** Journal
    
 ** Dired							     :unused:
+
+   For coloring, use 'Dired use ls Dired'. Still not sure what this does.
+   Also, dired-listing-switches.
 #+BEGIN_SRC emacs-lisp 
+  ;; Determines what the expanded dired displays
+  (setq dired-listing-switches "-FlaG")
+
+  ;; I believe this somehow invokes colors in dired
+  (setq dired-use-ls-dired (quote unspecified))
+
+  ;; Rneame/copy files across adjacent windows if you have 2 open in the sameframe
   (setq dired-dwim-target t)
 
+   ;; ------------------------------------------------------------------------------
+   ;; Unused
+   ;; ------------------------------------------------------------------------------
 
-  ;; ------------------------------------------------------------------------------
-  ;; Unused
-  ;; ------------------------------------------------------------------------------
+   ;; (defun mydired-sort ()
+   ;;  "Sort dired listings with directories first."
+   ;;  (save-excursion
+   ;;    (let (buffer-read-only)
+   ;;      (forward-line 2) ;; beyond dir. header 
+   ;;      (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max)))
+   ;;    (set-buffer-modified-p nil)))
 
-  ;; (defun mydired-sort ()
-  ;;  "Sort dired listings with directories first."
-  ;;  (save-excursion
-  ;;    (let (buffer-read-only)
-  ;;      (forward-line 2) ;; beyond dir. header 
-  ;;      (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max)))
-  ;;    (set-buffer-modified-p nil)))
-
-  ;; (defadvice dired-readin
-  ;;  (after dired-after-updating-hook first () activate)
-  ;;  "Sort dired listings with directories first before adding marks."
-  ;;  (mydired-sort))
-
-
-
-  ;; Dired Rainbow
-
-  ;; (defconst my-dired-media-files-extensions
-  ;;   '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg"
-  ;;   "wav" "png" "jpg" "jpeg" "mkv" "avi" "webm"))
-
-  ;; Specifying dired sizes
-  ;; (setq dired-listing-switches "-alsh")
-
-  ;; work in MB
-  ;; (setq directory-free-space-args "-Pm")
-  ;; (defadvice insert-directory (after insert-directory-adjust-total-by-1024 activate)
-  ;;  "modify the total number by dividing it by 1024"
-  ;;  (save-excursion
-  ;; (save-match-data
-  ;;  (goto-char (point-min))
-  ;;  (when (re-search-forward "^ *total used in directory \\([0-9]+\\) ")
-  ;;    (replace-match (number-to-string (/ (string-to-number (match-string 1)) 1024)) nil nil nil 1)))))
+   ;; (defadvice dired-readin
+   ;;  (after dired-after-updating-hook first () activate)
+   ;;  "Sort dired listings with directories first before adding marks."
+   ;;  (mydired-sort))
 
 
 
-  ;; (setq dired-listing-switches "-aBhl  --group-directories-first")g
+   ;; Dired Rainbow
 
-  ;; (require 'dired-sort)
+   ;; (defconst my-dired-media-files-extensions
+   ;;   '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg"
+   ;;   "wav" "png" "jpg" "jpeg" "mkv" "avi" "webm"))
+
+   ;; Specifying dired sizes
+   ;; (setq dired-listing-switches "-alsh")
+
+   ;; work in MB
+   ;; (setq directory-free-space-args "-Pm")
+   ;; (defadvice insert-directory (after insert-directory-adjust-total-by-1024 activate)
+   ;;  "modify the total number by dividing it by 1024"
+   ;;  (save-excursion
+   ;; (save-match-data
+   ;;  (goto-char (point-min))
+   ;;  (when (re-search-forward "^ *total used in directory \\([0-9]+\\) ")
+   ;;    (replace-match (number-to-string (/ (string-to-number (match-string 1)) 1024)) nil nil nil 1)))))
+
+
+
+   ;; (setq dired-listing-switches "-aBhl  --group-directories-first")g
+
+   ;; (require 'dired-sort)
 #+END_SRC
 *** Dired-X
 
@@ -740,8 +749,10 @@ Do not ask before evaluating code blocks.
   ;;             ;;(dired-omit-mode 1)
   ;;             ))
 #+END_SRC
+
+** Dired+
 ** Programming
-*** WAITING Keybindings
+*** Keybindings
 
   For ease of use, set shortcut for compile.
 
@@ -749,8 +760,8 @@ Do not ask before evaluating code blocks.
   ;; (global-set-key (kbd "C-;") 'compile) ; C-; is taken already
   ;; (global-set-key (kbd "C-j") ‘ido-select-text)
 #+END_SRC
-*** WAITING Python
-*** WAITING JavaScript
+*** Python
+*** JavaScript
 *** Java
 **** JDEE
 
@@ -946,33 +957,41 @@ Do not ask before evaluating code blocks.
   Map some keys to useful Crux key bindings.
 
 #+BEGIN_SRC emacs-lisp 
-    ;; -----------------------------------------------------------------------------
-    ;; +Somehow Install it+ No Need, Use Cask
-    ;; -----------------------------------------------------------------------------
+  ;; -----------------------------------------------------------------------------
+  ;; +Somehow Install it+ No Need, Use Cask
+  ;; -----------------------------------------------------------------------------
 
-    ;; No need, use Cask:)
+  ;; No need, use Cask:)
 
-    ;; (unless (package-installed-p 'crux)
-    ;;   (package-refresh-contents)
-    ;;   (package-install 'crux))
-    ;;  (require 'crux)
+  ;; (unless (package-installed-p 'crux)
+  ;;   (package-refresh-contents)
+  ;;   (package-install 'crux))
+  ;;  (require 'crux)
 
-    ;; -----------------------------------------------------------------------------
-    ;; Crux Key Bindings    
-    ;; https://github.com/bbatsov/crux#keybindings
-    ;; -----------------------------------------------------------------------------
+  ;; -----------------------------------------------------------------------------
+  ;; Crux Key Bindings    
+  ;; https://github.com/bbatsov/crux#keybindings
+  ;; -----------------------------------------------------------------------------
 
-    (global-set-key (kbd "C-c o") #'reveal-in-osx-finder)
-    (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
-    (global-set-key (kbd "C-c u") #'crux-view-url)
-    (global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
-    (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
-    (global-set-key (kbd "C-c D") #'crux-delete-file-and-buffer)
+  (global-set-key (kbd "C-c o") #'reveal-in-osx-finder)
+  (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
+  (global-set-key (kbd "C-c u") #'crux-view-url)
+  (global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
+  (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+  (global-set-key (kbd "C-c D") #'crux-delete-file-and-buffer)
+
+  ;; -----------------------------------------------------------------------------
+  ;; Open File in Web Browser
+  ;; -----------------------------------------------------------------------------
+
+  (global-set-key (kbd "C-c w") #'browse-url-of-file)
 #+END_SRC
 
 *** Magit
   
   - [[https://magit.vc/manual/magit/Status-buffer.html][Magit Key Binging Suggestion]]
+  - READ: [[https://www.masteringemacs.org/article/introduction-magit-emacs-mode-git][Mastering Emacs - Introduction to Emacs Magit]]
+  - READ: [[https://www.reddit.com/r/emacs/comments/2x1uzv/simple_but_really_useful_magit_feature_staging/][Simple, Really Useful Magit Feature]]
 
 #+BEGIN_SRC emacs-lisp 
   ;; (setq magit-merge-arguments (quote ("--ff-only")))
