@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Org Babel Javascript Block
+# key: <js
+# --
+#+BEGIN_SRC javascript
+$0
+#+END_SRC

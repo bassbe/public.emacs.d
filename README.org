@@ -33,4 +33,4 @@
     + while emacs is closed, run cask install
   - run the 'cask' command, which will download and install all the packages
   - upadte packges with: 'cask update'
-  - 
+  -
