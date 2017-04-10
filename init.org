@@ -256,6 +256,12 @@
   
 *** Notmuchmail
 *** Mu4e
+** Auto Complete
+#+begin_src emacs-lisp
+  (ac-config-default)
+#+end_src
+
+
 ** Backup Files (~)						 :understand:
 
   - [[http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files][SO: Control Backup Files]]
