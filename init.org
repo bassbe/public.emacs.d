@@ -689,6 +689,11 @@ Do not ask before evaluating code blocks.
   ;; Rneame/copy files across adjacent windows if you have 2 open in the sameframe
   (setq dired-dwim-target t)
 
+   ;; Dired Rainbow
+   ;; (defconst my-dired-media-files-extensions
+   ;;   '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg"
+   ;;   "wav" "png" "jpg" "jpeg" "mkv" "avi" "webm"))
+
    ;; ------------------------------------------------------------------------------
    ;; Unused
    ;; ------------------------------------------------------------------------------
@@ -708,11 +713,7 @@ Do not ask before evaluating code blocks.
 
 
 
-   ;; Dired Rainbow
 
-   ;; (defconst my-dired-media-files-extensions
-   ;;   '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg"
-   ;;   "wav" "png" "jpg" "jpeg" "mkv" "avi" "webm"))
 
    ;; Specifying dired sizes
    ;; (setq dired-listing-switches "-alsh")
