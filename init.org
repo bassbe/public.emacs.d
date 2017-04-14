@@ -11,7 +11,7 @@
 :header-args:emacs-lisp: :tangle ../.emacs
 :END:
 
-** Cask & Packages						 :understand:
+** Cask & Packages 						 :understand:
 
 #+BEGIN_SRC emacs-lisp
   (require 'cask "~/.cask/cask.el")
@@ -80,7 +80,9 @@
 
 #+BEGIN_SRC emacs-lisp 
   (scroll-bar-mode -1)                   ; delete scroll bar
-  (global-linum-mode t)                  ; Always show line numbers
+
+  ;; Only hook linum mode to program modes
+  ;; (global-linum-mode t)                  ; Always show line numbers
   (tool-bar-mode -1)                     ; Delete Toolbar
   (put 'narrow-to-page 'disabled nil)    ; enable narrowing page
   (put 'narrow-to-region 'disabled nil)  ; enable narrowing page
@@ -260,7 +262,6 @@
 #+begin_src emacs-lisp
   (ac-config-default)
 #+end_src
-
 
 ** Backup Files (~)						 :understand:
 
@@ -687,6 +688,22 @@ Do not ask before evaluating code blocks.
    Also, dired-listing-switches.
 #+BEGIN_SRC emacs-lisp 
   ;; Determines what the expanded dired displays
+
+  ;; a ----- Displays all files
+  ;; F ----- Flags Filenames
+  ;; l ----- Displays the long format listing
+  ;; G ----- Enable Colorized Output
+  ;; h ----- Used w/ -l option, uses unit sufixes, byte, kB, MB, GB
+  ;; t ----- Sort by time modified (most recently modified first)
+  ;; u ----- Use time of last access for sorting
+  ;; U ----- Use time of file creation for sorting
+  ;; W ----- Display whiteouts whtn scanning directories
+  ;; S ----- Sort by file size
+  ;; O ----- Include the file flags in a long (-l) output
+  ;; o ----- List in long format, but omit the group id
+  ;; p ----- Write a slash ('/') after filename if file is a directory
+
+  ;; (setq dired-listing-switches "-alsh")                                       
   (setq dired-listing-switches "-FlaG")
 
   ;; I believe this somehow invokes colors in dired
@@ -722,7 +739,7 @@ Do not ask before evaluating code blocks.
 
 
    ;; Specifying dired sizes
-   ;; (setq dired-listing-switches "-alsh")
+
 
    ;; work in MB
    ;; (setq directory-free-space-args "-Pm")
@@ -812,6 +829,10 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp 
   ;; (global-set-key (kbd "M-/") 'hippie-expand)
+
+  ;; Do I have to get require darkroom mode for it to laod?
+  ;; Thought Cask did that...?
+  (require 'darkroom)
 #+END_SRC
 *** Spelling
 ** Native Emacs Packages
@@ -888,16 +909,16 @@ Do not ask before evaluating code blocks.
 *** Web Mode
 
 #+BEGIN_SRC emacs-lisp
-   (require 'web-mode)
-   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-   (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-   (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  ;; (require 'web-mode)
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 #+END_SRC
 
 *** Smex
@@ -927,20 +948,21 @@ Do not ask before evaluating code blocks.
 
 #+END_SRC
 *** EMMS
-*** AucTeX
+*** AucTeX						   :ext:dependencies:
+    - [[http://www.tug.org/mactex/mactex-download.html][MacTeX Download Link]]
 
 #+BEGIN_SRC emacs-lisp 
   ;; -----------------------------------------------------------------------------
   ;; General AucTeX
   ;; -----------------------------------------------------------------------------
 
-  ;; (setq-default TeX-PDF-mode t)
-  ;; (setq TeX-auto-save t)
-  ;; (setq TeX-parse-self t)
-  ;; (setq-default TeX-master nil)
-  ;; (setq TeX-electric-sub-and-superscript t)
-  ;; (setenv "PATH" (concat (getenv "PATH") ":/usr/texbin"))
-  ;; (setq exec-path (append exec-path '("/usr/texbin")))
+  (setq-default TeX-PDF-mode t)
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  (setq TeX-electric-sub-and-superscript t)
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/texbin"))
+  (setq exec-path (append exec-path '("/usr/texbin")))
 
   ;; (when (memq window-system '(mac ns))
   ;;   (exec-path-from-shell-initialize))
@@ -948,15 +970,15 @@ Do not ask before evaluating code blocks.
   ;; -----------------------------------------------------------------------------
   ;; AucTex Fix
   ;; -----------------------------------------------------------------------------
-  ;; (getenv "PATH")
-  ;;  (setenv "PATH"
-  ;; (concat
-  ;;  "/usr/texbin" ":"
-  ;;  (getenv "PATH")))
+  (getenv "PATH")
+   (setenv "PATH"
+  (concat
+   "/usr/texbin" ":"
+   (getenv "PATH")))
 
   ;; ;; Keep. Found texbin distribution. Fixed El Capitan thing.
-  ;; (setenv "PATH" "/usr/local/bin:/Library/TeX/Distributions/Programs/texbin:$PATH" t)
-  ;; (setq exec-path (append exec-path '("/Library/TeX/texbin")))
+  (setenv "PATH" "/usr/local/bin:/Library/TeX/Distributions/Programs/texbin:$PATH" t)
+  (setq exec-path (append exec-path '("/Library/TeX/texbin/")))
 #+END_SRC
 
 *** Crux
