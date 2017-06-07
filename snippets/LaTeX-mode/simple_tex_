@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: simple latex doc
+# key: simple_tex_
+# --
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{${1:Title}}
+\author{${2:Author's Name}}
+
+\maketitle
+
+\section{${3:Section Title}}
+${0:Content}
+
+\end{document}

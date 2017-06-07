@@ -328,7 +328,7 @@
     (setq org-log-into-drawer t)
 #+END_SRC
 
-*** WAITING Org Agenda
+*** Org Agenda							    :waiting:
 
 #+BEGIN_SRC emacs-lisp 
   ;; ------------------------------------------------------------------------------
@@ -369,9 +369,10 @@
         '(("Effort_ALL" . "0 0:10 0:20 0:30 1:00 1:30 2:00 3:00 4:00 6:00 8:00 10:00 20:00")))
 
   ;; ------------------------------------------------------------------------------
-  ;; Custom Views for Agenda
+  ;; Org Agenda Files
   ;; ------------------------------------------------------------------------------
-
+  (setq org-agenda-files (list "~/tobe/src/"
+                               "/Volumes/dotsecret/calendars/"))
 #+END_SRC
 
 **** Org Habits
@@ -417,7 +418,7 @@
 #+END_SRC
 
 **** Schedule/Deadline Leaders
-*** WAITING Capture					  :perMachine:unused:
+*** Capture					  :perMachine:unused:waiting:
 
   Set the default target and file for notes.
 
@@ -514,15 +515,15 @@
   ;; I want it. Look into the emacs for writers talk and how he uses bullet-points
   ;; in org .
 
-  ;; (require 'org-bullets)
-  ;; (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-  ;; (setq org-bullets-bullet-list '("☭" "⚛" "☩" "☣" "▶" "◉" "○" "✸" "✿" "▣"))
+  (setq org-bullets-bullet-list '("☭" "⚛" "☩" "☣" "▶" "◉" "○" "✸" "✿" "▣"))
 
 
 #+END_SRC
 
-*** WAITING Org Babel						     :unused:
+*** Org Babel						     :unused:waiting:
 
   Add latex code blocks
 
@@ -864,7 +865,7 @@ Do not ask before evaluating code blocks.
 *** FCI								     :unused:
 #+BEGIN_SRC emacs-lisp 
   (setq fci-rule-color "#424242")         ; set line color
-  (setq fci-rule-column 80)               ; set line location
+  (setq fci-rule-column 81)               ; set line location
 #+END_SRC
 *** Winmove							     :unused:
 
@@ -949,27 +950,34 @@ Do not ask before evaluating code blocks.
 #+END_SRC
 *** EMMS
 *** AucTeX						   :ext:dependencies:
-    - [[http://www.tug.org/mactex/mactex-download.html][MacTeX Download Link]]
+    - [X] [[http://www.tug.org/mactex/mactex-download.html][MacTeX Download Link]]
+    - [X] [[http://www.electronics.oulu.fi/latex/examples/example_1/][Sample TeX Document for Testing Purposes]]
 
+General AucTeX Preferences
 #+BEGIN_SRC emacs-lisp 
-  ;; -----------------------------------------------------------------------------
-  ;; General AucTeX
-  ;; -----------------------------------------------------------------------------
-
   (setq-default TeX-PDF-mode t)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)
   (setq TeX-electric-sub-and-superscript t)
+#+END_SRC
+
+**** Trying to Fix AucTeX
+    - [X] [[https://tex.stackexchange.com/questions/285040/trouble-getting-auctex-to-load-with-emacs-update][TeX StackExchage: Trouble with AucTeX Loading]]
+      
+      Installed with Package Manger Cask, so I will not use (require 'tex-site).
+      Add ~/usr/texbin~ to PATH file     
+#+BEGIN_SRC emacs-lisp 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/texbin"))
   (setq exec-path (append exec-path '("/usr/texbin")))
+#+END_SRC
 
+    - [ ] [[https://emacs.stackexchange.com/questions/31770/auctex-cannot-find-a-working-tex-distribution][Emacs StackExchange: AucTeX Cannot Find a Working TeX Distritubion]]
+
+#+BEGIN_SRC emacs-lisp 
   ;; (when (memq window-system '(mac ns))
   ;;   (exec-path-from-shell-initialize))
 
-  ;; -----------------------------------------------------------------------------
-  ;; AucTex Fix
-  ;; -----------------------------------------------------------------------------
   (getenv "PATH")
    (setenv "PATH"
   (concat
@@ -981,6 +989,9 @@ Do not ask before evaluating code blocks.
   (setq exec-path (append exec-path '("/Library/TeX/texbin/")))
 #+END_SRC
 
+    - [ ] [[https://www.reddit.com/r/emacs/comments/3pvwns/emacs_latex_editing_with_os_x_el_capitan/][/r/Emacs: ?]]
+    - [ ] 
+    - [ ] 
 *** Crux
 
   Map some keys to useful Crux key bindings.
@@ -1180,15 +1191,15 @@ Do not ask before evaluating code blocks.
 #+END_SRC
 * Pain Points
 ** Ask #emacs
-*** TODO Is (require 'org) necessary?
-*** TODO Ask about C-s search methodology
-*** TODO Is my security.el idea the right line of thinking?
-*** TODO How do they manage their VC emacs download?
+*** Is (require 'org) necessary?				       :todo:
+*** Ask about C-s search methodology				       :todo:
+*** Is my security.el idea the right line of thinking?		       :todo:
+*** How do they manage their VC emacs download?			       :todo:
 ** Tasks
-*** TODO Add security.el with auth information
-*** TODO Update Cask Packages without restarting Emacs
-*** TODO Encrypt security.el
-*** TODO Push to Git
+*** Add security.el with auth information			       :todo:
+*** Update Cask Packages without restarting Emacs		       :todo:
+*** Encrypt security.el						       :todo:
+*** Push to Git							       :todo:
    
    Make sure to remove secure information. Consult whether it's better to
    encrypt and push or not.
@@ -1203,8 +1214,8 @@ Do not ask before evaluating code blocks.
   - C-x h (highlight the whole buffer)
   - M-@ (highlight forward from word, by word)
   - 
-** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/1]
-*** TODO Pomidor Timer
+** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/0]
+*** Pomidor Timer						       :todo:
 ** Packages to Look Into
   - [ ] FixTeme-theme.el
   - [ ] mouse3.el

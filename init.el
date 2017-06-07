@@ -61,4 +61,17 @@
       (goto-char (point-min))
       (special-mode))
     (setq initial-buffer-choice (lambda () (get-buffer "*init errors*")))))
+
 (put 'narrow-to-region 'disabled nil)
+
+;; =============================================================================
+;; Add Secret Files
+;; =============================================================================
+
+;; Add dotsecret .el files to path (do not need trailing '/')
+(add-to-list 'load-path "/Volumes/dotsecret")
+
+;; require dotsecret files
+(require 'init-erc)
+(require 'init-gnus)
+(require 'init-org)

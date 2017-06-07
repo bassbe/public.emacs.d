@@ -1,57 +1,61 @@
 
 ;; ----- smex-history -----
 (
- global-linum-mode
- global-hl-line-mode
- load-file
  desktop-save
- customize
- gnuplot-mode
- desktop-change-dir
+ magit-status
+ replace-string
+ pomidor
+ fci-mode
+ yas-global-mode
+ linum-mode
 )
 
 ;; ----- smex-data -----
 (
- (magit-status . 4)
- (color-theme-ld-dark . 1)
- (color-theme-select . 3)
- (desktop-save . 24)
- (customize . 19)
- (desktop-change-dir . 19)
- (calendar . 12)
- (neotree . 9)
- (transparency . 11)
- (hs-minor-mode . 3)
- (shell . 1)
- (term . 2)
- (html-line . 2)
- (hl-line-mode . 6)
- (delete-duplicate-lines . 7)
- (package-list-packages . 14)
- (make-frame . 7)
- (ace-window . 1)
- (replace-string . 8)
- (minimap-mode . 3)
- (set-fill-column . 2)
- (yas-minor-mode . 4)
- (yas-reload-all . 7)
- (yas-global-mode . 1)
- (yas-new-snippet . 3)
- (fci-mode . 7)
- (js2-mode . 3)
- (jade-interaction-mode . 1)
- (global-hl-line-mode . 4)
- (transient-mark-mode . 4)
- (diredp-dired-plus-help . 1)
- (diredp-fileset . 1)
- (browse-url-of-file . 1)
- (makefile-mode . 1)
- (org-mode . 2)
+ (magit-status . 7)
+ (customize-themes . 3)
+ (desktop-save . 19)
  (delete-trailing-whitespace . 2)
- (exec-path-from-shell-copy-env . 1)
- (eval-region . 1)
- (gnuplot-mode . 1)
- (load-file . 1)
- (darkroom-mode . 5)
+ (delete-duplicate-lines . 1)
+ <<<<<<<
+ Updated
+ upstream
+ (package-list-packages . 5)
+ (sort-lines . 1)
+ (transparency . 25)
+ (calendar . 11)
+ (customize . 3)
+ (reveal-in-osx-finder . 1)
+ (desktop-change-dir . 17)
+ =======
+ (package-list-packages . 1)
+ (sort-lines . 1)
+ (transparency . 2)
+ (calendar . 1)
+ (customize . 2)
+ (reveal-in-osx-finder . 1)
+ >>>>>>>
+ Stashed
+ changes
+ (browse-kill-ring . 3)
+ (lisp-mode . 3)
+ (replace-string . 13)
+ (fci-mode . 22)
+ (set-input-method . 27)
+ (set-language-environment . 1)
+ (org-mode . 6)
+ (list-input-methods . 4)
+ (org-indent-mode . 2)
+ (clone-indirect-buffer-other-window . 2)
+ (transient-mark-mode . 2)
+ (linum-mode . 3)
+ (darkroom-mode . 11)
  (global-linum-mode . 1)
+ (hl-line-mode . 5)
+ (make-frame . 1)
+ (yas-global-mode . 4)
+ (color-theme-select . 1)
+ (org-sort . 1)
+ (org-preview-latex-fragment . 1)
+ (pomidor . 3)
 )
