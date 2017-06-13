@@ -319,9 +319,10 @@
             '((sequence "TODO" "FIXME" "WAITING" "|" "DONE" "FAILED" "LOG" )))
 
   ;; Use org-mode when reading these filetypes
-    (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-    (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
-    (add-to-list 'auto-mode-alist '("\\.org_history$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.bm$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.org_history$" . org-mode))
 
   ;; Keep the log entries out of the [E]ntry Text view
   ;; ?
@@ -470,27 +471,30 @@
   ;; Unused
   ;; ------------------------------------------------------------------------------
 
-  ;; (setq org-latex-default-packages-alist
-  ;;     '(("AUTO" "inputenc" t)
-  ;;      ("T1" "fontenc" t)
-  ;;      ("" "fixltx2e" nil)
-  ;;      ("" "graphicx" t)
-  ;;      ("" "longtable" nil)
-  ;;      ("" "float" nil)
-  ;;      ("" "wrapfig" nil)
-  ;;      ("" "rotating" nil)
-  ;;      ("normalem" "ulem" t)
-  ;;      ("" "amsmath" t)
-  ;;      ("" "textcomp" t)
-  ;;      ("" "marvosym" t)
-  ;;      ("" "wasysym" t)
-  ;;      ("" "amssymb" t)
-  ;;      ("" "hyperref" nil)
-  ;;      "\\tolerance=1000"
-  ;;      ("version=3" "mhchem" nil)))
+  (setq org-latex-default-packages-alist
+       '(("spanish, russian, english" "babel" nil)
+       ("AUTO" "inputenc" t)
+       ("T1" "fontenc" t)
+       ("" "fixltx2e" nil)
+       ("" "graphicx" t)
+       ("" "longtable" nil)
+       ("" "float" nil)
+       ("" "wrapfig" nil)
+       ("" "rotating" nil)
+       ("normalem" "ulem" t)
+       ("" "amsmath" t)
+       ("" "textcomp" t)
+       ("utf8" "inputenc" t)
+       ("" "marvosym" t)
+       ("" "wasysym" t)
+       ("" "amssymb" t)
+       ("" "hyperref" nil)
+       "\\tolerance=1000"
+       ("version=3" "mhchem" nil)))
 
   ;;   (setq org-latex-inputenc-alist nil)
   ;;   (setq org-latex-packages-alist nil)
+
 #+END_SRC
 *** Org Code Templates (<el...etc)
 
