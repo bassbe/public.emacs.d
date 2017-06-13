@@ -72,6 +72,6 @@
 (add-to-list 'load-path "/Volumes/dotsecret")
 
 ;; require dotsecret files
-(require 'init-erc)
-(require 'init-gnus)
-(require 'init-org)
+(require 'init-erc)			; For IRC Connection/Authentication
+(require 'init-gnus)			; For Email Authentication
+(require 'init-org)			; My Personal Calendar, etc...
