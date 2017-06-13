@@ -1,0 +1,121 @@
+# -*- mode: snippet -*-
+# name: logentry
+# key: logentry_
+# --
+
+#+TITLE: 2017 Week ${1:Week#}:
+#+AUTHOR: Benjamin Bass
+#+OPTIONS: toc:nil
+
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[russian]{babel}
+
+\begin{abstract}
+\end{abstract}
+
+# The F(A)T versue F(I)T
+# [R]ed [B]lue [G]old [P]latinum
+# 
+
+* Intention
+  ${2:Intention}
+* Goals
+- [ ] Read 
+  + # of pages
+  + # of hours
+
+* Monday ()[]
+#+attr_latex: :align |c|c|c|
+| Meal | Food | Calories |
+|------+------+----------|
+| Br.  |      |          |
+| Lu.  |      |          |
+| Di.  |      |          |
+| Snc  |      |          |
+|------+------+----------|
+| ^    |      |        0 |
+|------+------+----------|
+#+TBLFM: @>$3=vsum(@I..@II)
+
+** Daily Thoughts and Events
+** Один Даен, Я Думаю и Работать
+** 我 觉得 什么
+* Tuesday ()[]
+#+attr_latex: :align |c|c|c|
+| Meal | Food | Calories |
+|------+------+----------|
+|      |      |          |
+|------+------+----------|
+| ^    |      |        0 |
+|------+------+----------|
+#+TBLFM: @>$3=vsum(@I..@II)
+** Daily Thoughts and Events
+** Один Даен, Я Думаю и Работать
+** 我 觉得 什么
+* Wednesday ()[]
+#+attr_latex: :align |c|c|c|
+| Meal | Food | Calories |
+|------+------+----------|
+|      |      |          |
+|------+------+----------|
+| ^    |      |        0 |
+|------+------+----------|
+#+TBLFM: @>$3=vsum(@I..@II)
+** Daily Thoughts and Events
+** Один Даен, Я Думаю и Работать
+** 我 觉得 什么
+* Thursday ()[]
+#+attr_latex: :align |c|c|c|
+| Meal | Food | Calories |
+|------+------+----------|
+|      |      |          |
+|------+------+----------|
+| ^    |      |        0 |
+|------+------+----------|
+#+TBLFM: @>$3=vsum(@I..@II)
+** Daily Thoughts and Events
+** Один Даен, Я Думаю и Работать
+** 我 觉得 什么
+* Friday ()[]
+#+attr_latex: :align |c|c|c|
+| Meal | Food | Calories |
+|------+------+----------|
+|      |      |          |
+|------+------+----------|
+| ^    |      |        0 |
+|------+------+----------|
+#+TBLFM: @>$3=vsum(@I..@II)
+** Daily Thoughts and Events
+** Один Даен, Я Думаю и Работать
+** 我 觉得 什么
+* Saturday ()[]
+#+attr_latex: :align |c|c|c|
+| Meal | Food | Calories |
+|------+------+----------|
+|      |      |          |
+|------+------+----------|
+| ^    |      |        0 |
+|------+------+----------|
+#+TBLFM: @>$3=vsum(@I..@II)
+** Daily Thoughts and Events
+** Один Даен, Я Думаю и Работать
+** 我 觉得 什么
+* Sunday ()[]
+#+attr_latex: :align |c|c|c|
+| Meal | Food | Calories |
+|------+------+----------|
+|      |      |          |
+|------+------+----------|
+| ^    |      |        0 |
+|------+------+----------|
+#+TBLFM: @>$3=vsum(@I..@II)
+** Daily Thoughts and Events
+** Один Даен, Я Думаю и Работать
+** 我 觉得 什么
+* Conclusion
+
+* Still To Add
+** TODO Add White Goodman Pics (I/A)
+** TODO [R/B/G/P] Indicators?
+** TODO Language Compatibility for Chinese & Russian
+** TODO On-the-fly spell check
