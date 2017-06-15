@@ -1,5 +1,4 @@
 * Intro
-
   Reminders for me:
   
   - Use "<el + TAB" to insert of emacs lisp with org babel.
@@ -27,8 +26,7 @@
     )
 #+END_SRC
 
-** Startup							       :done:
-  
+** Startup							       :done:  
   - [[http://freedom.ascii.uk/][Freedom]]
   - [[http://chris.com/ascii/index.php?art%3Dobjects/flags][Flag]]
   - [[https://stackoverflow.com/questions/36244529/emacs-how-to-load-file-content-in-scratch-screen#36272179][SO: Loading File Contenets into Scratch Buffer]]
@@ -1192,6 +1190,11 @@ General AucTeX Preferences
   ;;     (340 . "#94BFF3")
   ;;     (360 . "#DC8CC3")))
   ;; (setq vc-annotate-very-old-color "#DC8CC3")
+#+END_SRC
+** Not Using Anymore
+   Setting .emacs.d directory to another location
+#+BEGIN_SRC emacs-lisp 
+  ;; (setq user-emacs-directory "~/somewhere/else")
 #+END_SRC
 * Pain Points
 ** Ask #emacs
