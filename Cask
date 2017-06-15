@@ -22,6 +22,7 @@
 (depends-on "csv-mode")
 (depends-on "darkroom")
 (depends-on "dash")
+(depends-on "doom-themes")
 (depends-on "dionysos")
 (depends-on "dired+")
 (depends-on "dired-hacks-utils")
