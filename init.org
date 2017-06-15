@@ -419,12 +419,17 @@
 **** Schedule/Deadline Leaders
 *** Capture					  :perMachine:unused:waiting:
 
-  Set the default target and file for notes.
+  Set the default [[https://emacs.stackexchange.com/questions/19391/can-t-set-directory-for-org-mode-capture][target and file for notes]].
 
 #+BEGIN_SRC emacs-lisp 
   ;; ------------------------------------------------------------------------------
   ;; ? Not sure how these work, don't use them very much. I should...
   ;; ------------------------------------------------------------------------------
+
+  (require 'org)
+  (setq org-directory "/Volumes/dotsecret/org-dir")
+  (setq org-default-notes-file (concat org-directory "/capture.org"))
+  (define-key global-map "\C-cc" 'org-capture)
 
   (setq org-capture-templates
       '(("t" "TODO Item" entry
@@ -438,11 +443,7 @@
   ;; Unused
   ;; ------------------------------------------------------------------------------
 
-  ;;(setq org-default-notes-file (concat org-directory "/notes.org"))
-  ;;     (define-key global-map "\C-cc" 'org-capture)
-
-  ;; (setq org-default-notes-file  "~/seacloud/org/seanotes.org")
-  ;; (define-key global-map "\C-cc" 'org-capture)
+  ;; (setq org-default-notes-file  "/Volumes/dotsecret/org-dir/capture.org")
   ;; (setq org-capture-templates-contexts nil)
 
 #+END_SRC
@@ -457,7 +458,7 @@
   The location of org archive files.
 
 #+BEGIN_SRC emacs-lisp 
-  (setq org-archive-location "~/Documents/orgarchives")
+  (setq org-archive-location "/Volumes/dotsecret/org-archives")
 #+END_SRC
 *** Export to LaTeX
 
