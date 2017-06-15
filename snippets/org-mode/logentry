@@ -2,10 +2,9 @@
 # name: logentry
 # key: logentry_
 # --
-
 #+TITLE: 2017 Week ${1:Week#}:
 #+AUTHOR: Benjamin Bass
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil num:nil
 
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
 #+LATEX_HEADER: \usepackage[russian]{babel}
