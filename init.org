@@ -22,11 +22,10 @@
   (when (>= emacs-major-version 24)
     (require 'package)
     (package-initialize)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-    )
+    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 #+END_SRC
 
-** Startup							       :done:  
+** Startup							       :done:
   - [[http://freedom.ascii.uk/][Freedom]]
   - [[http://chris.com/ascii/index.php?art%3Dobjects/flags][Flag]]
   - [[https://stackoverflow.com/questions/36244529/emacs-how-to-load-file-content-in-scratch-screen#36272179][SO: Loading File Contenets into Scratch Buffer]]
@@ -56,15 +55,35 @@
   Here, I load the Calm Forest color theme after (?) color theme is somehow loaded.
 
 #+BEGIN_SRC emacs-lisp 
-      (add-to-list 'load-path "~/.emacs.d/themes/color-theme-6.6.0")
-      (require 'color-theme)
-      (eval-after-load "color-theme"
-        '(progn
-           (color-theme-initialize)
+  (add-to-list 'load-path "~/.emacs.d/themes/color-theme-6.6.0")
+  (require 'color-theme)
+  (eval-after-load "color-theme"
+    '(progn
+       (color-theme-initialize)
 
-           ;; This is the current theme in emacs
-           (color-theme-calm-forest)))
+       ;; This is the current theme in emacs
+       (color-theme-calm-forest)
+       ))
 #+END_SRC
+
+#+BEGIN_SRC emacs-lisp 
+  (require 'doom-themes)
+  ;; (load-theme 'doom-one t)
+
+
+   ;; doom-one: inspired by Atom's One Dark themes
+   ;; doom-vibrant: a more vibrant version of doom-one
+   ;; doom-molokai: based on Textmate's monokai
+   ;; doom-nova: adapted from Nova (thanks to bigardone)
+   ;; doom-one-light: light version of doom-one
+   ;; doom-x: reads your colors from ~/.Xresources
+   ;; doom-tomorrow-night / doom-tomorrow-day: by Chris Kempson
+   ;; doom-spacegrey: I'm sure you've heard of it
+   ;; doom-mono-dark / doom-mono-light: a minimalistic, monochromatic theme
+   ;; doom-tron: based on Tron Legacy from daylerees' themes
+   ;; doom-peacock: based on Peacock from daylerees' themes
+#+END_SRC
+
 
 *** Set Color Theme
   
@@ -152,40 +171,48 @@
 #+BEGIN_SRC emacs-lisp 
 
   ;; ------------------------------------------------------------------------------
-  ;; ERC General
+  ;; ERC Startup
   ;; ------------------------------------------------------------------------------
-  ;; (erc-log-mode t)                     ; enable logging
-
-  ;; (setq erc-autojoin-timing 'indent)
 
 
-  ;; (setq erc-hide-list
-  ;;       '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "Users" "329" "353" "366" "MODE"))
-  ;; (setq erc-track-exclude-types
-  ;;       '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "333" "353"))
+  (setq erc-autojoin-timing 'indent)
+
+  (setq erc-hide-list
+        '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "Users" "329" "353" "366" "MODE"))
+  (setq erc-track-exclude-types
+        '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "333" "353"))
+
+  ;; -----------------------------------------------------------------------------
+  ;; Logging
+  ;; -----------------------------------------------------------------------------
+
+  (setq erc-log-channels-directory "/Volumes/dotsecret/irc-logs")
+  (erc-log-mode t)                     ; enable logging
+
+  ;; -----------------------------------------------------------------------------
+  ;; Modules (whatever they are)
+  ;; -----------------------------------------------------------------------------
+  (setq erc-modules
+        '(autojoin
+          button
+          completion
+          fill
+          irccontrols
+          list
+          log
+          match
+          menu
+          move-to-prompt
+          netsplit
+          networks
+          noncommands
+          readonly
+          ring
+          services
+          stamp
+          track))
 
 
-  ;; (setq erc-modules
-  ;;       '(autojoin
-  ;;         button
-  ;;         completion
-  ;;         fill
-  ;;         irccontrols
-  ;;         list
-  ;;         match
-  ;;         menu
-  ;;         move-to-prompt
-  ;;         netsplit
-  ;;         networks
-  ;;         noncommands
-  ;;         readonly
-  ;;         ring
-  ;;         services
-  ;;         stamp
-  ;;         track))
-
-
-  ;; ;; (setq-default
   ;; (setq erc-track-minor-mode t)                ; ?
   ;; (setq erc-track-mode t)                      ; ?
   ;; (setq erc-track-switch-from-erc t)   ; ?
@@ -270,6 +297,14 @@
   (setq backup-directory-alist `(("." . "~/.emacs.d/machine-specific/backup-files/")))
   (setq backup-by-copying t)
 
+  ;; =============================================================================
+  ;; Undecided & Unused
+  ;; =============================================================================
+
+  ;; (setq backup-directory-alist
+  ;;           `((".*" . ,temporary-file-directory)))
+  ;;     (setq auto-save-file-name-transforms
+  ;;           `((".*" ,temporary-file-directory t)))
 
   ;; Haven't decided if I want these...
   ;; (setq delete-old-versions t
@@ -462,38 +497,33 @@
 #+END_SRC
 *** Export to LaTeX
 
- Exporting Org Documents to LaTeX
+    Research packages and add them as Ifind out what I want to use them for
+    and flush out boiler plate code I don't need.
 
 #+BEGIN_SRC emacs-lisp 
-
-  ;; ------------------------------------------------------------------------------
-  ;; Unused
-  ;; ------------------------------------------------------------------------------
-
   (setq org-latex-default-packages-alist
-       '(("spanish, russian, english" "babel" nil)
-       ("AUTO" "inputenc" t)
-       ("T1" "fontenc" t)
-       ("" "fixltx2e" nil)
-       ("" "graphicx" t)
-       ("" "longtable" nil)
-       ("" "float" nil)
-       ("" "wrapfig" nil)
-       ("" "rotating" nil)
-       ("normalem" "ulem" t)
-       ("" "amsmath" t)
-       ("" "textcomp" t)
-       ("utf8" "inputenc" t)
-       ("" "marvosym" t)
-       ("" "wasysym" t)
-       ("" "amssymb" t)
-       ("" "hyperref" nil)
-       "\\tolerance=1000"
-       ("version=3" "mhchem" nil)))
+        '(
+       ;; ("spanish, russian, english" "babel" nil)
+       ;; ("AUTO" "inputenc" t)
+       ;; ("T1" "fontenc" t)
+       ;; ("" "fixltx2e" nil)
+       ("" "graphicx" t)                  ; Insert Pictures
+       ;; ("" "longtable" nil)
+       ;; ("" "float" nil)
+       ;; ("" "wrapfig" nil)
+       ;; ("" "rotating" nil)
+       ;; ("normalem" "ulem" t)
+       ("" "amsmath" t)                   ; Math Package
+       ;; ("" "textcomp" t)
+       ;; ("utf8" "inputenc" t)
+       ;; ("" "marvosym" t)
+       ;; ("" "wasysym" t)
+       ;; ("" "amssymb" t)
+       ;; ("" "hyperref" nil)
+       ;; "\\tolerance=1000"
+       ;; ("version=3" "mhchem" nil)
 
-  ;;   (setq org-latex-inputenc-alist nil)
-  ;;   (setq org-latex-packages-alist nil)
-
+       ))
 #+END_SRC
 *** Org Code Templates (<el...etc)
 
