@@ -261,8 +261,9 @@
   ;; (add-hook 'erc-join-hook 'bitlbee-identify)
 #+END_SRC
 *** rcirc							      :fixme:
+    ;lkj
 #+BEGIN_SRC emacs-lisp
-  ;; (rcirc-track-minor-mode 1)           ; This is awesome
+  (rcirc-track-minor-mode 1)           ; This is awesome
 #+END_SRC
 *** Circe							      :empty:
 *** ZNC								      :empty:
@@ -686,12 +687,20 @@ Do not ask before evaluating code blocks.
 ** Diary
 
 #+BEGIN_SRC emacs-lisp 
+
   (setq diary-file "~/.emacs.d/machine-specific/")
 
   (setq diary-comment-end "-->")
   (setq diary-comment-start "<--")
   (setq diary-number-of-entries 10)
 
+  (setq diary-displayg-function 'diary-fancy-display)
+
+  ;; ------------------------------------------------------------------------------
+  ;; Hooks
+  ;; ------------------------------------------------------------------------------
+  (add-hook 'today-visible-calendar-hook 'calendar-mark-today) ; Highlight today
+  (add-hook 'diary-display-hook 'fancy-diary-display)          ; ?? difference from setq?
 
   ;; ------------------------------------------------------------------------------
   ;; Unused
@@ -701,17 +710,12 @@ Do not ask before evaluating code blocks.
   ;;       mark-diary-entries-in-calendar t
   ;;       number-of-diary-entries 7)
 
-  ;; (add-hook 'diary-display-hook 'fancy-diary-display)
-  ;; (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+
 
   ;; ;;(add-hook 'diary-list-entries-hook 'diary-include-other-diary-files)
   ;; ;;(add-hook 'diary-mark-entries-hook 'diary-mark-included-diary-files)
 
-  ;; (setq diary-comment-end "-->")
-  ;; (setq diary-comment-start "<--")
-  ;; (setq diary-number-of-entries 10)
 
-  ;; (setq diary-displayg-function (quote diary-fancy-display))
 
 #+END_SRC
 ** Journal
@@ -903,6 +907,7 @@ Do not ask before evaluating code blocks.
 *** Winmove							     :unused:
 
   Lets try it out. Use S-<left,right,up,down> to traverse windows.
+  Update: It doesn't seem to play nicely with Org Mode.
 
 #+BEGIN_SRC emacs-lisp 
   ;; (windmove-default-keybindings)
@@ -1050,7 +1055,7 @@ General AucTeX Preferences
   (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
   (global-set-key (kbd "C-c u") #'crux-view-url)
   (global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
-  (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+  ;; (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
   (global-set-key (kbd "C-c D") #'crux-delete-file-and-buffer)
 
   ;; -----------------------------------------------------------------------------

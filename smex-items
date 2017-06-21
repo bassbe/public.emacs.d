@@ -2,19 +2,19 @@
 ;; ----- smex-history -----
 (
  desktop-save
- package-list-packages
- desktop-change-dir
- display-time-world
  indent-region
- customize
+ visual-line-mode
  fci-mode
+ erc
+ customize
+ display-time-world
 )
 
 ;; ----- smex-data -----
 (
  (magit-status . 8)
  (customize-themes . 3)
- (desktop-save . 26)
+ (desktop-save . 27)
  (delete-trailing-whitespace . 2)
  (delete-duplicate-lines . 8)
  <<<<<<<
@@ -24,9 +24,9 @@
  (sort-lines . 1)
  (transparency . 26)
  (calendar . 12)
- (customize . 6)
+ (customize . 8)
  (reveal-in-osx-finder . 1)
- (desktop-change-dir . 23)
+ (desktop-change-dir . 24)
  =======
  (package-list-packages . 1)
  (sort-lines . 1)
@@ -40,7 +40,7 @@
  (browse-kill-ring . 3)
  (lisp-mode . 3)
  (replace-string . 16)
- (fci-mode . 30)
+ (fci-mode . 34)
  (set-input-method . 27)
  (set-language-environment . 1)
  (org-mode . 7)
@@ -51,22 +51,26 @@
  (linum-mode . 5)
  (darkroom-mode . 11)
  (global-linum-mode . 1)
- (hl-line-mode . 6)
- (make-frame . 1)
+ (hl-line-mode . 8)
+ (make-frame . 2)
  (yas-global-mode . 6)
  (color-theme-select . 1)
  (org-sort . 1)
  (org-preview-latex-fragment . 1)
  (pomidor . 4)
  (indent-to . 1)
- (indent-region . 7)
+ (indent-region . 8)
  (magit-init . 3)
  (eval-region . 1)
- (erc . 10)
+ (erc . 11)
  (snippet-mode . 1)
  (yas-reload-all . 2)
  (customize-variable . 1)
  (eshell . 1)
  (erc-join-channel . 1)
- (display-time-world . 13)
+ (display-time-world . 14)
+ (peep-dired . 22)
+ (org-bullets-mode . 1)
+ (mpd-seek . 3)
+ (visual-line-mode . 1)
 )
