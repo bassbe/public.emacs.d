@@ -92,11 +92,11 @@
 (depends-on "use-package")
 (depends-on "verilog-mode")
 (depends-on "web-mode")
+(depends-on "wc-mode")
 (depends-on "with-editor")
 (depends-on "yasnippet")
 (depends-on "znc")
 
-(depends-on "jade")
 (depends-on "js2-mode")
 (depends-on "powerline")
 (depends-on "browse-kill-ring")
