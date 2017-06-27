@@ -13,7 +13,7 @@
 ** Cask & Packages 						 :understand:
 
 #+BEGIN_SRC emacs-lisp
-  (require 'cask "~/.cask/cask.el")
+  (require 'cask "/usr/local/Cellar/cask/0.8.1/cask.el")
   (cask-initialize)
 #+END_SRC
 
@@ -360,7 +360,10 @@
 
   ;; Keep the log entries out of the [E]ntry Text view
   ;; ?
-    (setq org-log-into-drawer t)
+  (setq org-log-into-drawer t)
+
+
+  (define-key global-map "\C-cl" 'org-store-link)
 #+END_SRC
 
 *** Org Agenda							    :waiting:
