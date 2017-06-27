@@ -1,32 +1,32 @@
 
 ;; ----- smex-history -----
 (
- desktop-save
- indent-region
- visual-line-mode
+ hl-line-mode
+ org-bullets-mode
+ linum-mode
  fci-mode
- erc
- customize
- display-time-world
+ delete-trailing-whitespace
+ visual-line-mode
+ desktop-change-dir
 )
 
 ;; ----- smex-data -----
 (
  (magit-status . 8)
  (customize-themes . 3)
- (desktop-save . 27)
- (delete-trailing-whitespace . 2)
+ (desktop-save . 30)
+ (delete-trailing-whitespace . 3)
  (delete-duplicate-lines . 8)
  <<<<<<<
  Updated
  upstream
- (package-list-packages . 9)
- (sort-lines . 1)
+ (package-list-packages . 10)
+ (sort-lines . 3)
  (transparency . 26)
- (calendar . 12)
- (customize . 8)
+ (calendar . 20)
+ (customize . 9)
  (reveal-in-osx-finder . 1)
- (desktop-change-dir . 24)
+ (desktop-change-dir . 31)
  =======
  (package-list-packages . 1)
  (sort-lines . 1)
@@ -39,8 +39,8 @@
  changes
  (browse-kill-ring . 3)
  (lisp-mode . 3)
- (replace-string . 16)
- (fci-mode . 34)
+ (replace-string . 18)
+ (fci-mode . 44)
  (set-input-method . 27)
  (set-language-environment . 1)
  (org-mode . 7)
@@ -48,29 +48,32 @@
  (org-indent-mode . 2)
  (clone-indirect-buffer-other-window . 2)
  (transient-mark-mode . 2)
- (linum-mode . 5)
+ (linum-mode . 6)
  (darkroom-mode . 11)
  (global-linum-mode . 1)
- (hl-line-mode . 8)
- (make-frame . 2)
+ (hl-line-mode . 14)
+ (make-frame . 3)
  (yas-global-mode . 6)
  (color-theme-select . 1)
  (org-sort . 1)
  (org-preview-latex-fragment . 1)
- (pomidor . 4)
+ (pomidor . 7)
  (indent-to . 1)
- (indent-region . 8)
+ (indent-region . 9)
  (magit-init . 3)
  (eval-region . 1)
- (erc . 11)
+ (erc . 12)
  (snippet-mode . 1)
  (yas-reload-all . 2)
  (customize-variable . 1)
  (eshell . 1)
- (erc-join-channel . 1)
+ (erc-join-channel . 2)
  (display-time-world . 14)
- (peep-dired . 22)
- (org-bullets-mode . 1)
- (mpd-seek . 3)
- (visual-line-mode . 1)
+ (peep-dired . 33)
+ (org-bullets-mode . 3)
+ (mpd-seek . 4)
+ (visual-line-mode . 3)
+ (ispell . 1)
+ (diary . 1)
+ (emacs-version . 2)
 )
