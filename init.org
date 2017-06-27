@@ -538,8 +538,8 @@
 
 #+BEGIN_SRC emacs-lisp 
   ;; there's an error somewhere here
-  ;; (add-to-list 'org-structure-template-alist
-  ;;               '(("el" "?\n#+BEGIN_SRC emacs-lisp \n\n#+END_SRC")))
+  (add-to-list 'org-structure-template-alist
+                '("el" "#+BEGIN_SRC emacs-lisp\n ? \n#+END_SRC"))
 #+END_SRC
 *** Org Bullets & Lists						     :unused:
 #+BEGIN_SRC emacs-lisp 
@@ -583,6 +583,37 @@ Do not ask before evaluating code blocks.
   ;; (setq org-confirm-babel-evaluate 'ck/org-confirm-babel-evaluate)
 #+END_SRC
 
+*** Word Count
+    #+BEGIN_SRC emacs-lisp
+      ;; Word Count
+      ;; http://irreal.org/blog/?p=5722
+
+      (defcustom wc-modeline-format "WC[%W%w/%tw]"
+        "The format string for the modeline.
+      The detailed information for this minor mode can be shown in many
+      ways in the modeline. The formatting strings recognized in this
+      format are as follows.
+
+        %W  Original word count (before changes)
+        %L  Original line count
+        %C  Original character count
+        %w  Change in words
+        %l  Change in lines
+        %c  Change in characters
+        %gc Character change goal
+        %gl Line change goal
+        %gw Word change goal
+        %tw Total words in buffer
+        %tl Total lines in buffer
+        %tc Total characters in buffer
+
+      The default modeline, WC[%W%w/%tw], will display the original number
+      of words followed by the change in words (delta), followed by the total
+      number of words in the buffer.
+      It will looks something like WC[742+360/1100] in the modeline.
+      "
+        )
+    #+END_SRC
 *** Clock
 
   Number of idle minutes that must pass before Org Clock asks for resolution.
