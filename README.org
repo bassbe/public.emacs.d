@@ -9,28 +9,21 @@
 
   As it turns out, GitHub reads .org files as markdown.
   
-  Org mode also displays:
-  - bullet
-  - points
-    + with indentation
-      * ...lots of it
-  - and
-  - ~think this is supposed to be code, with ~'s on each side~
-  - =this as well, made with ='s on either end of the text=
-  - *bolded*
-  - _underlined_
-  - /italicized/
-  - _/*ALL THREE AT ONCE*/_
+** Instructions (For Mac, Homebrew instructions only)
 
-#+BEGIN_SRC emacs-lisp 
-(format t "God Save GitHub & %s" emacs-lisp)
-#+END_SRC
-
-** Instructions
-
-  - comment out the require cask, and cask-initialize line
-  - Download and install Cask
-    + while emacs is closed, run cask install
-  - run the 'cask' command, which will download and install all the packages
-  - upadte packges with: 'cask update'
-  -
+  1. I install Emacs via homebrew (with cacao so it will link, then link it), so
+     that cask downloads packages for only one version of emacs
+  2. Download and install Cask via homebrew
+  3. Add cask to your $PATH so that emacs can find the packages
+     - Find out where cask is installed
+       #+BEGIN_SRC shell-script
+         brew info cask
+       #+END_SRC
+     - Copy the filepath and append it to $PATH
+       #+BEGIN_SRC shell-script
+         export PATH="path/to/cask/:$PATH"
+       #+END_SRC
+  4. While emacs is closed, cd into the .emacs.d/ page and run cask. This will
+     install all the packages in the .cask/ directory
+  5. If this doesn't work, you may need to change the path to the cask.el file
+     as specified in init.org under the heading Cask & Packages
