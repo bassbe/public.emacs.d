@@ -464,35 +464,34 @@
   Set the default [[https://emacs.stackexchange.com/questions/19391/can-t-set-directory-for-org-mode-capture][target and file for notes]].
 
 #+BEGIN_SRC emacs-lisp 
-  ;; ------------------------------------------------------------------------------
-  ;; ? Not sure how these work, don't use them very much. I should...
-  ;; ------------------------------------------------------------------------------
+(require 'org)
+(setq org-directory "/Volumes/dotsecret/org-dir")
+(setq org-default-notes-file (concat org-directory "/capture.org"))
+(define-key global-map "\C-cc" 'org-capture)
 
-  (require 'org)
-  (setq org-directory "/Volumes/dotsecret/org-dir")
-  (setq org-default-notes-file (concat org-directory "/capture.org"))
-  (define-key global-map "\C-cc" 'org-capture)
-
-  (setq org-capture-templates
+(setq org-capture-templates
       '(("t" "TODO Item" entry
-        (file 'org-default-notes-file)
-        "* TODO ")
-       ("n" "Org Entry" entry
-        (file 'org-default-notes-file)
-        "" nil nil)))
+      (file 'org-default-notes-file)
+      "* TODO")
+     ("n" "Org Entry" entry
+      (file 'org-default-notes-file)
+      "" nil nil)
+     ("i" "Item" entry
+      (file 'org-default-notes-file)
+      "* >")))
 
-  ;; ------------------------------------------------------------------------------
-  ;; Unused
-  ;; ------------------------------------------------------------------------------
+;; ------------------------------------------------------------------------------
+;; Unused
+;; ------------------------------------------------------------------------------
 
-  ;; (setq org-default-notes-file  "/Volumes/dotsecret/org-dir/capture.org")
-  ;; (setq org-capture-templates-contexts nil)
+;; (setq org-default-notes-file  "/Volumes/dotsecret/org-dir/capture.org")
+;; (setq org-capture-templates-contexts nil)
 
 #+END_SRC
 *** Journal
 
 #+BEGIN_SRC emacs-lisp 
-  (setq org-journal-dir "~/.emacs.d/machine-specific/org-journal/")
+  (setq org-journal-dir "/Volumes/dotsecret/org-journal")
 #+END_SRC
 
 *** Archive							 :perMachine:
@@ -500,7 +499,9 @@
   The location of org archive files.
 
 #+BEGIN_SRC emacs-lisp 
-  (setq org-archive-location "/Volumes/dotsecret/org-archives")
+  ;; archive to the datetree file, with time and name of file it came from
+  (setq org-archive-location
+        "/Volumes/dotsecret/org-archives/org-archive-datetrees.org::datetree/* From %s")
 #+END_SRC
 *** Export to LaTeX
 
@@ -544,7 +545,7 @@
   (add-to-list 'org-structure-template-alist
                 '("el" "#+BEGIN_SRC emacs-lisp\n ? \n#+END_SRC"))
 #+END_SRC
-*** Org Bullets & Lists						     :unused:
+*** Org Bullets & Lists
 #+BEGIN_SRC emacs-lisp 
   ;; ------------------------------------------------------------------------------
   ;; Unused
@@ -585,6 +586,12 @@ Do not ask before evaluating code blocks.
   ;;   (not (string= lang "latex")))
   ;; (setq org-confirm-babel-evaluate 'ck/org-confirm-babel-evaluate)
 #+END_SRC
+
+*** Org Grab Link
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-mode-hook (lambda () 
+  (define-key org-mode-map (kbd "C-c g") 'omlg-grab-link)))
+#+END_SRC    
 
 *** Word Count
     #+BEGIN_SRC emacs-lisp
@@ -638,6 +645,10 @@ Do not ask before evaluating code blocks.
   ;;         ("Ask Reddit" "https://www.reddit.com/r/AskReddit/.rss" nil nil nil)))
 #+END_SRC
 
+** Fill Column
+#+BEGIN_SRC emacs-lisp
+  (setq fill-column 80)
+#+END_SRC   
 ** Defuns
     :PROPERTIES:
     :ORDERED:  t
@@ -725,7 +736,7 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp 
 
-  (setq diary-file "~/.emacs.d/machine-specific/")
+  (setq diary-file "/Volumes/dotsecret/diary")
 
   (setq diary-comment-end "-->")
   (setq diary-comment-start "<--")
@@ -747,16 +758,12 @@ Do not ask before evaluating code blocks.
   ;;       mark-diary-entries-in-calendar t
   ;;       number-of-diary-entries 7)
 
-
-
   ;; ;;(add-hook 'diary-list-entries-hook 'diary-include-other-diary-files)
   ;; ;;(add-hook 'diary-mark-entries-hook 'diary-mark-included-diary-files)
 
 
 
 #+END_SRC
-** Journal
-   
 ** Dired							     :unused:
 
    For coloring, use 'Dired use ls Dired'. Still not sure what this does.
