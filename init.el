@@ -61,4 +61,17 @@
       (goto-char (point-min))
       (special-mode))
     (setq initial-buffer-choice (lambda () (get-buffer "*init errors*")))))
+
 (put 'narrow-to-region 'disabled nil)
+
+;; =============================================================================
+;; Add Secret Files
+;; =============================================================================
+
+;; Add dotsecret .el files to path (do not need trailing '/')
+(add-to-list 'load-path "/Volumes/dotsecret")
+
+;; require dotsecret files
+(require 'init-erc)			; For IRC Connection/Authentication
+(require 'init-gnus)			; For Email Authentication
+(require 'init-org)			; My Personal Calendar, etc...

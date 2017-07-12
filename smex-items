@@ -1,57 +1,85 @@
 
 ;; ----- smex-history -----
 (
- global-linum-mode
- global-hl-line-mode
- load-file
- desktop-save
- customize
- gnuplot-mode
  desktop-change-dir
+ desktop-save
+ hl-line-mode
+ fci-mode
+ make-frame
+ peep-dired
+ ispell
 )
 
 ;; ----- smex-data -----
 (
- (magit-status . 4)
- (color-theme-ld-dark . 1)
- (color-theme-select . 3)
- (desktop-save . 24)
- (customize . 19)
- (desktop-change-dir . 19)
- (calendar . 12)
- (neotree . 9)
- (transparency . 11)
- (hs-minor-mode . 3)
- (shell . 1)
- (term . 2)
- (html-line . 2)
- (hl-line-mode . 6)
- (delete-duplicate-lines . 7)
- (package-list-packages . 14)
- (make-frame . 7)
- (ace-window . 1)
- (replace-string . 8)
- (minimap-mode . 3)
- (set-fill-column . 2)
- (yas-minor-mode . 4)
- (yas-reload-all . 7)
- (yas-global-mode . 1)
- (yas-new-snippet . 3)
- (fci-mode . 7)
- (js2-mode . 3)
- (jade-interaction-mode . 1)
- (global-hl-line-mode . 4)
- (transient-mark-mode . 4)
- (diredp-dired-plus-help . 1)
- (diredp-fileset . 1)
- (browse-url-of-file . 1)
- (makefile-mode . 1)
- (org-mode . 2)
- (delete-trailing-whitespace . 2)
- (exec-path-from-shell-copy-env . 1)
- (eval-region . 1)
- (gnuplot-mode . 1)
- (load-file . 1)
- (darkroom-mode . 5)
+ (magit-status . 8)
+ (customize-themes . 3)
+ (desktop-save . 40)
+ (delete-trailing-whitespace . 3)
+ (delete-duplicate-lines . 8)
+ <<<<<<<
+ Updated
+ upstream
+ (package-list-packages . 12)
+ (sort-lines . 3)
+ (transparency . 27)
+ (calendar . 20)
+ (customize . 11)
+ (reveal-in-osx-finder . 1)
+ (desktop-change-dir . 34)
+ =======
+ (package-list-packages . 1)
+ (sort-lines . 1)
+ (transparency . 2)
+ (calendar . 1)
+ (customize . 2)
+ (reveal-in-osx-finder . 1)
+ >>>>>>>
+ Stashed
+ changes
+ (browse-kill-ring . 3)
+ (lisp-mode . 3)
+ (replace-string . 20)
+ (fci-mode . 54)
+ (set-input-method . 27)
+ (set-language-environment . 1)
+ (org-mode . 7)
+ (list-input-methods . 4)
+ (org-indent-mode . 2)
+ (clone-indirect-buffer-other-window . 2)
+ (transient-mark-mode . 2)
+ (linum-mode . 6)
+ (darkroom-mode . 21)
  (global-linum-mode . 1)
+ (hl-line-mode . 22)
+ (make-frame . 4)
+ (yas-global-mode . 6)
+ (color-theme-select . 1)
+ (org-sort . 1)
+ (org-preview-latex-fragment . 1)
+ (pomidor . 7)
+ (indent-to . 1)
+ (indent-region . 9)
+ (magit-init . 3)
+ (eval-region . 1)
+ (erc . 12)
+ (snippet-mode . 1)
+ (yas-reload-all . 2)
+ (customize-variable . 1)
+ (eshell . 1)
+ (erc-join-channel . 2)
+ (display-time-world . 14)
+ (peep-dired . 37)
+ (org-bullets-mode . 3)
+ (mpd-seek . 4)
+ (visual-line-mode . 3)
+ (ispell . 8)
+ (diary . 1)
+ (emacs-version . 2)
+ (org-show-todo-tree . 1)
+ (upcase-dwim . 1)
+ (upcase-region . 10)
+ (flyspell-mode . 1)
+ (flyspell-auto-correct-word . 1)
+ (bbdb . 1)
 )

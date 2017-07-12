@@ -1,5 +1,4 @@
 * Intro
-
   Reminders for me:
   
   - Use "<el + TAB" to insert of emacs lisp with org babel.
@@ -13,8 +12,9 @@
 
 ** Cask & Packages 						 :understand:
 
+
 #+BEGIN_SRC emacs-lisp
-  (require 'cask "~/.cask/cask.el")
+  (require 'cask "/usr/local/Cellar/cask/0.8.1/cask.el")
   (cask-initialize)
 #+END_SRC
 
@@ -23,12 +23,9 @@
   (when (>= emacs-major-version 24)
     (require 'package)
     (package-initialize)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-    )
+    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 #+END_SRC
-
 ** Startup							       :done:
-  
   - [[http://freedom.ascii.uk/][Freedom]]
   - [[http://chris.com/ascii/index.php?art%3Dobjects/flags][Flag]]
   - [[https://stackoverflow.com/questions/36244529/emacs-how-to-load-file-content-in-scratch-screen#36272179][SO: Loading File Contenets into Scratch Buffer]]
@@ -58,15 +55,35 @@
   Here, I load the Calm Forest color theme after (?) color theme is somehow loaded.
 
 #+BEGIN_SRC emacs-lisp 
-      (add-to-list 'load-path "~/.emacs.d/themes/color-theme-6.6.0")
-      (require 'color-theme)
-      (eval-after-load "color-theme"
-        '(progn
-           (color-theme-initialize)
+  (add-to-list 'load-path "~/.emacs.d/themes/color-theme-6.6.0")
+  (require 'color-theme)
+  (eval-after-load "color-theme"
+    '(progn
+       (color-theme-initialize)
 
-           ;; This is the current theme in emacs
-           (color-theme-calm-forest)))
+       ;; This is the current theme in emacs
+       (color-theme-calm-forest)
+       ))
 #+END_SRC
+
+#+BEGIN_SRC emacs-lisp 
+  (require 'doom-themes)
+  ;; (load-theme 'doom-one t)
+
+
+   ;; doom-one: inspired by Atom's One Dark themes
+   ;; doom-vibrant: a more vibrant version of doom-one
+   ;; doom-molokai: based on Textmate's monokai
+   ;; doom-nova: adapted from Nova (thanks to bigardone)
+   ;; doom-one-light: light version of doom-one
+   ;; doom-x: reads your colors from ~/.Xresources
+   ;; doom-tomorrow-night / doom-tomorrow-day: by Chris Kempson
+   ;; doom-spacegrey: I'm sure you've heard of it
+   ;; doom-mono-dark / doom-mono-light: a minimalistic, monochromatic theme
+   ;; doom-tron: based on Tron Legacy from daylerees' themes
+   ;; doom-peacock: based on Peacock from daylerees' themes
+#+END_SRC
+
 
 *** Set Color Theme
   
@@ -154,40 +171,48 @@
 #+BEGIN_SRC emacs-lisp 
 
   ;; ------------------------------------------------------------------------------
-  ;; ERC General
+  ;; ERC Startup
   ;; ------------------------------------------------------------------------------
-  ;; (erc-log-mode t)                     ; enable logging
-
-  ;; (setq erc-autojoin-timing 'indent)
 
 
-  ;; (setq erc-hide-list
-  ;;       '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "Users" "329" "353" "366" "MODE"))
-  ;; (setq erc-track-exclude-types
-  ;;       '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "333" "353"))
+  (setq erc-autojoin-timing 'indent)
+
+  (setq erc-hide-list
+        '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "Users" "329" "353" "366" "MODE"))
+  (setq erc-track-exclude-types
+        '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "333" "353"))
+
+  ;; -----------------------------------------------------------------------------
+  ;; Logging
+  ;; -----------------------------------------------------------------------------
+
+  (setq erc-log-channels-directory "/Volumes/dotsecret/irc-logs")
+  (erc-log-mode t)                     ; enable logging
+
+  ;; -----------------------------------------------------------------------------
+  ;; Modules (whatever they are)
+  ;; -----------------------------------------------------------------------------
+  (setq erc-modules
+        '(autojoin
+          button
+          completion
+          fill
+          irccontrols
+          list
+          log
+          match
+          menu
+          move-to-prompt
+          netsplit
+          networks
+          noncommands
+          readonly
+          ring
+          services
+          stamp
+          track))
 
 
-  ;; (setq erc-modules
-  ;;       '(autojoin
-  ;;         button
-  ;;         completion
-  ;;         fill
-  ;;         irccontrols
-  ;;         list
-  ;;         match
-  ;;         menu
-  ;;         move-to-prompt
-  ;;         netsplit
-  ;;         networks
-  ;;         noncommands
-  ;;         readonly
-  ;;         ring
-  ;;         services
-  ;;         stamp
-  ;;         track))
-
-
-  ;; ;; (setq-default
   ;; (setq erc-track-minor-mode t)                ; ?
   ;; (setq erc-track-mode t)                      ; ?
   ;; (setq erc-track-switch-from-erc t)   ; ?
@@ -236,8 +261,9 @@
   ;; (add-hook 'erc-join-hook 'bitlbee-identify)
 #+END_SRC
 *** rcirc							      :fixme:
+    ;lkj
 #+BEGIN_SRC emacs-lisp
-  ;; (rcirc-track-minor-mode 1)           ; This is awesome
+  (rcirc-track-minor-mode 1)           ; This is awesome
 #+END_SRC
 *** Circe							      :empty:
 *** ZNC								      :empty:
@@ -272,6 +298,14 @@
   (setq backup-directory-alist `(("." . "~/.emacs.d/machine-specific/backup-files/")))
   (setq backup-by-copying t)
 
+  ;; =============================================================================
+  ;; Undecided & Unused
+  ;; =============================================================================
+
+  ;; (setq backup-directory-alist
+  ;;           `((".*" . ,temporary-file-directory)))
+  ;;     (setq auto-save-file-name-transforms
+  ;;           `((".*" ,temporary-file-directory t)))
 
   ;; Haven't decided if I want these...
   ;; (setq delete-old-versions t
@@ -319,16 +353,20 @@
             '((sequence "TODO" "FIXME" "WAITING" "|" "DONE" "FAILED" "LOG" )))
 
   ;; Use org-mode when reading these filetypes
-    (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-    (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
-    (add-to-list 'auto-mode-alist '("\\.org_history$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.bm$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.org_history$" . org-mode))
 
   ;; Keep the log entries out of the [E]ntry Text view
   ;; ?
-    (setq org-log-into-drawer t)
+  (setq org-log-into-drawer t)
+
+
+  (define-key global-map "\C-cl" 'org-store-link)
 #+END_SRC
 
-*** WAITING Org Agenda
+*** Org Agenda							    :waiting:
 
 #+BEGIN_SRC emacs-lisp 
   ;; ------------------------------------------------------------------------------
@@ -337,6 +375,8 @@
 
   (define-key global-map "\C-ca" 'org-agenda) ; launch agenda command
   (global-set-key (kbd "M-n") 'org-cycle-agenda-files) ; cycle agenda files
+
+  (setq org-agenda-skip-scheduled-if-done t)
 
 
   ;; ------------------------------------------------------------------------------
@@ -369,9 +409,11 @@
         '(("Effort_ALL" . "0 0:10 0:20 0:30 1:00 1:30 2:00 3:00 4:00 6:00 8:00 10:00 20:00")))
 
   ;; ------------------------------------------------------------------------------
-  ;; Custom Views for Agenda
+  ;; Org Agenda Files
   ;; ------------------------------------------------------------------------------
-
+  (setq org-agenda-files (list "/Volumes/dotsecret/calendars/"
+                               "/Volumes/dotsecret/calendars/src/"                             
+                               "/Volumes/dotsecret/org-dir/capture.org"))
 #+END_SRC
 
 **** Org Habits
@@ -417,39 +459,39 @@
 #+END_SRC
 
 **** Schedule/Deadline Leaders
-*** WAITING Capture					  :perMachine:unused:
+*** Capture					  :perMachine:unused:waiting:
 
-  Set the default target and file for notes.
+  Set the default [[https://emacs.stackexchange.com/questions/19391/can-t-set-directory-for-org-mode-capture][target and file for notes]].
 
 #+BEGIN_SRC emacs-lisp 
-  ;; ------------------------------------------------------------------------------
-  ;; ? Not sure how these work, don't use them very much. I should...
-  ;; ------------------------------------------------------------------------------
+(require 'org)
+(setq org-directory "/Volumes/dotsecret/org-dir")
+(setq org-default-notes-file (concat org-directory "/capture.org"))
+(define-key global-map "\C-cc" 'org-capture)
 
-  (setq org-capture-templates
+(setq org-capture-templates
       '(("t" "TODO Item" entry
-        (file 'org-default-notes-file)
-        "* TODO ")
-       ("n" "Org Entry" entry
-        (file 'org-default-notes-file)
-        "" nil nil)))
+      (file 'org-default-notes-file)
+      "* TODO")
+     ("n" "Org Entry" entry
+      (file 'org-default-notes-file)
+      "" nil nil)
+     ("i" "Item" entry
+      (file 'org-default-notes-file)
+      "* >")))
 
-  ;; ------------------------------------------------------------------------------
-  ;; Unused
-  ;; ------------------------------------------------------------------------------
+;; ------------------------------------------------------------------------------
+;; Unused
+;; ------------------------------------------------------------------------------
 
-  ;;(setq org-default-notes-file (concat org-directory "/notes.org"))
-  ;;     (define-key global-map "\C-cc" 'org-capture)
-
-  ;; (setq org-default-notes-file  "~/seacloud/org/seanotes.org")
-  ;; (define-key global-map "\C-cc" 'org-capture)
-  ;; (setq org-capture-templates-contexts nil)
+;; (setq org-default-notes-file  "/Volumes/dotsecret/org-dir/capture.org")
+;; (setq org-capture-templates-contexts nil)
 
 #+END_SRC
 *** Journal
 
 #+BEGIN_SRC emacs-lisp 
-  (setq org-journal-dir "~/.emacs.d/machine-specific/org-journal/")
+  (setq org-journal-dir "/Volumes/dotsecret/org-journal")
 #+END_SRC
 
 *** Archive							 :perMachine:
@@ -457,39 +499,39 @@
   The location of org archive files.
 
 #+BEGIN_SRC emacs-lisp 
-  (setq org-archive-location "~/Documents/orgarchives")
+  ;; archive to the datetree file, with time and name of file it came from
+  (setq org-archive-location
+        "/Volumes/dotsecret/org-archives/org-archive-datetrees.org::datetree/* From %s")
 #+END_SRC
 *** Export to LaTeX
 
- Exporting Org Documents to LaTeX
+    Research packages and add them as Ifind out what I want to use them for
+    and flush out boiler plate code I don't need.
 
 #+BEGIN_SRC emacs-lisp 
+  (setq org-latex-default-packages-alist
+        '(
+       ;; ("spanish, russian, english" "babel" nil)
+       ;; ("AUTO" "inputenc" t)
+       ;; ("T1" "fontenc" t)
+       ;; ("" "fixltx2e" nil)
+       ("" "graphicx" t)                  ; Insert Pictures
+       ;; ("" "longtable" nil)
+       ;; ("" "float" nil)
+       ;; ("" "wrapfig" nil)
+       ;; ("" "rotating" nil)
+       ;; ("normalem" "ulem" t)
+       ("" "amsmath" t)                   ; Math Package
+       ;; ("" "textcomp" t)
+       ;; ("utf8" "inputenc" t)
+       ;; ("" "marvosym" t)
+       ;; ("" "wasysym" t)
+       ;; ("" "amssymb" t)
+       ;; ("" "hyperref" nil)
+       ;; "\\tolerance=1000"
+       ;; ("version=3" "mhchem" nil)
 
-  ;; ------------------------------------------------------------------------------
-  ;; Unused
-  ;; ------------------------------------------------------------------------------
-
-  ;; (setq org-latex-default-packages-alist
-  ;;     '(("AUTO" "inputenc" t)
-  ;;      ("T1" "fontenc" t)
-  ;;      ("" "fixltx2e" nil)
-  ;;      ("" "graphicx" t)
-  ;;      ("" "longtable" nil)
-  ;;      ("" "float" nil)
-  ;;      ("" "wrapfig" nil)
-  ;;      ("" "rotating" nil)
-  ;;      ("normalem" "ulem" t)
-  ;;      ("" "amsmath" t)
-  ;;      ("" "textcomp" t)
-  ;;      ("" "marvosym" t)
-  ;;      ("" "wasysym" t)
-  ;;      ("" "amssymb" t)
-  ;;      ("" "hyperref" nil)
-  ;;      "\\tolerance=1000"
-  ;;      ("version=3" "mhchem" nil)))
-
-  ;;   (setq org-latex-inputenc-alist nil)
-  ;;   (setq org-latex-packages-alist nil)
+       ))
 #+END_SRC
 *** Org Code Templates (<el...etc)
 
@@ -500,10 +542,10 @@
 
 #+BEGIN_SRC emacs-lisp 
   ;; there's an error somewhere here
-  ;; (add-to-list 'org-structure-template-alist
-  ;;               '(("el" "?\n#+BEGIN_SRC emacs-lisp \n\n#+END_SRC")))
+  (add-to-list 'org-structure-template-alist
+                '("el" "#+BEGIN_SRC emacs-lisp\n ? \n#+END_SRC"))
 #+END_SRC
-*** Org Bullets & Lists						     :unused:
+*** Org Bullets & Lists
 #+BEGIN_SRC emacs-lisp 
   ;; ------------------------------------------------------------------------------
   ;; Unused
@@ -514,15 +556,15 @@
   ;; I want it. Look into the emacs for writers talk and how he uses bullet-points
   ;; in org .
 
-  ;; (require 'org-bullets)
-  ;; (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-  ;; (setq org-bullets-bullet-list '("☭" "⚛" "☩" "☣" "▶" "◉" "○" "✸" "✿" "▣"))
+  (setq org-bullets-bullet-list '("☭" "⚛" "☩" "☣" "▶" "◉" "○" "✸" "✿" "▣"))
 
 
 #+END_SRC
 
-*** WAITING Org Babel						     :unused:
+*** Org Babel						     :unused:waiting:
 
   Add latex code blocks
 
@@ -545,6 +587,43 @@ Do not ask before evaluating code blocks.
   ;; (setq org-confirm-babel-evaluate 'ck/org-confirm-babel-evaluate)
 #+END_SRC
 
+*** Org Grab Link
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-mode-hook (lambda () 
+  (define-key org-mode-map (kbd "C-c g") 'omlg-grab-link)))
+#+END_SRC    
+
+*** Word Count
+    #+BEGIN_SRC emacs-lisp
+      ;; Word Count
+      ;; http://irreal.org/blog/?p=5722
+
+      (defcustom wc-modeline-format "WC[%W%w/%tw]"
+        "The format string for the modeline.
+      The detailed information for this minor mode can be shown in many
+      ways in the modeline. The formatting strings recognized in this
+      format are as follows.
+
+        %W  Original word count (before changes)
+        %L  Original line count
+        %C  Original character count
+        %w  Change in words
+        %l  Change in lines
+        %c  Change in characters
+        %gc Character change goal
+        %gl Line change goal
+        %gw Word change goal
+        %tw Total words in buffer
+        %tl Total lines in buffer
+        %tc Total characters in buffer
+
+      The default modeline, WC[%W%w/%tw], will display the original number
+      of words followed by the change in words (delta), followed by the total
+      number of words in the buffer.
+      It will looks something like WC[742+360/1100] in the modeline.
+      "
+        )
+    #+END_SRC
 *** Clock
 
   Number of idle minutes that must pass before Org Clock asks for resolution.
@@ -566,6 +645,10 @@ Do not ask before evaluating code blocks.
   ;;         ("Ask Reddit" "https://www.reddit.com/r/AskReddit/.rss" nil nil nil)))
 #+END_SRC
 
+** Fill Column
+#+BEGIN_SRC emacs-lisp
+  (setq fill-column 80)
+#+END_SRC   
 ** Defuns
     :PROPERTIES:
     :ORDERED:  t
@@ -652,12 +735,20 @@ Do not ask before evaluating code blocks.
 ** Diary
 
 #+BEGIN_SRC emacs-lisp 
-  (setq diary-file "~/.emacs.d/machine-specific/")
+
+  (setq diary-file "/Volumes/dotsecret/diary")
 
   (setq diary-comment-end "-->")
   (setq diary-comment-start "<--")
   (setq diary-number-of-entries 10)
 
+  (setq diary-displayg-function 'diary-fancy-display)
+
+  ;; ------------------------------------------------------------------------------
+  ;; Hooks
+  ;; ------------------------------------------------------------------------------
+  (add-hook 'today-visible-calendar-hook 'calendar-mark-today) ; Highlight today
+  (add-hook 'diary-display-hook 'fancy-diary-display)          ; ?? difference from setq?
 
   ;; ------------------------------------------------------------------------------
   ;; Unused
@@ -667,21 +758,12 @@ Do not ask before evaluating code blocks.
   ;;       mark-diary-entries-in-calendar t
   ;;       number-of-diary-entries 7)
 
-  ;; (add-hook 'diary-display-hook 'fancy-diary-display)
-  ;; (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
-
   ;; ;;(add-hook 'diary-list-entries-hook 'diary-include-other-diary-files)
   ;; ;;(add-hook 'diary-mark-entries-hook 'diary-mark-included-diary-files)
 
-  ;; (setq diary-comment-end "-->")
-  ;; (setq diary-comment-start "<--")
-  ;; (setq diary-number-of-entries 10)
 
-  ;; (setq diary-displayg-function (quote diary-fancy-display))
 
 #+END_SRC
-** Journal
-   
 ** Dired							     :unused:
 
    For coloring, use 'Dired use ls Dired'. Still not sure what this does.
@@ -834,7 +916,11 @@ Do not ask before evaluating code blocks.
   ;; Thought Cask did that...?
   (require 'darkroom)
 #+END_SRC
-*** Spelling
+*** Spelling & Flyspell
+    #+BEGIN_SRC emacs-lisp
+      (setq ispell-program-name "/usr/local/Cellar/ispell/3.3.02/bin/ispell")
+    #+END_SRC
+
 ** Native Emacs Packages
 *** PlantUml						  :unused:perMachine:
 
@@ -861,14 +947,15 @@ Do not ask before evaluating code blocks.
 #+BEGIN_SRC emacs-lisp 
   (setq ido-save-directory-list-file "~/.emacs.d/machine-specific/")
 #+END_SRC
-*** FCI								     :unused:
+*** FCI
 #+BEGIN_SRC emacs-lisp 
   (setq fci-rule-color "#424242")         ; set line color
-  (setq fci-rule-column 80)               ; set line location
+  (setq fci-rule-column 81)               ; set line location
 #+END_SRC
 *** Winmove							     :unused:
 
   Lets try it out. Use S-<left,right,up,down> to traverse windows.
+  Update: It doesn't seem to play nicely with Org Mode.
 
 #+BEGIN_SRC emacs-lisp 
   ;; (windmove-default-keybindings)
@@ -949,27 +1036,34 @@ Do not ask before evaluating code blocks.
 #+END_SRC
 *** EMMS
 *** AucTeX						   :ext:dependencies:
-    - [[http://www.tug.org/mactex/mactex-download.html][MacTeX Download Link]]
+    - [X] [[http://www.tug.org/mactex/mactex-download.html][MacTeX Download Link]]
+    - [X] [[http://www.electronics.oulu.fi/latex/examples/example_1/][Sample TeX Document for Testing Purposes]]
 
+General AucTeX Preferences
 #+BEGIN_SRC emacs-lisp 
-  ;; -----------------------------------------------------------------------------
-  ;; General AucTeX
-  ;; -----------------------------------------------------------------------------
-
   (setq-default TeX-PDF-mode t)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)
   (setq TeX-electric-sub-and-superscript t)
+#+END_SRC
+
+**** Trying to Fix AucTeX
+    - [X] [[https://tex.stackexchange.com/questions/285040/trouble-getting-auctex-to-load-with-emacs-update][TeX StackExchage: Trouble with AucTeX Loading]]
+      
+      Installed with Package Manger Cask, so I will not use (require 'tex-site).
+      Add ~/usr/texbin~ to PATH file     
+#+BEGIN_SRC emacs-lisp 
   (setenv "PATH" (concat (getenv "PATH") ":/usr/texbin"))
   (setq exec-path (append exec-path '("/usr/texbin")))
+#+END_SRC
 
+    - [ ] [[https://emacs.stackexchange.com/questions/31770/auctex-cannot-find-a-working-tex-distribution][Emacs StackExchange: AucTeX Cannot Find a Working TeX Distritubion]]
+
+#+BEGIN_SRC emacs-lisp 
   ;; (when (memq window-system '(mac ns))
   ;;   (exec-path-from-shell-initialize))
 
-  ;; -----------------------------------------------------------------------------
-  ;; AucTex Fix
-  ;; -----------------------------------------------------------------------------
   (getenv "PATH")
    (setenv "PATH"
   (concat
@@ -981,6 +1075,9 @@ Do not ask before evaluating code blocks.
   (setq exec-path (append exec-path '("/Library/TeX/texbin/")))
 #+END_SRC
 
+    - [ ] [[https://www.reddit.com/r/emacs/comments/3pvwns/emacs_latex_editing_with_os_x_el_capitan/][/r/Emacs: ?]]
+    - [ ] 
+    - [ ] 
 *** Crux
 
   Map some keys to useful Crux key bindings.
@@ -1006,7 +1103,7 @@ Do not ask before evaluating code blocks.
   (global-set-key (kbd "C-c n") #'crux-cleanup-buffer-or-region)
   (global-set-key (kbd "C-c u") #'crux-view-url)
   (global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
-  (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+  ;; (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
   (global-set-key (kbd "C-c D") #'crux-delete-file-and-buffer)
 
   ;; -----------------------------------------------------------------------------
@@ -1139,19 +1236,6 @@ Do not ask before evaluating code blocks.
 #+BEGIN_SRC emacs-lisp 
   ;; (add-hook 'prog-mode-hook #'hs-minor-mode)
 #+END_SRC
-** Private & Machine Specific
-
-  Specify lisp source file for private stuff.
-  Specify customization file name.
-
-#+BEGIN_SRC emacs-lisp 
-  ;; (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-  ;; (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-  ;; (require 'init-security)
-  ;; (require 'init-per-machine)
-#+END_SRC
-
 ** Not Yet Organized
 *** Version Control
 
@@ -1178,79 +1262,9 @@ Do not ask before evaluating code blocks.
   ;;     (360 . "#DC8CC3")))
   ;; (setq vc-annotate-very-old-color "#DC8CC3")
 #+END_SRC
-* Pain Points
-** Ask #emacs
-*** TODO Is (require 'org) necessary?
-*** TODO Ask about C-s search methodology
-*** TODO Is my security.el idea the right line of thinking?
-*** TODO How do they manage their VC emacs download?
-** Tasks
-*** TODO Add security.el with auth information
-*** TODO Update Cask Packages without restarting Emacs
-*** TODO Encrypt security.el
-*** TODO Push to Git
-   
-   Make sure to remove secure information. Consult whether it's better to
-   encrypt and push or not.
+** Not Using Anymore
+   Setting .emacs.d directory to another location
+#+BEGIN_SRC emacs-lisp 
+  ;; (setq user-emacs-directory "~/somewhere/else")
+#+END_SRC
 
-* Emacs Stuff
-** Moving Efficently
-  - C-n,p,f,b
-  - M-n,p,f,b
-  - C-<SPC> C-<SPC> create mark at this point
-  - C-x C-x (move mark to other side of highlighted region
-  - C-u C-<SPC> (go back to last mark that  you created)
-  - C-x h (highlight the whole buffer)
-  - M-@ (highlight forward from word, by word)
-  - 
-** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/1]
-*** TODO Pomidor Timer
-** Packages to Look Into
-  - [ ] FixTeme-theme.el
-  - [ ] mouse3.el
-  - [ ] facemenu+.el
-  - [ ] org-clock-save.el
-  - [ ] fill-column-indicator.el
-  - [ ] projectile-bookmarks.eld
-  - [ ] flyspell-1.7q.el
-  - [ ] saveplace.el
-  - [ ] rainbow-blocks.el
-  - [ ] facemenu+.el~
-  - [ ] rainbow-blocks.elc
-  - [ ] rainbow-delimiters.el
-  - [ ] rainbow-delimiters.elc
-  - [ ] highlight.el
-  - [ ] tea-time.el
-  - [ ] verilog-mode.el
-** Blogs
-*** [[http://www.lunaryorn.com/index.html][Lunaryorn]]
-*** [[http://irreal.org/blog/][Irreal]]
-** Emacs Lisp
-*** [[http://www.lunaryorn.com/posts/read-and-write-files-in-emacs-lisp.html][Read and Write Files in Emacs Lisp]]
-** Email
-*** [2017-02-16 Thu 15:23] Notes
-1. All emails delivered to Gmail
-   - they have excellent spam filtering
-2. Use FetchMail to pull mail down to local macine
-3. Mail then gets queue'd into a DoveCot Server running locally
-4. Gnus talks to the dovecot server over IMAP, which is very fast.
-*** [[https://www.emacswiki.org/emacs/CategoryMail][Emacs Wiki: Category Mail]]
-*** [[http://superuser.com/questions/637111/how-to-email-with-emacs-with-ms-exchange-server][StackExchange: SuperUserHow: to email with emacs with MS Exchange Server]]d
-*** [[http://emacs.stackexchange.com/questions/12927/reading-and-writing-email-with-emacs][emacs.stackexchange: Reading Email with Emacs]]
-*** [[https://www.reddit.com/r/emacs/comments/3wkccd/moving_from_mu4e_to_gnus/][Moving From m4ue to gnus]]
-*** [[http://sachachua.com/blog/2015/12/2015-12-10-emacs-chat-john-wiegley-maintaining-emacs-can-help/][Emacs Chat: John Wiegly, Maintaining Emacs and How You Can Help (Emphasis on Email)]]
-*** [[https://www.emacswiki.org/emacs/MsOutlook][Emacs and MSOutlook]]
-*** [[https://sourceforge.net/projects/davmail/?source%3Dtyp_redirect][DavMail, POP/IMAP/SMTP/Caldav to Exchange]]
-*** [[http://www.fetchmail.info/fetchmail-FAQ.html#G1][Fetchmail FAQ]]
-*** [[http://wiki.dovecot.org/MailServerOverview][Dovecot: Mail Server Overview]]
-*** [[http://isync.sourceforge.net/mbsync.html#SYNOPSIS][iSync - MbSync]]
-*** [[https://henrikpingel.wordpress.com/2014/07/30/how-to-use-isync-and-the-dovecot-mail-server-to-read-your-gmail-in-emacs-efficiently/][How to Use isync and the dovecot mail server to read gmail in emacs]]
-*** [[http://sachachua.com/blog/2008/05/geek-how-to-use-offlineimap-and-the-dovecot-mail-server-to-read-your-gmail-in-emacs-efficiently/][SachaChua - How to Use Offlinemap and the Dovecot Mail Server to Read Email in Emacs]]
-** Scripting
-*** [[http://www.lunaryorn.com/posts/emacs-script-pitfalls.html][Scripting Pitfalls in Emacs]]
-*** [[http://tldp.org/LDP/abs/html/abs-guide.html][Advanced Bash Scripting Guide]]
-** Mastering Git
-
-- [[https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#6089415][Setting Upsreams]]
-
-** [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
