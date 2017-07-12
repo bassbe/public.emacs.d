@@ -916,7 +916,11 @@ Do not ask before evaluating code blocks.
   ;; Thought Cask did that...?
   (require 'darkroom)
 #+END_SRC
-*** Spelling
+*** Spelling & Flyspell
+    #+BEGIN_SRC emacs-lisp
+      (setq ispell-program-name "/usr/local/Cellar/ispell/3.3.02/bin/ispell")
+    #+END_SRC
+
 ** Native Emacs Packages
 *** PlantUml						  :unused:perMachine:
 
@@ -943,7 +947,7 @@ Do not ask before evaluating code blocks.
 #+BEGIN_SRC emacs-lisp 
   (setq ido-save-directory-list-file "~/.emacs.d/machine-specific/")
 #+END_SRC
-*** FCI								     :unused:
+*** FCI
 #+BEGIN_SRC emacs-lisp 
   (setq fci-rule-color "#424242")         ; set line color
   (setq fci-rule-column 81)               ; set line location
@@ -1232,19 +1236,6 @@ General AucTeX Preferences
 #+BEGIN_SRC emacs-lisp 
   ;; (add-hook 'prog-mode-hook #'hs-minor-mode)
 #+END_SRC
-** Private & Machine Specific
-
-  Specify lisp source file for private stuff.
-  Specify customization file name.
-
-#+BEGIN_SRC emacs-lisp 
-  ;; (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-  ;; (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-  ;; (require 'init-security)
-  ;; (require 'init-per-machine)
-#+END_SRC
-
 ** Not Yet Organized
 *** Version Control
 
@@ -1276,79 +1267,4 @@ General AucTeX Preferences
 #+BEGIN_SRC emacs-lisp 
   ;; (setq user-emacs-directory "~/somewhere/else")
 #+END_SRC
-* Pain Points
-** Ask #emacs
-*** Is (require 'org) necessary?				       :todo:
-*** Ask about C-s search methodology				       :todo:
-*** Is my security.el idea the right line of thinking?		       :todo:
-*** How do they manage their VC emacs download?			       :todo:
-** Tasks
-*** Add security.el with auth information			       :todo:
-*** Update Cask Packages without restarting Emacs		       :todo:
-*** Encrypt security.el						       :todo:
-*** Push to Git							       :todo:
-   
-   Make sure to remove secure information. Consult whether it's better to
-   encrypt and push or not.
 
-* Emacs Stuff
-** Moving Efficently
-  - C-n,p,f,b
-  - M-n,p,f,b
-  - C-<SPC> C-<SPC> create mark at this point
-  - C-x C-x (move mark to other side of highlighted region
-  - C-u C-<SPC> (go back to last mark that  you created)
-  - C-x h (highlight the whole buffer)
-  - M-@ (highlight forward from word, by word)
-  - 
-** [[https://www.youtube.com/watch?v%3DFtieBc3KptU][Emacs for Writers | Jay Dixit]] [0/0]
-*** Pomidor Timer						       :todo:
-** Packages to Look Into
-  - [ ] FixTeme-theme.el
-  - [ ] mouse3.el
-  - [ ] facemenu+.el
-  - [ ] org-clock-save.el
-  - [ ] fill-column-indicator.el
-  - [ ] projectile-bookmarks.eld
-  - [ ] flyspell-1.7q.el
-  - [ ] saveplace.el
-  - [ ] rainbow-blocks.el
-  - [ ] facemenu+.el~
-  - [ ] rainbow-blocks.elc
-  - [ ] rainbow-delimiters.el
-  - [ ] rainbow-delimiters.elc
-  - [ ] highlight.el
-  - [ ] tea-time.el
-  - [ ] verilog-mode.el
-** Blogs
-*** [[http://www.lunaryorn.com/index.html][Lunaryorn]]
-*** [[http://irreal.org/blog/][Irreal]]
-** Emacs Lisp
-*** [[http://www.lunaryorn.com/posts/read-and-write-files-in-emacs-lisp.html][Read and Write Files in Emacs Lisp]]
-** Email
-*** [2017-02-16 Thu 15:23] Notes
-1. All emails delivered to Gmail
-   - they have excellent spam filtering
-2. Use FetchMail to pull mail down to local macine
-3. Mail then gets queue'd into a DoveCot Server running locally
-4. Gnus talks to the dovecot server over IMAP, which is very fast.
-*** [[https://www.emacswiki.org/emacs/CategoryMail][Emacs Wiki: Category Mail]]
-*** [[http://superuser.com/questions/637111/how-to-email-with-emacs-with-ms-exchange-server][StackExchange: SuperUserHow: to email with emacs with MS Exchange Server]]d
-*** [[http://emacs.stackexchange.com/questions/12927/reading-and-writing-email-with-emacs][emacs.stackexchange: Reading Email with Emacs]]
-*** [[https://www.reddit.com/r/emacs/comments/3wkccd/moving_from_mu4e_to_gnus/][Moving From m4ue to gnus]]
-*** [[http://sachachua.com/blog/2015/12/2015-12-10-emacs-chat-john-wiegley-maintaining-emacs-can-help/][Emacs Chat: John Wiegly, Maintaining Emacs and How You Can Help (Emphasis on Email)]]
-*** [[https://www.emacswiki.org/emacs/MsOutlook][Emacs and MSOutlook]]
-*** [[https://sourceforge.net/projects/davmail/?source%3Dtyp_redirect][DavMail, POP/IMAP/SMTP/Caldav to Exchange]]
-*** [[http://www.fetchmail.info/fetchmail-FAQ.html#G1][Fetchmail FAQ]]
-*** [[http://wiki.dovecot.org/MailServerOverview][Dovecot: Mail Server Overview]]
-*** [[http://isync.sourceforge.net/mbsync.html#SYNOPSIS][iSync - MbSync]]
-*** [[https://henrikpingel.wordpress.com/2014/07/30/how-to-use-isync-and-the-dovecot-mail-server-to-read-your-gmail-in-emacs-efficiently/][How to Use isync and the dovecot mail server to read gmail in emacs]]
-*** [[http://sachachua.com/blog/2008/05/geek-how-to-use-offlineimap-and-the-dovecot-mail-server-to-read-your-gmail-in-emacs-efficiently/][SachaChua - How to Use Offlinemap and the Dovecot Mail Server to Read Email in Emacs]]
-** Scripting
-*** [[http://www.lunaryorn.com/posts/emacs-script-pitfalls.html][Scripting Pitfalls in Emacs]]
-*** [[http://tldp.org/LDP/abs/html/abs-guide.html][Advanced Bash Scripting Guide]]
-** Mastering Git
-
-- [[https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#6089415][Setting Upsreams]]
-
-** [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
