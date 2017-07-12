@@ -12,6 +12,7 @@
 
 ** Cask & Packages 						 :understand:
 
+
 #+BEGIN_SRC emacs-lisp
   (require 'cask "/usr/local/Cellar/cask/0.8.1/cask.el")
   (cask-initialize)
@@ -24,7 +25,6 @@
     (package-initialize)
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 #+END_SRC
-
 ** Startup							       :done:
   - [[http://freedom.ascii.uk/][Freedom]]
   - [[http://chris.com/ascii/index.php?art%3Dobjects/flags][Flag]]
@@ -376,6 +376,8 @@
   (define-key global-map "\C-ca" 'org-agenda) ; launch agenda command
   (global-set-key (kbd "M-n") 'org-cycle-agenda-files) ; cycle agenda files
 
+  (setq org-agenda-skip-scheduled-if-done t)
+
 
   ;; ------------------------------------------------------------------------------
   ;; Prefixes in Agenda View (column before agenda events)
@@ -409,8 +411,9 @@
   ;; ------------------------------------------------------------------------------
   ;; Org Agenda Files
   ;; ------------------------------------------------------------------------------
-  (setq org-agenda-files (list "~/tobe/src/"
-                               "/Volumes/dotsecret/calendars/"))
+  (setq org-agenda-files (list "/Volumes/dotsecret/calendars/"
+                               "/Volumes/dotsecret/calendars/src/"                             
+                               "/Volumes/dotsecret/org-dir/capture.org"))
 #+END_SRC
 
 **** Org Habits
