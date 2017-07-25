@@ -24,6 +24,10 @@
     (require 'package)
     (package-initialize)
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
+
+  (require 'package)
+  (add-to-list 'package-archives
+               '("elpy" . "https://jorgenschaefer.github.io/packages/"))
 #+END_SRC
 ** Startup							       :done:
   - [[http://freedom.ascii.uk/][Freedom]]
@@ -279,11 +283,21 @@
 #+END_SRC
 ** Email							      :empty:
 *** Gnus
-  
-  Check ~/.gnus
-  
-*** Notmuchmail
-*** Mu4e
+#+BEGIN_SRC emacs-lisp
+
+  ;; Set location of gnus.el to dotsecret
+  ;; https://lists.gnu.org/archive/html/info-gnus-english/2015-02/msg00018.html
+  (setq gnus-init-file "/Volumes/dotsecret/.gnus.d/.gnus.el")
+  (setq gnus-directory "/Volumes/dotsecret/.gnus.d/")
+  (setq gnus-home-directory "/Volumes/dotsecret/.gnus.d/")
+  (setq gnus-startup-file (concat gnus-home-directory ".newsrc")) 
+#+END_SRC
+** Easy PG
+#+BEGIN_SRC emacs-lisp
+  ;; https://www.emacswiki.org/emacs/EasyPG
+  (epa-file-enable)
+  (custom-set-variables '(epg-gpg-program "/usr/local/Cellar/gnupg/2.1.21/bin/gpg2"))
+#+END_SRC
 ** Auto Complete
 #+begin_src emacs-lisp
   (ac-config-default)
@@ -362,7 +376,6 @@
   ;; ?
   (setq org-log-into-drawer t)
 
-
   (define-key global-map "\C-cl" 'org-store-link)
 #+END_SRC
 
@@ -406,7 +419,8 @@
   (setq org-columns-default-format
     "%40ITEM %TODO %3PRIORITY %10TAGS %17Effort(Estimated Effort){:} %12CLOCKSUM")
   (setq org-global-properties
-        '(("Effort_ALL" . "0 0:10 0:20 0:30 1:00 1:30 2:00 3:00 4:00 6:00 8:00 10:00 20:00")))
+        '(("Effort_ALL" . "0:10 0:20 0:30 1:00 1:30 2:00 3:00 4:00 6:00 8:00 10:00 20:00")))
+                        ; (1) (2)  (3)
 
   ;; ------------------------------------------------------------------------------
   ;; Org Agenda Files
@@ -459,6 +473,29 @@
 #+END_SRC
 
 **** Schedule/Deadline Leaders
+
+*** Org Modules
+#+BEGIN_SRC emacs-lisp
+  (setq org-modules '(org-bbdb
+                      org-bibtex
+                      org-docview
+                      org-gnus
+                      org-habit
+                      org-info
+                      org-irc
+                      org-mhe
+                      org-rmail
+                      org-w3m))
+
+  ;; add bullets, checklists, choose, and more org-bbdb org-bibtex
+  ;; org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m
+  ;; org-mac-link
+#+END_SRC    
+*** Clocking
+#+BEGIN_SRC emacs-lisp
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate)
+#+END_SRC    
 *** Capture					  :perMachine:unused:waiting:
 
   Set the default [[https://emacs.stackexchange.com/questions/19391/can-t-set-directory-for-org-mode-capture][target and file for notes]].
@@ -559,7 +596,9 @@
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-  (setq org-bullets-bullet-list '("☭" "⚛" "☩" "☣" "▶" "◉" "○" "✸" "✿" "▣"))
+  (setq org-bullets-bullet-list '("▶" "○" "◉" "❒" "▣" "✸" "✿" ))
+
+  ;; "☩" "☣" "▶"
 
 
 #+END_SRC
@@ -599,30 +638,30 @@ Do not ask before evaluating code blocks.
       ;; http://irreal.org/blog/?p=5722
 
       (defcustom wc-modeline-format "WC[%W%w/%tw]"
-        "The format string for the modeline.
+	"The format string for the modeline.
       The detailed information for this minor mode can be shown in many
       ways in the modeline. The formatting strings recognized in this
       format are as follows.
 
-        %W  Original word count (before changes)
-        %L  Original line count
-        %C  Original character count
-        %w  Change in words
-        %l  Change in lines
-        %c  Change in characters
-        %gc Character change goal
-        %gl Line change goal
-        %gw Word change goal
-        %tw Total words in buffer
-        %tl Total lines in buffer
-        %tc Total characters in buffer
+	%W  Original word count (before changes)
+	%L  Original line count
+	%C  Original character count
+	%w  Change in words
+	%l  Change in lines
+	%c  Change in characters
+	%gc Character change goal
+	%gl Line change goal
+	%gw Word change goal
+	%tw Total words in buffer
+	%tl Total lines in buffer
+	%tc Total characters in buffer
 
       The default modeline, WC[%W%w/%tw], will display the original number
       of words followed by the change in words (delta), followed by the total
       number of words in the buffer.
       It will looks something like WC[742+360/1100] in the modeline.
       "
-        )
+	)
     #+END_SRC
 *** Clock
 
@@ -647,8 +686,9 @@ Do not ask before evaluating code blocks.
 
 ** Fill Column
 #+BEGIN_SRC emacs-lisp
-  (setq fill-column 80)
-#+END_SRC   
+  (setq fill-column 79)
+#+END_SRC
+
 ** Defuns
     :PROPERTIES:
     :ORDERED:  t
@@ -794,6 +834,14 @@ Do not ask before evaluating code blocks.
   ;; Rneame/copy files across adjacent windows if you have 2 open in the sameframe
   (setq dired-dwim-target t)
 
+  (setq dired-recursive-copies 'always)
+  (setq dired-recursive-deletes 'always)
+
+  ;; Hide Dired Details by Default
+  (require 'dired-details)
+  (setq dired-details-hidden-string "")
+  (dired-details-install)
+
    ;; Dired Rainbow
    ;; (defconst my-dired-media-files-extensions
    ;;   '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg"
@@ -867,6 +915,24 @@ Do not ask before evaluating code blocks.
   ;; (global-set-key (kbd "C-j") ‘ido-select-text)
 #+END_SRC
 *** Python
+#+BEGIN_SRC emacs-lisp
+  (elpy-enable)
+  ;; https://stackoverflow.com/questions/29809061/how-to-properly-setup-jedi-with-elpy-in-emacs
+  (setq elpy-rpc-backend "jedi")
+
+
+  ;; Bug Fix
+  ;; https://emacs.stackexchange.com/questions/30082/your-python-shell-interpreter-doesn-t-seem-to-support-readline
+  (with-eval-after-load 'python
+    (defun python-shell-completion-native-try ()
+      "Return non-nil if can trigger native completion."
+      (let ((python-shell-completion-native-enable t)
+            (python-shell-completion-native-output-timeout
+             python-shell-completion-native-try-output-timeout))
+        (python-shell-completion-native-get-completions
+         (get-buffer-process (current-buffer))
+         nil "_"))))
+#+END_SRC
 *** JavaScript
 *** Java
 **** JDEE
@@ -917,9 +983,9 @@ Do not ask before evaluating code blocks.
   (require 'darkroom)
 #+END_SRC
 *** Spelling & Flyspell
-    #+BEGIN_SRC emacs-lisp
-      (setq ispell-program-name "/usr/local/Cellar/ispell/3.3.02/bin/ispell")
-    #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  (setq ispell-program-name "/usr/local/Cellar/ispell/3.3.02/bin/ispell")
+#+END_SRC
 
 ** Native Emacs Packages
 *** PlantUml						  :unused:perMachine:
@@ -950,7 +1016,7 @@ Do not ask before evaluating code blocks.
 *** FCI
 #+BEGIN_SRC emacs-lisp 
   (setq fci-rule-color "#424242")         ; set line color
-  (setq fci-rule-column 81)               ; set line location
+  (setq fci-rule-column 80)               ; set line location
 #+END_SRC
 *** Winmove							     :unused:
 
