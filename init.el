@@ -70,8 +70,13 @@
 
 ;; Add dotsecret .el files to path (do not need trailing '/')
 (add-to-list 'load-path "/Volumes/dotsecret")
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
+;; External Lisp Packages
+(require 'idomenu)
 
 ;; require dotsecret files
 (require 'init-erc)			; For IRC Connection/Authentication
 (require 'init-gnus)			; For Email Authentication
 (require 'init-org)			; My Personal Calendar, etc...
+

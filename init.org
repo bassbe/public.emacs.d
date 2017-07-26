@@ -153,6 +153,11 @@
   ;; (global-set-key (kbd "C-y") 'browse-kill-ring)
 #+end_src
 
+*** Imenu
+#+BEGIN_SRC emacs-lisp
+  (autoload 'idomenu "idomenu" nil t)
+  (global-set-key (kbd "M-i") 'ido-goto-symbol) 
+#+END_SRC
 ** Customizations File
 
 #+BEGIN_SRC emacs-lisp 
