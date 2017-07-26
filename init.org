@@ -408,6 +408,9 @@
      (tags . "  %-12:c")
      (search . "  %-12:c")))
 
+  ;; Highlight Line Mode in Emacs
+  (add-hook 'org-finalize-agenda-hook 'hl-line-mode)
+
 
   ;; ------------------------------------------------------------------------------
   ;; Schedule & Deadline Prefixes
