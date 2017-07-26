@@ -153,6 +153,11 @@
   ;; (global-set-key (kbd "C-y") 'browse-kill-ring)
 #+end_src
 
+*** Imenu
+#+BEGIN_SRC emacs-lisp
+  (autoload 'idomenu "idomenu" nil t)
+  (global-set-key (kbd "M-i") 'ido-goto-symbol) 
+#+END_SRC
 ** Customizations File
 
 #+BEGIN_SRC emacs-lisp 
@@ -403,6 +408,9 @@
      (tags . "  %-12:c")
      (search . "  %-12:c")))
 
+  ;; Highlight Line Mode in Emacs
+  (add-hook 'org-finalize-agenda-hook 'hl-line-mode)
+
 
   ;; ------------------------------------------------------------------------------
   ;; Schedule & Deadline Prefixes
@@ -493,6 +501,10 @@
 #+END_SRC    
 *** Clocking
 #+BEGIN_SRC emacs-lisp
+  (setq org-log-done 'time)
+  (setq org-log-done 'note)
+
+
   (setq org-clock-persist 'history)
   (org-clock-persistence-insinuate)
 #+END_SRC    
@@ -694,83 +706,133 @@ Do not ask before evaluating code blocks.
     :ORDERED:  t
     :END:
 
-  - [[https://www.emacswiki.org/emacs/KillMatchingLines][Kill Matching Lines]]
-  - [[https://www.emacswiki.org/emacs/TransparentEmacs#toc1][Transparent Emacs]]
-  - Font-existp
-  - [[https://emacs.stackexchange.com/questions/13360/org-habit-graph-on-todo-list-agenda-view][Org Habit Graphs in All Agendas]]
+   - [X] [[https://www.emacswiki.org/emacs/ImenuMode#toc14][ido-goto-imenu]]
+   - [ ] [[https://www.emacswiki.org/emacs/KillMatchingLines][Kill Matching Lines]]
+   - [ ] [[https://www.emacswiki.org/emacs/TransparentEmacs#toc1][Transparent Emacs]]
+   - [ ] Font-existp
+   - [ ] [[https://emacs.stackexchange.com/questions/13360/org-habit-graph-on-todo-list-agenda-view][Org Habit Graphs in All Agendas]]
 
 #+BEGIN_SRC emacs-lisp 
-     ;; Set transparency of emacs
-     (defun transparency (value)
-       "Sets the transparency of the frame window. 0=transparent/100=opaque"
-       (interactive "nTransparency Value 0 - 100 opaque:")
-       (set-frame-parameter (selected-frame) 'alpha value))
+   ;; Set transparency of emacs
+   (defun transparency (value)
+     "Sets the transparency of the frame window. 0=transparent/100=opaque"
+     (interactive "nTransparency Value 0 - 100 opaque:")
+     (set-frame-parameter (selected-frame) 'alpha value))
 
-    ;; ;; test if font exists before
-    ;; (defun font-existsp (font)
-    ;;       (if (string-equal (describe-font font)
-    ;;                         "No matching font being used")
-    ;;           nil
-    ;;         t))
+  ;; ;; test if font exists before
+  ;; (defun font-existsp (font)
+  ;;       (if (string-equal (describe-font font)
+  ;;                         "No matching font being used")
+  ;;           nil
+  ;;         t))
 
-    ;; ;; Kill Matching Lines
-    ;; (defun kill-matching-lines (regexp &optional rstart rend interactive)
-    ;;   "Kill lines containing matches for REGEXP.
+  ;; ;; Kill Matching Lines
+  ;; (defun kill-matching-lines (regexp &optional rstart rend interactive)
+  ;;   "Kill lines containing matches for REGEXP.
 
-    ;; See `flush-lines' or `keep-lines' for behavior of this command.
+  ;; See `flush-lines' or `keep-lines' for behavior of this command.
 
-    ;; If the buffer is read-only, Emacs will beep and refrain from deleting
-    ;; the line, but put the line in the kill ring anyway.  This means that
-    ;; you can use this command to copy text from a read-only buffer.
-    ;; \(If the variable `kill-read-only-ok' is non-nil, then this won't
-    ;; even beep.)"
-    ;;   (interactive
-    ;;    (keep-lines-read-args "Kill lines containing match for regexp"))
-    ;;   (let ((buffer-file-name nil)) ;; HACK for `clone-buffer'
-    ;;     (with-current-buffer (clone-buffer nil nil)
-    ;;       (let ((inhibit-read-only t))
-    ;;         (keep-lines regexp rstart rend interactive)
-    ;;         (kill-region (or rstart (line-beginning-position))
-    ;;                      (or rend (point-max))))
-    ;;       (kill-buffer)))
-    ;;   (unless (and buffer-read-only kill-read-only-ok)
-    ;;     ;; Delete lines or make the "Buffer is read-only" error.
-    ;;     (flush-lines regexp rstart rend interactive)))
+  ;; If the buffer is read-only, Emacs will beep and refrain from deleting
+  ;; the line, but put the line in the kill ring anyway.  This means that
+  ;; you can use this command to copy text from a read-only buffer.
+  ;; \(If the variable `kill-read-only-ok' is non-nil, then this won't
+  ;; even beep.)"
+  ;;   (interactive
+  ;;    (keep-lines-read-args "Kill lines containing match for regexp"))
+  ;;   (let ((buffer-file-name nil)) ;; HACK for `clone-buffer'
+  ;;     (with-current-buffer (clone-buffer nil nil)
+  ;;       (let ((inhibit-read-only t))
+  ;;         (keep-lines regexp rstart rend interactive)
+  ;;         (kill-region (or rstart (line-beginning-position))
+  ;;                      (or rend (point-max))))
+  ;;       (kill-buffer)))
+  ;;   (unless (and buffer-read-only kill-read-only-ok)
+  ;;     ;; Delete lines or make the "Buffer is read-only" error.
+  ;;     (flush-lines regexp rstart rend interactive)))
 
 
-    ;; (defvar my/org-habit-show-graphs-everywhere nil
-    ;;   "If non-nil, show habit graphs in all types of agenda buffers.
+  ;; (defvar my/org-habit-show-graphs-everywhere nil
+  ;;   "If non-nil, show habit graphs in all types of agenda buffers.
 
-    ;; Normally, habits display consistency graphs only in
-    ;; \"agenda\"-type agenda buffers, not in other types of agenda
-    ;; buffers.  Set this variable to any non-nil variable to show
-    ;; consistency graphs in all Org mode agendas.")
+  ;; Normally, habits display consistency graphs only in
+  ;; \"agenda\"-type agenda buffers, not in other types of agenda
+  ;; buffers.  Set this variable to any non-nil variable to show
+  ;; consistency graphs in all Org mode agendas.")
 
-    ;; (defun my/org-agenda-mark-habits ()
-    ;;   "Mark all habits in current agenda for graph display.
+  ;; (defun my/org-agenda-mark-habits ()
+  ;;   "Mark all habits in current agenda for graph display.
 
-    ;; This function enforces `my/org-habit-show-graphs-everywhere' by
-    ;; marking all habits in the current agenda as such.  When run just
-    ;; before `org-agenda-finalize' (such as by advice; unfortunately,
-    ;; `org-agenda-finalize-hook' is run too late), this has the effect
-    ;; of displaying consistency graphs for these habits.
+  ;; This function enforces `my/org-habit-show-graphs-everywhere' by
+  ;; marking all habits in the current agenda as such.  When run just
+  ;; before `org-agenda-finalize' (such as by advice; unfortunately,
+  ;; `org-agenda-finalize-hook' is run too late), this has the effect
+  ;; of displaying consistency graphs for these habits.
 
-    ;; When `my/org-habit-show-graphs-everywhere' is nil, this function
-    ;; has no effect."
-    ;;   (when (and my/org-habit-show-graphs-everywhere
-    ;;          (not (get-text-propegrty (point) 'org-series)))
-    ;;     (let ((cursor (point))
-    ;;           item data) 
-    ;;       (while (setq cursor (next-single-property-change cursor 'org-marker))
-    ;;         (setq item (get-text-property cursor 'org-marker))
-    ;;         (when (and item (org-is-habit-p item)) 
-    ;;           (with-current-buffer (marker-buffer item)
-    ;;             (setq data (org-habit-parse-todo item))) 
-    ;;           (put-text-property cursor
-    ;;                              (next-single-property-change cursor 'org-marker)
-    ;;                              'org-habit-p data))))))
+  ;; When `my/org-habit-show-graphs-everywhere' is nil, this function
+  ;; has no effect."
+  ;;   (when (and my/org-habit-show-graphs-everywhere
+  ;;          (not (get-text-propegrty (point) 'org-series)))
+  ;;     (let ((cursor (point))
+  ;;           item data) 
+  ;;       (while (setq cursor (next-single-property-change cursor 'org-marker))
+  ;;         (setq item (get-text-property cursor 'org-marker))
+  ;;         (when (and item (org-is-habit-p item)) 
+  ;;           (with-current-buffer (marker-buffer item)
+  ;;             (setq data (org-habit-parse-todo item))) 
+  ;;           (put-text-property cursor
+  ;;                              (next-single-property-change cursor 'org-marker)
+  ;;                              'org-habit-p data))))))
 
-    ;; (advice-add #'org-agenda-finalize :before #'my/org-agenda-mark-habits)
+  ;; (advice-add #'org-agenda-finalize :before #'my/org-agenda-mark-habits)
+
+
+   (defun ido-goto-symbol (&optional symbol-list)
+        "Refresh imenu and jump to a place in the buffer using Ido."
+        (interactive)
+        (unless (featurep 'imenu)
+          (require 'imenu nil t))
+        (cond
+         ((not symbol-list)
+          (let ((ido-mode ido-mode)
+                (ido-enable-flex-matching
+                 (if (boundp 'ido-enable-flex-matching)
+                     ido-enable-flex-matching t))
+                name-and-pos symbol-names position)
+            (unless ido-mode
+              (ido-mode 1)
+              (setq ido-enable-flex-matching t))
+            (while (progn
+                     (imenu--cleanup)
+                     (setq imenu--index-alist nil)
+                     (ido-goto-symbol (imenu--make-index-alist))
+                     (setq selected-symbol
+                           (ido-completing-read "Symbol? " symbol-names))
+                     (string= (car imenu--rescan-item) selected-symbol)))
+            (unless (and (boundp 'mark-active) mark-active)
+              (push-mark nil t nil))
+            (setq position (cdr (assoc selected-symbol name-and-pos)))
+            (cond
+             ((overlayp position)
+              (goto-char (overlay-start position)))
+             (t
+              (goto-char position)))))
+         ((listp symbol-list)
+          (dolist (symbol symbol-list)
+            (let (name position)
+              (cond
+               ((and (listp symbol) (imenu--subalist-p symbol))
+                (ido-goto-symbol symbol))
+               ((listp symbol)
+                (setq name (car symbol))
+                (setq position (cdr symbol)))
+               ((stringp symbol)
+                (setq name symbol)
+                (setq position
+                      (get-text-property 1 'org-imenu-marker symbol))))
+              (unless (or (null position) (null name)
+                          (string= (car imenu--rescan-item) name))
+                (add-to-list 'symbol-names name)
+                (add-to-list 'name-and-pos (cons name position))))))))
 #+END_SRC
 ** Diary
 
