@@ -4,6 +4,10 @@
 * TODO Configure Elpy
 * TODO Configure Gnus
 * TODO Configure M4ue
-* Bugs/Annoyances
+* Investigage/Bugs/Annoyances
 ** Error: Magit cannot determine a suitable emacs client
+** 'use-package
+** (require/provide)
 * Agenda
+* Elisp
+** TODO Finish *info*'s Elisp Intro and Examples
