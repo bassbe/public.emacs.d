@@ -184,19 +184,6 @@
 *** ERC								      :fixme:
     On startup
 #+BEGIN_SRC emacs-lisp 
-
-  ;; ------------------------------------------------------------------------------
-  ;; ERC Startup
-  ;; ------------------------------------------------------------------------------
-
-
-  (setq erc-autojoin-timing 'indent)
-
-  (setq erc-hide-list
-        '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "Users" "329" "353" "366" "MODE"))
-  (setq erc-track-exclude-types
-        '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "333" "353"))
-
   ;; -----------------------------------------------------------------------------
   ;; Logging
   ;; -----------------------------------------------------------------------------
@@ -1051,7 +1038,16 @@ Do not ask before evaluating code blocks.
 
   ;; Do I have to get require darkroom mode for it to laod?
   ;; Thought Cask did that...?
+
+
+   (setq abbrev-file-name             ;; tell emacs where to read abbrev
+         "~/.emacs.d/abbrev_defs")    ;; definitions from...
+
+  (setq save-abbrevs t)              ;; save abbrevs when files are saved
+                                       ;; you will be asked before the abbreviations are saved
+
   (require 'darkroom)
+
 #+END_SRC
 *** Spelling & Flyspell
 #+BEGIN_SRC emacs-lisp
