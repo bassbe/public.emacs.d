@@ -158,6 +158,11 @@
   (autoload 'idomenu "idomenu" nil t)
   (global-set-key (kbd "M-i") 'ido-goto-symbol) 
 #+END_SRC
+
+*** Goto Line
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-g") 'goto-line) 
+#+END_SRC
 ** Customizations File
 
 #+BEGIN_SRC emacs-lisp 
@@ -177,20 +182,8 @@
 
 ** IRC
 *** ERC								      :fixme:
+    On startup
 #+BEGIN_SRC emacs-lisp 
-
-  ;; ------------------------------------------------------------------------------
-  ;; ERC Startup
-  ;; ------------------------------------------------------------------------------
-
-
-  (setq erc-autojoin-timing 'indent)
-
-  (setq erc-hide-list
-        '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "Users" "329" "353" "366" "MODE"))
-  (setq erc-track-exclude-types
-        '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "333" "353"))
-
   ;; -----------------------------------------------------------------------------
   ;; Logging
   ;; -----------------------------------------------------------------------------
@@ -410,6 +403,7 @@
 
   ;; Highlight Line Mode in Emacs
   (add-hook 'org-finalize-agenda-hook 'hl-line-mode)
+  (add-hook 'org-finalize-agenda-hook 'linum-mode)
 
 
   ;; ------------------------------------------------------------------------------
@@ -434,7 +428,7 @@
   ;; Org Agenda Files
   ;; ------------------------------------------------------------------------------
   (setq org-agenda-files (list "/Volumes/dotsecret/calendars/"
-                               "/Volumes/dotsecret/calendars/src/"                             
+                               "/Volumes/dotsecret/calendars/work/"                             
                                "/Volumes/dotsecret/org-dir/capture.org"))
 #+END_SRC
 
@@ -699,6 +693,8 @@ Do not ask before evaluating code blocks.
 ** Fill Column
 #+BEGIN_SRC emacs-lisp
   (setq fill-column 79)
+
+  (global-set-key (kbd "C-c q") 'auto-fill-mode)
 #+END_SRC
 
 ** Defuns
@@ -1042,7 +1038,16 @@ Do not ask before evaluating code blocks.
 
   ;; Do I have to get require darkroom mode for it to laod?
   ;; Thought Cask did that...?
+
+
+   (setq abbrev-file-name             ;; tell emacs where to read abbrev
+         "~/.emacs.d/abbrev_defs")    ;; definitions from...
+
+  (setq save-abbrevs t)              ;; save abbrevs when files are saved
+                                       ;; you will be asked before the abbreviations are saved
+
   (require 'darkroom)
+
 #+END_SRC
 *** Spelling & Flyspell
 #+BEGIN_SRC emacs-lisp
@@ -1140,7 +1145,7 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-x") 'smex)
-  (setq smex-save-file "~/.emacs.d/smex-items")
+  (setq smex-save-file "~/.emacs.d/machine-specific/smex-items")
 #+END_SRC
 
 *** Tea Time
