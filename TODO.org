@@ -1,0 +1,9 @@
+
+* TODO Setup BBDB
+* TODO Configure Eclim
+* TODO Configure Elpy
+* TODO Configure Gnus
+* TODO Configure M4ue
+* Bugs/Annoyances
+** Error: Magit cannot determine a suitable emacs client
+* Agenda
