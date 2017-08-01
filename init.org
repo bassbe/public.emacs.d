@@ -441,7 +441,7 @@
   ;; Org Agenda Files
   ;; ------------------------------------------------------------------------------
   (setq org-agenda-files (list "/Volumes/dotsecret/calendars/"
-                               "/Volumes/dotsecret/calendars/src/"                             
+                               "/Volumes/dotsecret/calendars/work/"                             
                                "/Volumes/dotsecret/org-dir/capture.org"))
 #+END_SRC
 
