@@ -1,3 +1,4 @@
+;; require dotsecret files
 ;; Wire everything to dotemacs.org
 
 ;;;; From: https://github.com/wasamasa/dotemacs/blob/master/init.el
@@ -75,8 +76,7 @@
 ;; External Lisp Packages
 (require 'idomenu)
 
-;; require dotsecret files
-(require 'init-erc)			; For IRC Connection/Authentication
+(require 'init-irc)			; For IRC Connection/Authentication
 (require 'init-gnus)			; For Email Authentication
 (require 'init-org)			; My Personal Calendar, etc...
 
