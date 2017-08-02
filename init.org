@@ -496,8 +496,6 @@
 *** Clocking
 #+BEGIN_SRC emacs-lisp
   (setq org-log-done 'time)
-  (setq org-log-done 'note)
-
 
   (setq org-clock-persist 'history)
   (org-clock-persistence-insinuate)
@@ -709,7 +707,18 @@ Do not ask before evaluating code blocks.
    - [ ] [[https://emacs.stackexchange.com/questions/13360/org-habit-graph-on-todo-list-agenda-view][Org Habit Graphs in All Agendas]]
 
 #+BEGIN_SRC emacs-lisp 
-   ;; Set transparency of emacs
+
+  ;; toglog (mine)
+  (defun toglog ()
+    "toggle val of org-log-done from note, to time, and back"
+    (interactive)
+    (if (equal org-log-done 'time)
+        (setq org-log-done 'note)
+      (setq org-log-done 'time))
+    (message "Log Value: %s" org-log-done))
+
+
+  ;; Set transparency of emacs
    (defun transparency (value)
      "Sets the transparency of the frame window. 0=transparent/100=opaque"
      (interactive "nTransparency Value 0 - 100 opaque:")
