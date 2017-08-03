@@ -1,4 +1,6 @@
 
+* Tutorials
+** [[https://tuhdo.github.io/index.html][Tuhdo Mini Manual's +]]
 * BBDB
 ** TODO Initial BBDB Setup
 * Eclim
@@ -33,3 +35,5 @@
 ** TODO hide ./ and ../
 * Elisp
 ** TODO Finish *info*'s Elisp Intro and Examples
+* Packages to Check Out
+** [[https://github.com/tarsius/no-littering][No Littering]]
