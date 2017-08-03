@@ -704,7 +704,7 @@ Do not ask before evaluating code blocks.
 
 ** Fill Column
 #+BEGIN_SRC emacs-lisp
-  (setq fill-column 80)
+  (setq-default fill-column 80)
 
   (global-set-key (kbd "C-c q") 'auto-fill-mode)
 #+END_SRC
