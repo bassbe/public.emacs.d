@@ -342,6 +342,9 @@
 
   ;; Activate!
   (sml/setup)
+
+  ;; NYAN NYAN NYAN NYAN
+  (nyan-mode)
 #+END_SRC
 *** Powerline
 #+begin_src emacs-lisp :tangle yes
