@@ -1337,6 +1337,11 @@ General AucTeX Preferences
   ;; importing csv file from gmail
   ;; (require 'bbdb-csv-import)
 
+  (require 'bbdb)
+  (bbdb-initialize)
+
+  ;; Location of BBDB File
+  (setq bbdb-file "/Volumes/dotsecret/bbdb/bbdb")
 #+END_SRC
 
 *** Ace Jump
