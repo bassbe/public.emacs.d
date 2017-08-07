@@ -1076,9 +1076,9 @@ Do not ask before evaluating code blocks.
   +Black Out Mode+ Darkroom is a thing.
 
 #+BEGIN_SRC emacs-lisp
-  ;; (global-set-key (kbd "M-/") 'hippie-expand)
-
-  ;; Do I have to get require darkroom mode for it to laod?
+  (global-set-key (kbd "M-<SPC> ") 'hippie-expand)
+   
+   ;; Do I have to get require darkroom mode for it to laod?
   ;; Thought Cask did that...?
 
 
