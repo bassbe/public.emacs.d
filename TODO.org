@@ -1,11 +1,19 @@
 
 * Tutorials
 ** [[https://tuhdo.github.io/index.html][Tuhdo Mini Manual's +]]
-* BBDB
+*** Emacs Mini Manual (PART 1) - THE BASICS
+*** Emacs Mini Manual (PART 2) - LISP PRIMER: WHY PARENTHESES MATTER
+*** Emacs Mini Manual (PART 3) - CUSTOMIZING AND EXTENDING EMACS
+*** Setup C/C++ Development Environment for Emacs
+*** A Package in a league of its own: Helm
+*** Exploring large projects with Projectile and Helm Projectile
+*** Emacs for Programming Languages course on Coursera
+* Use Package.el instead of Cask
+* Manage Contacts with BBDB
 ** TODO Initial BBDB Setup
-* Eclim
+* Set up Java Development Environment in Eclim
 ** Hello-World in Eclim
-* Elpy
+* Set up Python Development Environment with Elpy
 ** TODO Install/Link packages not listed in 'elpy-config   
    Jedi..............: Not found (0.10.2 available)
    Rope..............: Not found (0.10.5 available)
@@ -13,10 +21,10 @@
    Autopep8..........: Not found (1.3.2 available)
    Yapf..............: Not found (0.16.3 available)
    Syntax checker....: Not found (flake8)
-* Gnus (Wiegley Style)
+* Setup Gnus (Wiegley Style)
 ** Setup Fetchmail for Gmail
 ** Gnus read email from Dovecot
-* M4ue
+* Try M4ue for mail
 ** TODO Read Email
 * ERC
 * Investigage/Bugs/Annoyances
@@ -37,3 +45,6 @@
 ** TODO Finish *info*'s Elisp Intro and Examples
 * Packages to Check Out
 ** [[https://github.com/tarsius/no-littering][No Littering]]
+* [[https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-en.org][Mastering Emacs in One Year]]
+* http://irreal.org/blog/?p=4891
+* http://www.mostlymaths.net/2012/07/back-to-gnus-emacs-mail-reader.html
