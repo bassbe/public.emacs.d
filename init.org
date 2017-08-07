@@ -1,6 +1,6 @@
 * Intro
   Reminders for me:
-  
+
   - Use "<el + TAB" to insert of emacs lisp with org babel.
     + this is called an 'org template'
   - Use "C-c '" to edit source code in the blocks
@@ -49,7 +49,7 @@
   This is my directory where I store themes I find on the internet.
   Still not sure how comfortable I am executingother people's unchecked lisp code.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq custom-theme-directory "~/.emacs.d/themes/")
 #+END_SRC
 
@@ -58,7 +58,7 @@
 
   Here, I load the Calm Forest color theme after (?) color theme is somehow loaded.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (add-to-list 'load-path "~/.emacs.d/themes/color-theme-6.6.0")
   (require 'color-theme)
   (eval-after-load "color-theme"
@@ -70,7 +70,7 @@
        ))
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (require 'doom-themes)
   ;; (load-theme 'doom-one t)
 
@@ -88,9 +88,8 @@
    ;; doom-peacock: based on Peacock from daylerees' themes
 #+END_SRC
 
-
 *** Set Color Theme
-  
+
   This is what I used to have. Not easily reversable. Would not recommend.
 
 #+BEGIN_SRC emacs-lisp
@@ -99,7 +98,7 @@
 
 ** General Default Modes & Preferences
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (scroll-bar-mode -1)                   ; delete scroll bar
 
   ;; Only hook linum mode to program modes
@@ -116,13 +115,13 @@
   (mouse-avoidance-mode 'banish)          ; Hide mouse once typing starts
   (electric-pair-mode t)                  ; Pair parens, quotes, brackes
   (global-visual-line-mode t)             ; wraps lines so they don't go off screen
-  (transient-mark-mode 1)                 ; Highlight region
-  (ido-mode 1)                            ; enable IDO mode
+  (transient-mark-mode 1)                 ; Highlight regionf
+  (helm-mode 1)                            ; enable Helm mode
   (delete-selection-mode t)               ; Delete highlighted section if followed by typing
 
   (setq undo-limit 3600)                  ; increase number of undo enteries
-  (setq ido-enable-flex-matching t)       ; ?
-  (setq ido-everywhere t)                 ; ? (how is it different)
+  ;; (setq ido-enable-flex-matching t)       ; ?
+  ;; (setq ido-everywhere t)                 ; ? (how is it different)
   (setq visible-bell t)                   ; ? (not working)
 
 #+END_SRC
@@ -132,7 +131,7 @@
 
   I can't remember where I've copied these bindings from, but they're easier than C-x number.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; Window Management (should I include Ace-window)
   (global-set-key (kbd "M-2") ' delete-window)            ; close current pane
   (global-set-key (kbd "M-3") 'delete-other-windows)      ; delete all other panes
@@ -156,16 +155,16 @@
 *** Imenu
 #+BEGIN_SRC emacs-lisp
   (autoload 'idomenu "idomenu" nil t)
-  (global-set-key (kbd "M-i") 'ido-goto-symbol) 
+  (global-set-key (kbd "M-i") 'ido-goto-symbol)
 #+END_SRC
 
 *** Goto Line
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-g") 'goto-line) 
+  (global-set-key (kbd "M-g") 'goto-line)
 #+END_SRC
 ** Customizations File
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq custom-file "~/.emacs.d/lisp/init-customizations.el")
 #+END_SRC
 
@@ -183,7 +182,7 @@
 ** IRC
 *** ERC								      :fixme:
     On startup
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; -----------------------------------------------------------------------------
   ;; Logging
   ;; -----------------------------------------------------------------------------
@@ -269,6 +268,26 @@
 #+END_SRC
 *** Circe							      :empty:
 *** ZNC								      :empty:
+
+** File Selection
+*** Ido								    :testing:
+
+    Saw a [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_ido_or_helm/cvtmaps/][comment]], want to give all these a try.
+    do + ido-ubiquitous + flx-ido + ido-vertical-mode
+
+#+BEGIN_SRC emacs-lisp
+  ;; (ido-vertical-mode)
+  ;; (ido-ubiquitous-mode)                   ; not noticing any significant changes
+#+END_SRC
+*** Helm
+#+BEGIN_SRC emacs-lisp
+  (helm-mode)
+#+END_SRC
+*** Ivy
+** Search							    :testing:
+
+   Thought about using flex-isearch mode
+
 ** Shell
 *** Iterm
 
@@ -288,7 +307,7 @@
   (setq gnus-init-file "/Volumes/dotsecret/.gnus.d/.gnus.el")
   (setq gnus-directory "/Volumes/dotsecret/.gnus.d/")
   (setq gnus-home-directory "/Volumes/dotsecret/.gnus.d/")
-  (setq gnus-startup-file (concat gnus-home-directory ".newsrc")) 
+  (setq gnus-startup-file (concat gnus-home-directory ".newsrc"))
 #+END_SRC
 ** Easy PG
 #+BEGIN_SRC emacs-lisp
@@ -305,7 +324,7 @@
 
   - [[http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files][SO: Control Backup Files]]
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
 
   (setq backup-directory-alist `(("." . "~/.emacs.d/machine-specific/backup-files/")))
   (setq backup-by-copying t)
@@ -333,7 +352,7 @@
 
   Trying out [[https://github.com/Malabarba/smart-mode-line][Smart Mode Line]]
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; Don't ask if ok with running lisp code
   (setq sml/no-confirm-load-theme t)
 
@@ -362,7 +381,7 @@
 
   General settings and preferences
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; Set key words for visibility cycling.
     (setq org-todo-keywords
             '((sequence "TODO" "FIXME" "WAITING" "|" "DONE" "FAILED" "LOG" )))
@@ -382,7 +401,7 @@
 
 *** Org Agenda							    :waiting:
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; ------------------------------------------------------------------------------
   ;; Start Agenda & Cycle Through Files
   ;; ------------------------------------------------------------------------------
@@ -431,7 +450,7 @@
   ;; Org Agenda Files
   ;; ------------------------------------------------------------------------------
   (setq org-agenda-files (list "/Volumes/dotsecret/calendars/"
-                               "/Volumes/dotsecret/calendars/work/"                             
+                               "/Volumes/dotsecret/calendars/work/"
                                "/Volumes/dotsecret/org-dir/capture.org"))
 #+END_SRC
 
@@ -440,7 +459,7 @@
   Make sure that habit progress graphs show up even outside the main "agenda" view.
   Found on [[https://emacs.stackexchange.com/questions/13360/org-habit-graph-on-todo-list-agenda-view][this StackOverflow link]].
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (defvar my/org-habit-show-graphs-everywhere nil
   ;;   "If non-nil, show habit graphs in all types of agenda buffers.
 
@@ -463,13 +482,13 @@
   ;;   (when (and my/org-habit-show-graphs-everywhere
   ;;          (not (get-text-property (point) 'org-series)))
   ;;     (let ((cursor (point))
-  ;;           item data) 
+  ;;           item data)
 
   ;;       (while (setq cursor (next-single-property-change cursor 'org-marker))
   ;;         (setq item (get-text-property cursor 'org-marker))
-  ;;         (when (and item (org-is-habit-p item)) 
+  ;;         (when (and item (org-is-habit-p item))
   ;;           (with-current-buffer (marker-buffer item)
-  ;;             (setq data (org-habit-parse-todo item))) 
+  ;;             (setq data (org-habit-parse-todo item)))
   ;;           (put-text-property cursor
   ;;                              (next-single-property-change cursor 'org-marker)
   ;;                              'org-habit-p data))))))
@@ -495,19 +514,19 @@
   ;; add bullets, checklists, choose, and more org-bbdb org-bibtex
   ;; org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m
   ;; org-mac-link
-#+END_SRC    
+#+END_SRC
 *** Clocking
 #+BEGIN_SRC emacs-lisp
   (setq org-log-done 'time)
 
   (setq org-clock-persist 'history)
   (org-clock-persistence-insinuate)
-#+END_SRC    
+#+END_SRC
 *** Capture					  :perMachine:unused:waiting:
 
   Set the default [[https://emacs.stackexchange.com/questions/19391/can-t-set-directory-for-org-mode-capture][target and file for notes]].
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
 (require 'org)
 (setq org-directory "/Volumes/dotsecret/org-dir")
 (setq org-default-notes-file (concat org-directory "/capture.org"))
@@ -534,7 +553,7 @@
 #+END_SRC
 *** Journal
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq org-journal-dir "/Volumes/dotsecret/org-journal")
 #+END_SRC
 
@@ -542,7 +561,7 @@
 
   The location of org archive files.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; archive to the datetree file, with time and name of file it came from
   (setq org-archive-location
         "/Volumes/dotsecret/org-archives/org-archive-datetrees.org::datetree/* From %s")
@@ -552,7 +571,7 @@
     Research packages and add them as Ifind out what I want to use them for
     and flush out boiler plate code I don't need.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq org-latex-default-packages-alist
         '(
        ;; ("spanish, russian, english" "babel" nil)
@@ -584,13 +603,13 @@
 
    This is the autocomplete <el thing for org mode.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; there's an error somewhere here
   (add-to-list 'org-structure-template-alist
                 '("el" "#+BEGIN_SRC emacs-lisp\n ? \n#+END_SRC"))
 #+END_SRC
 *** Org Bullets & Lists
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; ------------------------------------------------------------------------------
   ;; Unused
   ;; ------------------------------------------------------------------------------
@@ -614,7 +633,7 @@
 
   Add latex code blocks
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; active Org-babel languages
   (org-babel-do-load-languages
      'org-babel-load-languages
@@ -627,7 +646,7 @@ After source block, add ~#+results: filename.png~
 
 Do not ask before evaluating code blocks.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (defun ck/org-confirm-babel-evaluate (lang body)
   ;;   (not (string= lang "latex")))
   ;; (setq org-confirm-babel-evaluate 'ck/org-confirm-babel-evaluate)
@@ -635,9 +654,9 @@ Do not ask before evaluating code blocks.
 
 *** Org Grab Link
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'org-mode-hook (lambda () 
+  (add-hook 'org-mode-hook (lambda ()
   (define-key org-mode-map (kbd "C-c g") 'omlg-grab-link)))
-#+END_SRC    
+#+END_SRC
 
 *** Word Count
     #+BEGIN_SRC emacs-lisp
@@ -674,13 +693,13 @@ Do not ask before evaluating code blocks.
 
   Number of idle minutes that must pass before Org Clock asks for resolution.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq org-clock-idle-time 25)           ;clock resolve time
 #+END_SRC
 
 ** Newsticker							     :unused:
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (setq newsticker-url-list
   ;;       '(
   ;;         ("Economist: Computer Technology"   "http://www.economist.com/topics/computer-technology/index.xml" nil 3600 nil)
@@ -709,7 +728,7 @@ Do not ask before evaluating code blocks.
    - [ ] Font-existp
    - [ ] [[https://emacs.stackexchange.com/questions/13360/org-habit-graph-on-todo-list-agenda-view][Org Habit Graphs in All Agendas]]
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
 
   ;; toglog (mine)
   (defun toglog ()
@@ -781,12 +800,12 @@ Do not ask before evaluating code blocks.
   ;;   (when (and my/org-habit-show-graphs-everywhere
   ;;          (not (get-text-propegrty (point) 'org-series)))
   ;;     (let ((cursor (point))
-  ;;           item data) 
+  ;;           item data)
   ;;       (while (setq cursor (next-single-property-change cursor 'org-marker))
   ;;         (setq item (get-text-property cursor 'org-marker))
-  ;;         (when (and item (org-is-habit-p item)) 
+  ;;         (when (and item (org-is-habit-p item))
   ;;           (with-current-buffer (marker-buffer item)
-  ;;             (setq data (org-habit-parse-todo item))) 
+  ;;             (setq data (org-habit-parse-todo item)))
   ;;           (put-text-property cursor
   ;;                              (next-single-property-change cursor 'org-marker)
   ;;                              'org-habit-p data))))))
@@ -844,7 +863,7 @@ Do not ask before evaluating code blocks.
 #+END_SRC
 ** Diary
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
 
   (setq diary-file "/Volumes/dotsecret/diary")
 
@@ -878,7 +897,7 @@ Do not ask before evaluating code blocks.
 
    For coloring, use 'Dired use ls Dired'. Still not sure what this does.
    Also, dired-listing-switches.
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; Determines what the expanded dired displays
 
   ;; a ----- Displays all files
@@ -895,7 +914,7 @@ Do not ask before evaluating code blocks.
   ;; o ----- List in long format, but omit the group id
   ;; p ----- Write a slash ('/') after filename if file is a directory
 
-  ;; (setq dired-listing-switches "-alsh")                                       
+  ;; (setq dired-listing-switches "-alsh")
   (setq dired-listing-switches "-FlaG")
 
   ;; I believe this somehow invokes colors in dired
@@ -925,7 +944,7 @@ Do not ask before evaluating code blocks.
    ;;  "Sort dired listings with directories first."
    ;;  (save-excursion
    ;;    (let (buffer-read-only)
-   ;;      (forward-line 2) ;; beyond dir. header 
+   ;;      (forward-line 2) ;; beyond dir. header
    ;;      (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max)))
    ;;    (set-buffer-modified-p nil)))
 
@@ -959,7 +978,7 @@ Do not ask before evaluating code blocks.
 #+END_SRC
 *** Dired-X
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (add-hook 'dired-load-hook
   ;;           (lambda ()
   ;;             (load "dired-x")
@@ -980,7 +999,7 @@ Do not ask before evaluating code blocks.
 
   For ease of use, set shortcut for compile.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (global-set-key (kbd "C-;") 'compile) ; C-; is taken already
   ;; (global-set-key (kbd "C-j") ‘ido-select-text)
 #+END_SRC
@@ -1015,7 +1034,7 @@ Do not ask before evaluating code blocks.
   This requires Maven. I installed it with [[https://stackoverflow.com/questions/8826881/maven-install-on-mac-os-x][homebrew]] as seen in the second answer.
   I set up the JDEE Server using [[https://stackoverflow.com/questions/32343617/cant-set-jdee-server-in-emacs][this StackOverflow explanation]].
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
  ;; (setq jdee-server-dir "~/.emacs.d/jdee-server-master/jdee-server/")
 #+END_SRC
 *** Elisp
@@ -1023,13 +1042,13 @@ Do not ask before evaluating code blocks.
   Autocomplete for Elisp: [[https://stackoverflow.com/questions/7022898/emacs-autocompletion-in-emacs-lisp-mode][Emacs Autocompletion in Emacs Lisp Mode]]
   Use Flycheck, M-x checkdoc
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq tab-always-indent 'complete)
   (add-to-list 'completion-styles 'initials t)
 #+END_SRC
 *** Elm								     :unused:
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (defun elm-com-1 ()
   ;;   "returns skinny comment"
   ;;   (interactive)
@@ -1043,9 +1062,9 @@ Do not ask before evaluating code blocks.
 ** Writing in Emacs
 
   Hippie expand is supposed to be an improvement on the first.
-  +Black Out Mode+ Darkroom is a thing. 
+  +Black Out Mode+ Darkroom is a thing.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (global-set-key (kbd "M-/") 'hippie-expand)
 
   ;; Do I have to get require darkroom mode for it to laod?
@@ -1071,7 +1090,7 @@ Do not ask before evaluating code blocks.
 
   Set the plantuml-jar-path to .emacs.d
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq org-plantuml-jar-path
         (expand-file-name "~/.emacs.d/plantuml.jar"))
 #+END_SRC
@@ -1086,14 +1105,14 @@ Do not ask before evaluating code blocks.
       # [[file:tryout.png]]
 
 *** Ido
-  
+
   - [[http://stackoverflow.com/questions/21918151/change-location-of-ido-last-history-file-in-emacs-on-windows][SO: Change Location of IDO History File (ido.last)]]
-  
-#+BEGIN_SRC emacs-lisp 
+
+#+BEGIN_SRC emacs-lisp
   (setq ido-save-directory-list-file "~/.emacs.d/machine-specific/")
 #+END_SRC
 *** FCI
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq fci-rule-color "#424242")         ; set line color
   (setq fci-rule-column 80)               ; set line location
 #+END_SRC
@@ -1102,7 +1121,7 @@ Do not ask before evaluating code blocks.
   Lets try it out. Use S-<left,right,up,down> to traverse windows.
   Update: It doesn't seem to play nicely with Org Mode.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (windmove-default-keybindings)
 #+END_SRC
 
@@ -1110,7 +1129,7 @@ Do not ask before evaluating code blocks.
 
   Trying to fix the Unix-socket domain too long error.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;;   (setq projectile-mode-line nil )
   ;;   ;; (setq tramp-ssh-controlmaster-options
   ;;   ;;     (concat
@@ -1123,7 +1142,7 @@ Do not ask before evaluating code blocks.
   ;; (setq tramp-use-ssh-controlmaster-options nil)
 #+END_SRC
 *** Highlight							     :unused:
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (setq hl-paren-colors (quote ("Blue" "Orange" "Green" "Red" "Yellow" "Purple")))
   ;; (setq highlight ((t (:background "Blue" :foreground "#ffffff"))))
   ;; (setq lazy-highlight ((t (:background "Green" :foreground "controlColor"))))
@@ -1132,7 +1151,7 @@ Do not ask before evaluating code blocks.
 
  Random Calenar Commands
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq calendar-mark-diary-entries-flag t) ;diary/flag view
   (setq calendar-view-diary-initially-flag t)
 #+END_SRC
@@ -1153,16 +1172,16 @@ Do not ask before evaluating code blocks.
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 #+END_SRC
 
-*** Smex
+*** Smex/Helm
 
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-x") 'helm-M-x)
   (setq smex-save-file "~/.emacs.d/machine-specific/smex-items")
 #+END_SRC
 
 *** Tea Time
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
 
   ;; /System/Library/Sounds/
   ;; /Library/Sounds/
@@ -1179,13 +1198,18 @@ Do not ask before evaluating code blocks.
 ;;   (global-set-key (kbd "C-c s") #'tea-time)
 
 #+END_SRC
+
+*** Neotree
+#+BEGIN_SRC emacs-lisp
+  (setq neo-window-fixed-size nil)
+#+END_SRC
 *** EMMS
 *** AucTeX						   :ext:dependencies:
     - [X] [[http://www.tug.org/mactex/mactex-download.html][MacTeX Download Link]]
     - [X] [[http://www.electronics.oulu.fi/latex/examples/example_1/][Sample TeX Document for Testing Purposes]]
 
 General AucTeX Preferences
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq-default TeX-PDF-mode t)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
@@ -1195,17 +1219,17 @@ General AucTeX Preferences
 
 **** Trying to Fix AucTeX
     - [X] [[https://tex.stackexchange.com/questions/285040/trouble-getting-auctex-to-load-with-emacs-update][TeX StackExchage: Trouble with AucTeX Loading]]
-      
+
       Installed with Package Manger Cask, so I will not use (require 'tex-site).
-      Add ~/usr/texbin~ to PATH file     
-#+BEGIN_SRC emacs-lisp 
+      Add ~/usr/texbin~ to PATH file
+#+BEGIN_SRC emacs-lisp
   (setenv "PATH" (concat (getenv "PATH") ":/usr/texbin"))
   (setq exec-path (append exec-path '("/usr/texbin")))
 #+END_SRC
 
     - [ ] [[https://emacs.stackexchange.com/questions/31770/auctex-cannot-find-a-working-tex-distribution][Emacs StackExchange: AucTeX Cannot Find a Working TeX Distritubion]]
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (when (memq window-system '(mac ns))
   ;;   (exec-path-from-shell-initialize))
 
@@ -1221,13 +1245,13 @@ General AucTeX Preferences
 #+END_SRC
 
     - [ ] [[https://www.reddit.com/r/emacs/comments/3pvwns/emacs_latex_editing_with_os_x_el_capitan/][/r/Emacs: ?]]
-    - [ ] 
-    - [ ] 
+    - [ ]
+    - [ ]
 *** Crux
 
   Map some keys to useful Crux key bindings.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; -----------------------------------------------------------------------------
   ;; +Somehow Install it+ No Need, Use Cask
   ;; -----------------------------------------------------------------------------
@@ -1240,7 +1264,7 @@ General AucTeX Preferences
   ;;  (require 'crux)
 
   ;; -----------------------------------------------------------------------------
-  ;; Crux Key Bindings    
+  ;; Crux Key Bindings
   ;; https://github.com/bbatsov/crux#keybindings
   ;; -----------------------------------------------------------------------------
 
@@ -1259,19 +1283,19 @@ General AucTeX Preferences
 #+END_SRC
 
 *** Magit
-  
+
   - [[https://magit.vc/manual/magit/Status-buffer.html][Magit Key Binging Suggestion]]
   - READ: [[https://www.masteringemacs.org/article/introduction-magit-emacs-mode-git][Mastering Emacs - Introduction to Emacs Magit]]
   - READ: [[https://www.reddit.com/r/emacs/comments/2x1uzv/simple_but_really_useful_magit_feature_staging/][Simple, Really Useful Magit Feature]]
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (setq magit-merge-arguments (quote ("--ff-only")))
   (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
 
 *** Minimap
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
     ;; (setq minimap-dedicated-window nil)
     ;; (setq minimap-major-modes nil)
     ;; (setq minimap-mode nil)
@@ -1290,7 +1314,7 @@ General AucTeX Preferences
 
   BBdB Address Labels
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (setq bbdb-address-label-list '("" "Office" "Home" "Dorm" "Home" "Work"))
   ;; (setq bbdb-default-label-list  '("Home" "Work" ""))
   ;; (setq bbdb-default-xfield (quote notes))
@@ -1306,7 +1330,7 @@ General AucTeX Preferences
   To make my window navegation easier.
   Shortcut from [[https://emacs.stackexchange.com/questions/3458/how-to-switch-between-windows-quickly][Emacs Stackexchange]]
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
     ;; (require 'ace-window)
     (global-set-key (kbd "M-p") 'ace-window)
 
@@ -1323,14 +1347,14 @@ General AucTeX Preferences
 
   Then call cfw:open-calendar-buffer
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (require 'calfw)
   ;; (require 'calfw-org)
   ;; (setq cfw:org-agenda-schedule-args '(:scheduled :today :closed :deadline :todo :timestamp))
 #+END_SRC
 
 *** Rainbow Delimiters						     :unused:
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (setq rainbow-delimiters-depth-1-face ((t (:foreground "Blue"))))
   ;; (setq rainbow-delimiters-depth-2-face ((t (:foreground "Orange"))))
   ;; (setq rainbow-delimiters-depth-3-face ((t (:foreground "Green"))))
@@ -1343,14 +1367,14 @@ General AucTeX Preferences
 
   Set directory to hold snippets.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
 
   ;; Turn on yas-minor-mode
   (yas-global-mode 1)
 
   ;; Set Snippet Directories
   ;; Make new snippet with 'M-x yas-new-snippet'
-  ;; 'M-x yas-reload-all' to reload all 
+  ;; 'M-x yas-reload-all' to reload all
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets/"                 ;; personal snippets
           "~/.emacs.d/.cask/25.1/elpa/yasnippet-20170326.1030/snippets/" ;; the default collection
@@ -1372,19 +1396,19 @@ General AucTeX Preferences
 
 
 #+END_SRC
-  
+
 *** SLIME							     :unused:
 ** Hooks
 
   First hook.
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (add-hook 'prog-mode-hook #'hs-minor-mode)
 #+END_SRC
 ** Not Yet Organized
 *** Version Control
 
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (setq vc-annotate-background "#2B2B2B")
   ;; (setq vc-annotate-color-map
   ;;    '((20 . "#BC8383")
@@ -1409,7 +1433,6 @@ General AucTeX Preferences
 #+END_SRC
 ** Not Using Anymore
    Setting .emacs.d directory to another location
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   ;; (setq user-emacs-directory "~/somewhere/else")
 #+END_SRC
-
