@@ -124,6 +124,9 @@
   ;; (setq ido-everywhere t)                 ; ? (how is it different)
   (setq visible-bell t)                   ; ? (not working)
 
+  ;; Hooks
+   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 #+END_SRC
 
 ** Key Bindings
@@ -1077,7 +1080,7 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-<SPC> ") 'hippie-expand)
-   
+
    ;; Do I have to get require darkroom mode for it to laod?
   ;; Thought Cask did that...?
 
@@ -1153,7 +1156,7 @@ Do not ask before evaluating code blocks.
   ;; (setq tramp-use-ssh-controlmaster-options nil)
 #+END_SRC
 *** Highlight							     :unused:
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq hl-paren-colors (quote ("Blue" "Orange" "Green" "Red" "Yellow" "Purple")))
   ;; (setq highlight ((t (:background "Blue" :foreground "#ffffff"))))
   ;; (setq lazy-highlight ((t (:background "Green" :foreground "controlColor"))))
