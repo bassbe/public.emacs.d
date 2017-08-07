@@ -76,6 +76,7 @@
 ;; External Lisp Packages
 (require 'idomenu)
 
+;; require dotsecret files
 (require 'init-irc)			; For IRC Connection/Authentication
 (require 'init-gnus)			; For Email Authentication
 (require 'init-org)			; My Personal Calendar, etc...

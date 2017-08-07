@@ -517,8 +517,8 @@
 #+END_SRC
 *** Clocking
 #+BEGIN_SRC emacs-lisp
+  ;; (setq org-log-done 'note)
   (setq org-log-done 'time)
-
   (setq org-clock-persist 'history)
   (org-clock-persistence-insinuate)
 #+END_SRC
@@ -595,6 +595,11 @@
        ;; ("version=3" "mhchem" nil)
 
        ))
+
+
+  ;; https://stackoverflow.com/questions/11365739/how-to-cancel-the-hypersetup-in-0rg-mode-of-emacs
+  ;; Disable the \hypersetup first page generation
+  (setq org-latex-with-hyperref nil)
 #+END_SRC
 *** Org Code Templates (<el...etc)
 
@@ -639,6 +644,12 @@
      'org-babel-load-languages
      '(;; other languages
        (latex . t)
+       (sh . t)
+       (C . t)
+       (emacs-lisp . t)
+       (python . t)
+       (ocaml . t)
+       (calc . t)                         ;emacs calc
        (plantuml . t)))
 #+END_SRC
 
@@ -712,7 +723,7 @@ Do not ask before evaluating code blocks.
 
 ** Fill Column
 #+BEGIN_SRC emacs-lisp
-  (setq fill-column 79)
+  (setq-default fill-column 80)
 
   (global-set-key (kbd "C-c q") 'auto-fill-mode)
 #+END_SRC
@@ -1142,8 +1153,8 @@ Do not ask before evaluating code blocks.
   ;; (setq tramp-use-ssh-controlmaster-options nil)
 #+END_SRC
 *** Highlight							     :unused:
-#+BEGIN_SRC emacs-lisp
-  ;; (setq hl-paren-colors (quote ("Blue" "Orange" "Green" "Red" "Yellow" "Purple")))
+#+BEGIN_SRC emacs-lisp 
+  (setq hl-paren-colors (quote ("Blue" "Orange" "Green" "Red" "Yellow" "Purple")))
   ;; (setq highlight ((t (:background "Blue" :foreground "#ffffff"))))
   ;; (setq lazy-highlight ((t (:background "Green" :foreground "controlColor"))))
 #+END_SRC
