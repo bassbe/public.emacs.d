@@ -1135,7 +1135,7 @@ Do not ask before evaluating code blocks.
 #+END_SRC
 *** Highlight							     :unused:
 #+BEGIN_SRC emacs-lisp 
-  ;; (setq hl-paren-colors (quote ("Blue" "Orange" "Green" "Red" "Yellow" "Purple")))
+  (setq hl-paren-colors (quote ("Blue" "Orange" "Green" "Red" "Yellow" "Purple")))
   ;; (setq highlight ((t (:background "Blue" :foreground "#ffffff"))))
   ;; (setq lazy-highlight ((t (:background "Green" :foreground "controlColor"))))
 #+END_SRC
