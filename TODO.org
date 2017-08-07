@@ -1,4 +1,6 @@
 
+* Tutorials
+** [[https://tuhdo.github.io/index.html][Tuhdo Mini Manual's +]]
 * BBDB
 ** TODO Initial BBDB Setup
 * Eclim
@@ -22,5 +24,16 @@
 ** 'use-package
 ** (require/provide)
 * Agenda
+* .emacs.d
+** TODO How to Hide or Move files to machine-specific/ [0/4]
+   - [ ] abbrev_defs
+   - [ ] ac-comphist.dat
+   - [ ] bookmarks
+   - [ ] org-clock-save.el
+* Dired
+** TODO Dired Colors
+** TODO hide ./ and ../
 * Elisp
 ** TODO Finish *info*'s Elisp Intro and Examples
+* Packages to Check Out
+** [[https://github.com/tarsius/no-littering][No Littering]]
