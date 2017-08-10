@@ -1035,6 +1035,9 @@ Do not ask before evaluating code blocks.
         (python-shell-completion-native-get-completions
          (get-buffer-process (current-buffer))
          nil "_"))))
+
+
+  ;; Use pyvenv-activate to create virtual environment
 #+END_SRC
 *** JavaScript
 *** Java
@@ -1050,6 +1053,15 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp
  ;; (setq jdee-server-dir "~/.emacs.d/jdee-server-master/jdee-server/")
+#+END_SRC
+**** Eclim
+
+#+BEGIN_SRC emacs-lisp
+  (require 'eclim)
+  (add-hook 'java-mode-hook 'eclim-mode)
+
+  ;;
+  (require 'eclimd)
 #+END_SRC
 *** Elisp
 
@@ -1244,8 +1256,8 @@ General AucTeX Preferences
     - [ ] [[https://emacs.stackexchange.com/questions/31770/auctex-cannot-find-a-working-tex-distribution][Emacs StackExchange: AucTeX Cannot Find a Working TeX Distritubion]]
 
 #+BEGIN_SRC emacs-lisp
-  ;; (when (memq window-system '(mac ns))
-  ;;   (exec-path-from-shell-initialize))
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
 
   (getenv "PATH")
    (setenv "PATH"
