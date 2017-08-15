@@ -1,5 +1,4 @@
 * Intro
-  Reminders for me:
 
   - Use "<el + TAB" to insert of emacs lisp with org babel.
     + this is called an 'org template'
@@ -12,6 +11,8 @@
 
 ** Cask & Packages 						 :understand:
 
+   Currently, I use Cask to manage my packages. I know I should use package.el
+   and use-package. I'll get to that eventually.
 
 #+BEGIN_SRC emacs-lisp
   (require 'cask "/usr/local/Cellar/cask/0.8.1/cask.el")
@@ -21,7 +22,7 @@
 #+BEGIN_SRC emacs-lisp
   ;; packages
   (when (>= emacs-major-version 24)
-    (require 'package)
+     (require 'package)
     (package-initialize)
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
@@ -30,9 +31,11 @@
                '("elpy" . "https://jorgenschaefer.github.io/packages/"))
 #+END_SRC
 ** Startup							       :done:
+
   - [[http://freedom.ascii.uk/][Freedom]]
   - [[http://chris.com/ascii/index.php?art%3Dobjects/flags][Flag]]
   - [[https://stackoverflow.com/questions/36244529/emacs-how-to-load-file-content-in-scratch-screen#36272179][SO: Loading File Contenets into Scratch Buffer]]
+
 #+BEGIN_SRC emacs-lisp
   ;; (desktop-save-mode 1)                   ; ?
   (setq inhibit-startup-message t)        ; no startup message
@@ -945,7 +948,7 @@ Do not ask before evaluating code blocks.
   (setq dired-details-hidden-string "")
   (dired-details-install)
 
-   ;; Dired Rainbow
+  ;; Dired Rainbow
    ;; (defconst my-dired-media-files-extensions
    ;;   '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg"
    ;;   "wav" "png" "jpg" "jpeg" "mkv" "avi" "webm"))
@@ -1035,6 +1038,9 @@ Do not ask before evaluating code blocks.
         (python-shell-completion-native-get-completions
          (get-buffer-process (current-buffer))
          nil "_"))))
+
+
+  ;; Use pyvenv-activate to create virtual environment
 #+END_SRC
 *** JavaScript
 *** Java
@@ -1050,6 +1056,19 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp
  ;; (setq jdee-server-dir "~/.emacs.d/jdee-server-master/jdee-server/")
+#+END_SRC
+**** Eclim
+
+#+BEGIN_SRC emacs-lisp
+  (require 'eclim)
+  (add-hook 'java-mode-hook 'eclim-mode)
+
+  ;;
+  (require 'eclimd)
+#+END_SRC
+**** Gradle
+#+BEGIN_SRC emacs-lisp
+   (add-hook 'java-mode-hook '(lambda() (gradle-mode 1)))
 #+END_SRC
 *** Elisp
 
@@ -1244,8 +1263,8 @@ General AucTeX Preferences
     - [ ] [[https://emacs.stackexchange.com/questions/31770/auctex-cannot-find-a-working-tex-distribution][Emacs StackExchange: AucTeX Cannot Find a Working TeX Distritubion]]
 
 #+BEGIN_SRC emacs-lisp
-  ;; (when (memq window-system '(mac ns))
-  ;;   (exec-path-from-shell-initialize))
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
 
   (getenv "PATH")
    (setenv "PATH"

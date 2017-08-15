@@ -13,8 +13,10 @@
 ** TODO Initial BBDB Setup
 * Set up Java Development Environment in Eclim
 ** Hello-World in Eclim
+** https://stackoverflow.com/questions/10265742/how-to-install-make-and-gcc-on-a-mac
+** http://eclim.org/install.html
 * Set up Python Development Environment with Elpy
-** TODO Install/Link packages not listed in 'elpy-config   
+** TODO Install/Link packages not listed in 'elpy-config
    Jedi..............: Not found (0.10.2 available)
    Rope..............: Not found (0.10.5 available)
    Importmagic.......: Not found (0.1.7 available)
