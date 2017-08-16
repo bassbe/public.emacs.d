@@ -193,7 +193,7 @@
   ;; Logging
   ;; -----------------------------------------------------------------------------
 
-  (setq erc-log-channels-directory "/Volumes/dotsecret/irc-logs")
+  (setq erc-log-channels-directory "~/dotsecret/irc-logs")
   (erc-log-mode t)                     ; enable logging
 
   ;; -----------------------------------------------------------------------------
@@ -310,9 +310,9 @@
 
   ;; Set location of gnus.el to dotsecret
   ;; https://lists.gnu.org/archive/html/info-gnus-english/2015-02/msg00018.html
-  (setq gnus-init-file "/Volumes/dotsecret/.gnus.d/.gnus.el")
-  (setq gnus-directory "/Volumes/dotsecret/.gnus.d/")
-  (setq gnus-home-directory "/Volumes/dotsecret/.gnus.d/")
+  (setq gnus-init-file "~/dotsecret/.gnus.d/.gnus.el")
+  (setq gnus-directory "~/dotsecret/.gnus.d/")
+  (setq gnus-home-directory "~/dotsecret/.gnus.d/")
   (setq gnus-startup-file (concat gnus-home-directory ".newsrc"))
 #+END_SRC
 ** Easy PG
@@ -455,9 +455,9 @@
   ;; ------------------------------------------------------------------------------
   ;; Org Agenda Files
   ;; ------------------------------------------------------------------------------
-  (setq org-agenda-files (list "/Volumes/dotsecret/calendars/"
-                               "/Volumes/dotsecret/calendars/work/"
-                               "/Volumes/dotsecret/org-dir/capture.org"))
+  (setq org-agenda-files (list "~/dotsecret/calendars/"
+                               "~/dotsecret/calendars/work/"
+                               "~/dotsecret/org-dir/capture.org"))
 #+END_SRC
 
 **** Org Habits
@@ -533,34 +533,34 @@
   Set the default [[https://emacs.stackexchange.com/questions/19391/can-t-set-directory-for-org-mode-capture][target and file for notes]].
 
 #+BEGIN_SRC emacs-lisp
-(require 'org)
-(setq org-directory "/Volumes/dotsecret/org-dir")
-(setq org-default-notes-file (concat org-directory "/capture.org"))
-(define-key global-map "\C-cc" 'org-capture)
+  (require 'org)
+  (setq org-directory "~/dotsecret/org-dir")
+  (setq org-default-notes-file (concat org-directory "/capture.org"))
+  (define-key global-map "\C-cc" 'org-capture)
 
-(setq org-capture-templates
-      '(("t" "TODO Item" entry
-      (file 'org-default-notes-file)
-      "* TODO")
-     ("n" "Org Entry" entry
-      (file 'org-default-notes-file)
-      "" nil nil)
-     ("i" "Item" entry
-      (file 'org-default-notes-file)
-      "* >")))
+  (setq org-capture-templates
+        '(("t" "TODO Item" entry
+        (file 'org-default-notes-file)
+        "* TODO")
+       ("n" "Org Entry" entry
+        (file 'org-default-notes-file)
+        "" nil nil)
+       ("i" "Item" entry
+        (file 'org-default-notes-file)
+        "* >")))
 
-;; ------------------------------------------------------------------------------
-;; Unused
-;; ------------------------------------------------------------------------------
+  ;; ------------------------------------------------------------------------------
+  ;; Unused
+  ;; ------------------------------------------------------------------------------
 
-;; (setq org-default-notes-file  "/Volumes/dotsecret/org-dir/capture.org")
-;; (setq org-capture-templates-contexts nil)
+  ;; (setq org-default-notes-file  "~/dotsecret/org-dir/capture.org")
+  ;; (setq org-capture-templates-contexts nil)
 
 #+END_SRC
 *** Journal
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-journal-dir "/Volumes/dotsecret/org-journal")
+  (setq org-journal-dir "~/dotsecret/org-journal")
 #+END_SRC
 
 *** Archive							 :perMachine:
@@ -570,7 +570,7 @@
 #+BEGIN_SRC emacs-lisp
   ;; archive to the datetree file, with time and name of file it came from
   (setq org-archive-location
-        "/Volumes/dotsecret/org-archives/org-archive-datetrees.org::datetree/* From %s")
+        "~/dotsecret/org-archives/org-archive-datetrees.org::datetree/* From %s")
 #+END_SRC
 *** Export to LaTeX
 
@@ -747,6 +747,9 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp
 
+
+
+
   ;; toglog (mine)
   (defun toglog ()
     "toggle val of org-log-done from note, to time, and back"
@@ -882,7 +885,7 @@ Do not ask before evaluating code blocks.
 
 #+BEGIN_SRC emacs-lisp
 
-  (setq diary-file "/Volumes/dotsecret/diary")
+  (setq diary-file "~/dotsecret/diary")
 
   (setq diary-comment-end "-->")
   (setq diary-comment-start "<--")
@@ -1360,7 +1363,7 @@ General AucTeX Preferences
   (bbdb-initialize)
 
   ;; Location of BBDB File
-  (setq bbdb-file "/Volumes/dotsecret/bbdb/bbdb")
+  (setq bbdb-file "~/dotsecret/bbdb/bbdb")
 #+END_SRC
 
 *** Ace Jump
@@ -1415,7 +1418,7 @@ General AucTeX Preferences
   ;; 'M-x yas-reload-all' to reload all
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets/"                 ;; personal snippets
-          "~/.emacs.d/.cask/25.1/elpa/yasnippet-20170326.1030/snippets/" ;; the default collection
+          ;; the default collection
           ;; "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
           ;; "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
           ))
